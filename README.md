@@ -1,6 +1,6 @@
 # RockPaperScissorsLizardSpock
 The Game of Rock-Paper-Scissors-Lizard-Spock. Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.
-A fun game that is played against the computer, namely **Kool A.I** 
+A fun game that is played against the computer, namely **Kool A.I.** 
 ***
 
 # UX
@@ -31,15 +31,15 @@ The user can also choose to read the rules by clicking the rules button in the f
 ### Wireframes
 * To design the wireframes I have used [balsamiq](https://balsamiq.com/wireframes/). These designs vary depending on the screen size.
 
-![image](https://user-images.githubusercontent.com/91061592/230881319-c502c010-79b7-4fdf-ad65-8ead25d886ea.png)
+![image](https://user-images.githubusercontent.com/91061592/230883775-144a8510-b71f-454b-944f-75443fff62cd.png)
 
-![image](https://user-images.githubusercontent.com/91061592/230881482-1433cdfe-e2e9-41b4-82fe-c44cf7caf1bd.png)
+![image](https://user-images.githubusercontent.com/91061592/230883938-858ac076-67c4-4c9e-acd4-6fc2e7108e93.png)
 
-![image](https://user-images.githubusercontent.com/91061592/230881632-f5efacd2-7bf2-4603-a84c-f8cfc8577b75.png)
+![image](https://user-images.githubusercontent.com/91061592/230884081-1bac8ff4-f33e-4be7-a91a-8d79d6bbca60.png)
 
-![image](https://user-images.githubusercontent.com/91061592/230881981-89881ab8-743d-44b5-85c9-7763e82cc1a5.png)
+![image](https://user-images.githubusercontent.com/91061592/230884206-43f7356e-872f-4d91-b20e-0fad0421341c.png)
 
-![image](https://user-images.githubusercontent.com/91061592/230882132-4d941808-0517-426b-866e-70ffe8144302.png)
+![image](https://user-images.githubusercontent.com/91061592/230884481-2b341545-e762-49e3-a944-e6aa6a6f8d86.png)
 
 
 
