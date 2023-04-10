@@ -31,6 +31,23 @@ The user can also choose to read the rules by clicking the rules button in the f
 ### Wireframes
 * To design the wireframes I have used [balsamiq](https://balsamiq.com/wireframes/). These designs vary depending on the screen size.
 
+![image](https://user-images.githubusercontent.com/91061592/230881319-c502c010-79b7-4fdf-ad65-8ead25d886ea.png)
+
+![image](https://user-images.githubusercontent.com/91061592/230881482-1433cdfe-e2e9-41b4-82fe-c44cf7caf1bd.png)
+
+![image](https://user-images.githubusercontent.com/91061592/230881632-f5efacd2-7bf2-4603-a84c-f8cfc8577b75.png)
+
+![image](https://user-images.githubusercontent.com/91061592/230881981-89881ab8-743d-44b5-85c9-7763e82cc1a5.png)
+
+![image](https://user-images.githubusercontent.com/91061592/230882132-4d941808-0517-426b-866e-70ffe8144302.png)
+
+
+
+
+
+
+
+
 #### Mobile 
 * 
 
