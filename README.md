@@ -15,6 +15,26 @@ The user can also choose to read the rules by clicking the rules button in the f
 
 ## Design choices
 
+I came across Anna Peterson's [tutorial](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69) on ***Rock Paper Scissors in JavaScript***
+I really liked her approach so I have adapted the same approach.
+However besides her CSS initialisations
+
+```
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+}
+
+body {
+  height: 100vh;
+}
+
+```
+
+**All the code is mine!**
+
 #### Fonts
 
 #### Icons
