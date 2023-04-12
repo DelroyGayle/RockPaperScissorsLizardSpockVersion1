@@ -61,7 +61,8 @@ img {
 img {
   width:  22vw;
   height: 22vw;
-  object-fit: fill;
+  object-fit: cover;
+  object-position: top;
 }
 
 /* ================= MEDIA QUERIES ================= */
@@ -80,7 +81,8 @@ img {
   img {
     width:  34vw;
     height: 34vw;
-    object-fit: fill;
+    object-fit: cover;
+    object-position: top;
   }  
 }
 
