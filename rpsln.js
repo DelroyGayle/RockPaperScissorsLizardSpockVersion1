@@ -14,7 +14,7 @@ const theListOfImages = ["rock1_dwayne.png",
     "spock2.png",
     "spock3.png"];
 /* Give each handshape its own number and letter    
-   N for Spock i.e. Leobard Nimroy
+   N for Spock i.e. Leonard Simon Nimoy (March 26, 1931 – February 27, 2015)
 */
 
 const handshapes = {0: ["R","Rock"], 1: ["P", "Paper"], 2: ["S", "Scissors"], 3: ["L", "Lizard"], 4: ["N", "Spock"]};
