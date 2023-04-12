@@ -1,4 +1,4 @@
-let theListOfImages = ["rock1_dwayne.png",
+const theListOfImages = ["rock1_dwayne.png",
     "rock2_dwayne.png",
     "rock3_bengrimm_thething.webp",
     "paper1.jpg",
@@ -13,34 +13,41 @@ let theListOfImages = ["rock1_dwayne.png",
     "spock1.png",
     "spock2.png",
     "spock3.png"];
+/* Give each handshape its own number and letter    
+   N for Spock i.e. Leobard Nimroy
+*/
 
+const handshapes = {0: ["R","Rock"], 1: ["P", "Paper"], 2: ["S", "Scissors"], 3: ["L", "Lizard"], 4: ["N", "Spock"]};
 
-let imageIndex = 0;
+/* Using the above numbers - who beats who?
+   e.g. 2 for Scissors, 3 for Lizard - Scissors decapitates Lizard
+        4 for Spock, 0 for Rock - Spock vaporises Rock
+*/
+const actions = {"21": "cuts", 
+                 "10": "covers", 
+                 "03": "crushes",
+                 "34": "poisons", 
+                 "42": "smashes", 
+                 "23": "decapitates",
+                 "31": "eats",
+                 "14": "disproves",
+                 "40": "vaporises",
+                 "02": "crushes"
+                };    
+
+// Location of images
 const imagesPath = "assets/images/";
-const imageElem = document.getElementById("koolAIChoiceImage");
 
-// https://developer.mozilla.org/en-US/docs/Web/API/setInterval
+// Set up all the variables reflecting DOM elements 
 
-// variable to store our intervalID
-let nIntervId = setInterval(showImage, 5000);
-
-function showImage() {
-    try {
-//      console.log(imageIndex, theListOfImages.length)
-        if (imageIndex === theListOfImages.length) {
-            clearInterval(nIntervId);
-            throw ("ALL DONE");
-        }
-    }
-    catch (err) {
-        alert("ALL DONE")
-        return;
-    }
-    
-    // All images use an objectFit of 'cover'. 
-    // The exceptions are lizard1 & scissors3 are which use 'fill'
-    imageElem.src = imagesPath + theListOfImages[imageIndex];
-    imageElem.style.objectFit = theListOfImages[imageIndex].startsWith("lizard1") ||
-        theListOfImages[imageIndex].startsWith("scissors3") ? "fill" : "cover";
-    imageIndex++;
-}
+const numberOfRoundsElem = document.getElementById("number-of-rounds");
+const numberOfTiesElem = document.getElementById("number-of-ties");
+const playerScoreElem = document.getElementById("player-score");
+const computerScoreElem = document.getElementById("computer-score");
+const playerImageElem = document.getElementById("player-choice-image");
+const computerImageElem = document.getElementById("koolai-choice-image");
+const introElem = document.getElementById("intro");
+const outcomeElem = document.getElementById("outcome");
+const messageElem = document.getElementById("message");
+const playAgainElem = document.getElementById("play-again");
+let imageIndex = 0;
