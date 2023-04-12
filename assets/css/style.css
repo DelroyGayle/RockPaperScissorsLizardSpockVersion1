@@ -9,19 +9,14 @@
   border: none;
   text-align: center;
   margin: 0 auto;
-}
-
-* {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
-  text-align: center;
-  margin: 0 auto;
 }
+
 
 body {
   height: 100vh;
 }
-
 
 body {
   font-family: "Nunito Sans", sans-serif;
@@ -32,7 +27,18 @@ body {
   display: flex;
 }
 
-.addmargin {
+.column-centre-aligned {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:1em;
+}
+
+.header-margin {
+  margin-top: 1em;
+}
+
+.side-margins {
       margin: 0 20vw;
 }
 
@@ -52,30 +58,44 @@ img {
 
 */
 
-.container {
-  position: relative;
-  width: 27%; /* The size you want */
-}
-.container:after {
-  content: "";
-  display: block;
-  padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
-}
-
-.container img {
-  position: absolute; /* Take your picture out of the flow */
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; /* Make the picture taking the size of it's parent */
-  width: 100%; /* This if for the object-fit */
-  height: 100%; /* This if for the object-fit */
-  object-fit: fill; /* Equivalent of the background-size: cover; of a background-image */
-  object-position: top;
-}
-
 img {
-  width:  15vw;
-  height: 15vw;
+  width:  22vw;
+  height: 22vw;
   object-fit: fill;
+}
+
+/* ================= MEDIA QUERIES ================= */
+
+@media (max-width: 768px) {
+
+  h1, 
+  h2 {
+    font-size: 75%;
+  }
+  
+  .side-margins {
+    margin: 0 10vw;
+  }
+
+  img {
+    width:  34vw;
+    height: 34vw;
+    object-fit: fill;
+  }  
+}
+
+
+@media (max-width: 414px) {
+  h1, 
+  h2 {
+    font-size: 120%;
+  }
+}
+
+
+@media (max-width: 320px) {
+  h1, 
+  h2 {
+    font-size: 95%;
+  }
 }
