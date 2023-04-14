@@ -29,8 +29,8 @@ function runTheGame() {
    const handshapes = { 0: ["R", "Rock"], 1: ["P", "Paper"], 2: ["S", "Scissors"], 3: ["L", "Lizard"], 4: ["N", "Spock"] };
 
    /* Using the above numbers - who beats who?
-      e.g. 2 for Scissors, 3 for Lizard - Scissors decapitates Lizard
-           4 for Spock, 0 for Rock - Spock vaporises Rock
+      e.g. 2 for Scissors, 3 for Lizard; therefore "23" means: Scissors decapitates Lizard
+           4 for Spock, 0 for Rock; therefore "40" means: Spock vaporises Rock
    */
    const actions = {
       "21": "cuts",
