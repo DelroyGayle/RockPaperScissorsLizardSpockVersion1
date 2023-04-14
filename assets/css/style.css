@@ -54,7 +54,8 @@ input[type=submit],
 }
 
 .rules-button {
-  margin-left: 32vw;
+  display: block;
+  text-align: center;
 }
 
 .column-centre-aligned {
