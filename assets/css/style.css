@@ -28,6 +28,27 @@ body {
   display: flex;
 }
 
+.flex-centred {
+  justify-content: center;
+}
+
+.shape-button {
+  cursor:pointer;
+}
+.yourmove {
+  display:block;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.yourmove::after {
+  content: "Your Move!";
+  background-color: #ffba10;
+  text-transform: uppercase;
+  border-color: white;
+  border-style: dotted;
+}
+
 /* Initial Form handling */
 
 .form-container {

@@ -26,7 +26,12 @@ function runTheGame() {
       N for Spock i.e. Leonard Simon Nimoy (March 26, 1931 – February 27, 2015)
    */
 
-   const handshapes = { 0: ["R", "Rock"], 1: ["P", "Paper"], 2: ["S", "Scissors"], 3: ["L", "Lizard"], 4: ["N", "Spock"] };
+   const handshapes = [   [0, "R", "Rock"], 
+                          [1, "P", "Paper"], 
+                          [2, "S", "Scissors"], 
+                          [3, "L", "Lizard"], 
+                          [4, "N", "Spock"] 
+                      ];
 
    /* Using the above numbers - who beats who?
       e.g. 2 for Scissors, 3 for Lizard; therefore "23" means: Scissors decapitates Lizard
@@ -50,6 +55,7 @@ function runTheGame() {
 
    // Set up all the variables reflecting DOM elements 
 
+   const displayContainerElem = document.getElementById("display-container");
    const numberOfRoundsElem = document.getElementById("number-of-rounds");
    const numberOfTiesElem = document.getElementById("number-of-ties");
    const playerScoreElem = document.getElementById("player-score");
@@ -61,13 +67,46 @@ function runTheGame() {
    const messageElem = document.getElementById("message");
    const playAgainElem = document.getElementById("play-again");
 
+   // Initialise Variable
+   let currentNumberOfRounds = 0;
+
+   // Add Event Listeners to the buttons
+   let buttonsList = document.getElementsByClassName("shape-button");
+   
+   for (i=0; i < buttonsList.length; i++) {
+      // EG for (i=0) shapeValues would be [0, 'R', 'Rock']
+      let shapeValues = handshapes.find(element => element[0] === i);
+      // Check for errors
+      if (shapeValues === undefined) {
+        const errorMessage = `Unknown button with this number: ${i}`;
+        alert(errorMessage);	
+        throw `${errorMessage}. Aborting!`;	
+      }
+
+      // In this event, Call 'showThisImage' with the corresponding 'shapeValues'
+      buttonsList[i].addEventListener("click", function() {
+           showThisImage(shapeValues)
+       });
+   }
+
+   document.getElementById("computer-score").addEventListener("submit", (event) => {
+      event.preventDefault();
+      // Handle submit. That is, remove the form and show the game layout
+      document.getElementsByClassName("form-container")[0].style.display="none";
+      // DG4
+      numberOfRoundsElem.innerText=String(3);
+      document.getElementsByClassName("show-game")[0].style.display="block";
+      playGame();
+    });
+
    // Initial Form
    const initialForm = document.getElementById("initial-form-id");
-   console.log(initialForm)
    initialForm.addEventListener("submit", (event) => {
       event.preventDefault();
       // Handle submit. That is remove the form and show the game layout
       document.getElementsByClassName("form-container")[0].style.display="none";
+      numberOfRoundsElem.innerText=String(3);
+      //document.getElementById("p1").innerHTML = "New text!";
       document.getElementsByClassName("show-game")[0].style.display="block";
       playGame();
     });
@@ -77,7 +116,16 @@ function runTheGame() {
 
    // DG1
    let imageIndex = 0;
+
+   function playGame() {
+      // DG5
+      console.log(currentNumberOfRounds)
+      // displayContainerElem.innerHTML="Your Move!"
+      // displayContainerElem.classList.add("flex-centred");
+      displayContainerElem.classList.add("yourmove");
+   }
 }
 
-function playGame() {
+function showThisImage(n) {
+   console.log("IMAGE",n)
 }
