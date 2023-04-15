@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
 function runTheGame() {
 
    /* Initialise Constants */
-   const theListOfImages = ["rock1_dwayne.png",
+
+   // Image Names
+
+   const theListOfImages = [
+      "rock1_dwayne.png",
       "rock2_dwayne.png",
       "rock3_bengrimm_thething.webp",
       "paper1.jpg",
@@ -21,6 +25,26 @@ function runTheGame() {
       "spock1.png",
       "spock2.png",
       "spock3.png"];
+
+   // Image's Alternate Text
+   
+   const theListOfAltText = [
+   "The Rock AKA Dwayne Johnson",
+   "WWF Wrestler 'The Rock' AKA Dwayne Johnson",
+   "Marvel Comics Hero 'The Thing' AKA Ben Grimm",
+   "Cartoon of a sheet of hole-punched paper with a smiling face",
+   "A person's left hand showing the paper gesture in front of a board with different coloured sticky notes",
+   "DC Comics Teen Titans Character whose name is Paper!",
+   "Black and white drawing of Edgar Scissorhands and Kim Boggs",
+   "Photo of Daniil Onischenko dressed up as Edgar Scissorhands",
+   "DC Comics Teen Titans Character whose name is Scissors!",
+   "Marvel Comics Character 'The Lizard' AKA Dr Curtis Connors",
+   "Star Trek Character 'The Gorn'; a bipedal reptilian",
+   "Star Trek Character 'The Gorn'; a bipedal reptilian",
+   "Star Trek Character 'Spock' as portrayed by Leonard Simon Nimoy (1931 - 2015)",
+   "Clip Art Icon of Star Trek Character 'Spock'",
+   "Star Trek Character 'Spock' as portrayed by Leonard Simon Nimoy (1931 - 2015)"
+];
 
    /* Give each handshape its own number and letter    
       N for Spock i.e. Leonard Simon Nimoy (March 26, 1931 – February 27, 2015)

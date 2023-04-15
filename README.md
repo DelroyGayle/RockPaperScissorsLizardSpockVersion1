@@ -90,7 +90,42 @@ body {
     * 
 
 ### Images
-* 
+
+I chose to use 3 images for each of the game's shapes
+All the images are free for personal use in regards to their licensing.
+I sourced the images as follows:
+
+* Rock
+
+1) rock1_dwayne.png - from [kindpng.com](https://www.kindpng.com/imgv/wixxh_image-the-rock-cutout-dwayne-johnson-transparent-background/)
+2) rock2_dwayne.png - from [kindpng.com](https://www.kindpng.com/imgv/miomxh_transparent-the-rock-png-wwf-the-rock-png/)
+3) rock3_bengrimm_thething.webp - from [marvel.fandom.com](https://marvel.fandom.com/wiki/Benjamin_Grimm_(Earth-616))
+
+* Paper
+
+4) paper1.jpg - from [icon-library.com](https://icon-library.com/icon/rock-paper-scissors-icon-17.html)
+5) paper2_fadilah_unsplash.jpg from [unsplash.com](https://unsplash.com/photos/AnYg7fO8-m8) 
+   Courtesy of [Fadilah Im](https://unsplash.com/ja/@imanitor?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+6) paper3_earth_teen_titans.webp - from [teentitans.fandom.com](https://teentitans.fandom.com/wiki/Rock,_Paper,_Scissors)
+
+* Scissors
+
+7) scissors1.png - from [kindpng.com](https://www.kindpng.com/imgv/ixhhmJ_transparent-beetlejuice-png-edward-mos-de-tesoura-png/)
+8) scissors2_daniil_onischenko_unsplash.jpg from [unsplash.com](https://unsplash.com/photos/q6Gwa3fOQ0I) 
+   Courtesy of [Daniil Onischenko](https://unsplash.com/@flyvk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+9) scissors3_earth_teen_titans.webp - from [teentitans.fandom.com](https://teentitans.fandom.com/wiki/Rock,_Paper,_Scissors)
+       
+* Lizard
+
+10) lizard1_drconners.webp - from [marvel.fandom.com](https://marvel.fandom.com/wiki/Curtis_Connors_(Earth-616))
+11) lizard2_gorn.webp - from [memory-alpha.fandom.com](https://memory-alpha.fandom.com/wiki/Gorn)
+12) lizard3_gorn_arena.webp - from [memory-beta.fandom.com](https://memory-beta.fandom.com/wiki/Gorn)
+
+* Spock
+
+13) spock1.png - from [kindpng.com](https://www.kindpng.com/imgv/mmwJmi_spock-star-trek-png-transparent-png/)
+14) spock2.png - from [kindpng.com](https://www.kindpng.com/imgv/hJJoibT_spock-star-trek-clipart-hd-png-download/ )
+15) spock3.png - from [kindpng.com](https://www.kindpng.com/imgv/iiwTbib_spock-png-page-mr-spock-transparent-png/)
 
 ### Testing 
 
