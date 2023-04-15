@@ -27,35 +27,35 @@ function runTheGame() {
       "spock3.png"];
 
    // Image's Alternate Text
-   
+
    const theListOfAltText = [
-   "The Rock AKA Dwayne Johnson",
-   "WWF Wrestler 'The Rock' AKA Dwayne Johnson",
-   "Marvel Comics Hero 'The Thing' AKA Ben Grimm",
-   "Cartoon of a sheet of hole-punched paper with a smiling face",
-   "A person's left hand showing the paper gesture in front of a board with different coloured sticky notes",
-   "DC Comics Teen Titans Character whose name is Paper!",
-   "Black and white drawing of Edgar Scissorhands and Kim Boggs",
-   "Photo of Daniil Onischenko dressed up as Edgar Scissorhands",
-   "DC Comics Teen Titans Character whose name is Scissors!",
-   "Marvel Comics Character 'The Lizard' AKA Dr Curtis Connors",
-   "Star Trek Character 'The Gorn'; a bipedal reptilian",
-   "Star Trek Character 'The Gorn'; a bipedal reptilian",
-   "Star Trek Character 'Spock' as portrayed by Leonard Simon Nimoy (1931 - 2015)",
-   "Clip Art Icon of Star Trek Character 'Spock'",
-   "Star Trek Character 'Spock' as portrayed by Leonard Simon Nimoy (1931 - 2015)"
-];
+      "The Rock AKA Dwayne Johnson",
+      "WWF Wrestler 'The Rock' AKA Dwayne Johnson",
+      "Marvel Comics Hero 'The Thing' AKA Ben Grimm",
+      "Cartoon of a sheet of hole-punched paper with a smiling face",
+      "A person's left hand showing the paper gesture in front of a board with different coloured sticky notes",
+      "DC Comics Teen Titans Character whose name is Paper!",
+      "Black and white drawing of Edgar Scissorhands and Kim Boggs",
+      "Photo of Daniil Onischenko dressed up as Edgar Scissorhands",
+      "DC Comics Teen Titans Character whose name is Scissors!",
+      "Marvel Comics Character 'The Lizard' AKA Dr Curtis Connors",
+      "Star Trek Character 'The Gorn'; a bipedal reptilian",
+      "Star Trek Character 'The Gorn'; a bipedal reptilian",
+      "Star Trek Character 'Spock' as portrayed by Leonard Simon Nimoy (1931 - 2015)",
+      "Clip Art Icon of Star Trek Character 'Spock'",
+      "Star Trek Character 'Spock' as portrayed by Leonard Simon Nimoy (1931 - 2015)"
+   ];
 
    /* Give each handshape its own number and letter    
       N for Spock i.e. Leonard Simon Nimoy (March 26, 1931 – February 27, 2015)
    */
 
-   const handshapes = [   [0, "R", "Rock"], 
-                          [1, "P", "Paper"], 
-                          [2, "S", "Scissors"], 
-                          [3, "L", "Lizard"], 
-                          [4, "N", "Spock"] 
-                      ];
+   const handshapes = [[0, "R", "Rock"],
+   [1, "P", "Paper"],
+   [2, "S", "Scissors"],
+   [3, "L", "Lizard"],
+   [4, "N", "Spock"]
+   ];
 
    /* Using the above numbers - who beats who?
       e.g. 2 for Scissors, 3 for Lizard; therefore "23" means: Scissors decapitates Lizard
@@ -96,44 +96,44 @@ function runTheGame() {
 
    // Add Event Listeners to the buttons
    let buttonsList = document.getElementsByClassName("shape-button");
-   
-   for (i=0; i < buttonsList.length; i++) {
+
+   for (i = 0; i < buttonsList.length; i++) {
       // EG for (i=0) shapeValues would be [0, 'R', 'Rock']
-      let shapeValues = handshapes.find(element => element[0] === i);
+      const shapeValues = handshapes.find(element => element[0] === i);
       // Check for errors
       if (shapeValues === undefined) {
-        const errorMessage = `Unknown button with this number: ${i}`;
-        alert(errorMessage);	
-        throw `${errorMessage}. Aborting!`;	
+         const errorMessage = `Unknown button with this number: ${i}`;
+         alert(errorMessage);
+         throw `${errorMessage}. Aborting!`;
       }
 
       // In this event, Call 'showThisImage' with the corresponding 'shapeValues'
-      buttonsList[i].addEventListener("click", function() {
-           showThisImage(shapeValues)
-       });
+      buttonsList[i].addEventListener("click", function () {
+         showThisImage(shapeValues)
+      });
    }
 
    document.getElementById("computer-score").addEventListener("submit", (event) => {
       event.preventDefault();
       // Handle submit. That is, remove the form and show the game layout
-      document.getElementsByClassName("form-container")[0].style.display="none";
+      document.getElementsByClassName("form-container")[0].style.display = "none";
       // DG4
-      numberOfRoundsElem.innerText=String(3);
-      document.getElementsByClassName("show-game")[0].style.display="block";
+      numberOfRoundsElem.innerText = String(3);
+      document.getElementsByClassName("show-game")[0].style.display = "block";
       playGame();
-    });
+   });
 
    // Initial Form
    const initialForm = document.getElementById("initial-form-id");
    initialForm.addEventListener("submit", (event) => {
       event.preventDefault();
       // Handle submit. That is remove the form and show the game layout
-      document.getElementsByClassName("form-container")[0].style.display="none";
-      numberOfRoundsElem.innerText=String(3);
+      document.getElementsByClassName("form-container")[0].style.display = "none";
+      numberOfRoundsElem.innerText = String(3);
       //document.getElementById("p1").innerHTML = "New text!";
-      document.getElementsByClassName("show-game")[0].style.display="block";
+      document.getElementsByClassName("show-game")[0].style.display = "block";
       playGame();
-    });
+   });
 
    // Add event listeners
    // Initialise Variables
@@ -148,8 +148,56 @@ function runTheGame() {
       // displayContainerElem.classList.add("flex-centred");
       displayContainerElem.classList.add("yourmove");
    }
-}
 
-function showThisImage(n) {
-   console.log("IMAGE",n)
+
+   /**
+    * imageInfo has the form [3, "L", "Lizard"]
+    * So fetch the middle letter to determine type of image
+    * Then pick a random number 0, 1 or 2
+    * Add that to the corresponding base index in imageIndices
+    * Retrieve the corresponding image and its alternate text
+    * Then display the image
+    */
+
+   function showThisImage(imageInfo) {
+      console.log("IMAGE", imageInfo)
+      const imageIndices = {
+         R: 0, // Rock: 0 to 2
+         P: 3, // Paper: 3 to 5
+         S: 6, // Scissors: 6 to 8
+         L: 9, // Lizard: 9 to 11
+         N: 12, // Spock: 12 to 14
+      }
+
+      // imageInfo EG [3, "L", "Lizard"]
+      // So fetch the middle letter to determine type of imaeg
+      // Check for errors
+      const imageCharacter = imageInfo[1];
+      if (!imageCharacter || imageIndices[imageCharacter] === undefined) {
+         const errorMessage = `Unknown image info: ${imageInfo}`;
+         alert(errorMessage);
+         throw `${errorMessage}. Aborting!`;
+      }
+
+      let randomNumber = Math.floor(Math.random() * 3);
+      console.log(imageCharacter, imageIndices[imageCharacter], randomNumber)
+      randomNumber += imageIndices[imageCharacter];
+      console.log(randomNumber)
+
+      // Remove any classes from displayContainer i.e. the Your Move message
+      displayContainerElem.classList.remove("yourmove");
+      // Also remove any children nodes i.e. previous images
+      // See https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+      while (displayContainerElem.firstChild) {
+         displayContainerElem.removeChild(displayContainerElem.firstChild);
+      }
+      // Create and Add Image
+      const theImage = document.createElement("img");
+      console.log(theImage)
+      theImage.src = imagesPath + theListOfImages[randomNumber];
+      theImage.alt = theListOfAltText[randomNumber];
+      console.log(theImage)
+      displayContainerElem.appendChild(theImage);
+console.log(displayContainerElem)
+   }
 }
