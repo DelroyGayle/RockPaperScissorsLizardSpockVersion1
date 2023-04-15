@@ -116,6 +116,18 @@ img {
   object-position: top;
 }
 
+.centre-error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error-message-style {
+  padding: 16px;
+  background-color: #d3d3d3; /* lightgray */
+}
+
 /* ================= MEDIA QUERIES ================= */
 
 @media (max-width: 768px) {
@@ -135,6 +147,11 @@ img {
     object-fit: cover;
     object-position: top;
   }  
+}
+
+.centre-error-message h1, 
+.centre-error-message h2 {
+  font-size: 100%;
 }
 
 

@@ -1,6 +1,46 @@
+
+
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
    runTheGame();
+});
+
+// As described in https://developer.mozilla.org/en-US/docs/Web/API/Window/error_event
+
+window.addEventListener("error", (event) => {
+   // Remove everything from the DOM's body
+   const bodyElement = document.body;
+   while (bodyElement.firstChild) {
+      bodyElement.removeChild(bodyElement.firstChild);
+   }
+
+   // As described in https://www.w3schools.com/jsref/met_document_createelement.asp 
+
+   // Create a DIV Element
+   const newDiv = document.createElement("div");
+   newDiv.innerHTML = "<h1>An Internal Error Has Occurred:</p>"
+
+   // Create element for the error message
+   let errorMessage = document.createElement("h2");
+   errorMessage.innerText = event.message;
+
+   // add the message to the newly created div
+   newDiv.appendChild(errorMessage);
+
+   // Show the line number where the error occurred
+   errorMessage = document.createElement("h2");
+   errorMessage.innerText = `Line Number: ${event.lineno}`;
+   newDiv.appendChild(errorMessage);
+
+   // Add styling
+   newDiv.classList.add("error-message-style");
+
+   // Centre the error message
+   bodyElement.classList.add("centre-error-message");
+
+   // Display the error on the webpage
+   bodyElement.appendChild(newDiv)   
+
 });
 
 function runTheGame() {
@@ -18,8 +58,8 @@ function runTheGame() {
       "paper3_earth_teen_titans.webp",
       "scissors1.png",
       "scissors2_daniil_onischenko_unsplash.jpg",
-      "scissors3_earth_teen_titans.webp",
-      "lizard1_drconners.webp",
+      "scissors3_earth_teen_titans.webp", // fillImage1 = 8
+      "lizard1_drconners.webp", // fillImage2 = 9
       "lizard2_gorn.webp",
       "lizard3_gorn_arena.webp",
       "spock1.png",
@@ -45,6 +85,9 @@ function runTheGame() {
       "Clip Art Icon of Star Trek Character 'Spock'",
       "Star Trek Character 'Spock' as portrayed by Leonard Simon Nimoy (1931 - 2015)"
    ];
+
+   // Us object-fit: fill; for these two images
+   const fillImages = [8, 9];
 
    /* Give each handshape its own number and letter    
       N for Spock i.e. Leonard Simon Nimoy (March 26, 1931 – February 27, 2015)
@@ -108,8 +151,12 @@ function runTheGame() {
       }
 
       // In this event, Call 'showThisImage' with the corresponding 'shapeValues'
+      // Then determine the computer opponent's response
       buttonsList[i].addEventListener("click", function () {
-         showThisImage(shapeValues)
+         showThisImage(shapeValues);
+         const computerShapeValue = determineComputerChoice();
+         showThisImage(computerShapeValue);
+
       });
    }
 
@@ -135,7 +182,6 @@ function runTheGame() {
       playGame();
    });
 
-   // Add event listeners
    // Initialise Variables
 
    // DG1
@@ -149,7 +195,18 @@ function runTheGame() {
       displayContainerElem.classList.add("yourmove");
    }
 
+   /**
+    * Disable the other buttons so that there is no user interruption
+    */
 
+   function disableButtons() {
+      document.getElementById("the-rules-button").disabled = true;
+      const buttonsList = document.getElementsByClassName("shape-button");
+
+      for (let button of buttonsList) {
+         button.disabled = true;
+      }
+   }
    /**
     * imageInfo has the form [3, "L", "Lizard"]
     * So fetch the middle letter to determine type of image
@@ -160,7 +217,8 @@ function runTheGame() {
     */
 
    function showThisImage(imageInfo) {
-      console.log("IMAGE", imageInfo)
+      // Disable the other buttons so that there is no user interruption
+      // disableButtons();
       const imageIndices = {
          R: 0, // Rock: 0 to 2
          P: 3, // Paper: 3 to 5
@@ -180,24 +238,49 @@ function runTheGame() {
       }
 
       let randomNumber = Math.floor(Math.random() * 3);
-      console.log(imageCharacter, imageIndices[imageCharacter], randomNumber)
       randomNumber += imageIndices[imageCharacter];
-      console.log(randomNumber)
 
       // Remove any classes from displayContainer i.e. the Your Move message
       displayContainerElem.classList.remove("yourmove");
-      // Also remove any children nodes i.e. previous images
-      // See https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
-      while (displayContainerElem.firstChild) {
-         displayContainerElem.removeChild(displayContainerElem.firstChild);
+      // Also remove the last child if it is not an image i.e. a message or a <div>
+      const theLast = displayContainerElem.lastElementChild;
+      if (theLast && theLast.nodeName !== "IMG") {
+         displayContainerElem.removeChild(theLast);
       }
       // Create and Add Image
       const theImage = document.createElement("img");
-      console.log(theImage)
       theImage.src = imagesPath + theListOfImages[randomNumber];
       theImage.alt = theListOfAltText[randomNumber];
-      console.log(theImage)
+      // Use 'object-fit': cover except for two exceptions
+      theImage.style.objectFit = fillImages.indexOf(randomNumber) < 0 ? "cover" : "fill";
       displayContainerElem.appendChild(theImage);
-console.log(displayContainerElem)
    }
+
+   /**
+    * Determine the computer move and display the corresponding image
+    */
+   function determineComputerChoice() {
+      const thinkingMessage = document.createElement("p");
+      thinkingMessage.innerText = "THINKING!";
+      displayContainerElem.appendChild(thinkingMessage);
+
+      /* DG      
+            // For now, simply use a random number 0-4 inclusive
+            const randomNumber = Math.floor(Math.random() * 5);
+            showThisImage(handshapes[randomNumber]);
+      */
+      return Math.floor(Math.random() * 5);
+
+      /*
+      let finalAnswer = randomNumber1 * 3; // 0 3 6 9 or 12
+      const theImage = document.createElement("img");
+      theImage.src = imagesPath + theListOfImages[randomNumber];
+      theImage.alt = theListOfAltText[randomNumber];
+      // Use 'object-fit': cover except for two exceptions
+      theImage.style.objectFit = fillImages.indexOf(randomNumber) < 0 ? "cover" : "fill";
+      displayContainerElem.appendChild(theImage);
+      */
+
+   }
+
 }
