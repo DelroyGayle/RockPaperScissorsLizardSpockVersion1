@@ -75,6 +75,7 @@ function runTheGame() {
    // Add event listeners
    // Initialise Variables
 
+   // DG1
    let imageIndex = 0;
 }
 

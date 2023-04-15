@@ -65,6 +65,9 @@ background: #99e0b2;
   gap:1em;
 }
 
+.centre-text {
+  display:inline;
+}
 .show-game {
   display:none;
 }
