@@ -12,7 +12,6 @@
   box-sizing: border-box;
 }
 
-
 /* DG1 */
 body {
   height: 100vh;
@@ -28,13 +27,10 @@ body {
   display: flex;
 }
 
-.flex-centred {
-  justify-content: center;
-}
-
 .shape-button {
   cursor:pointer;
 }
+
 .yourmove {
   display:block;
   text-align: center;
@@ -55,6 +51,7 @@ body {
   display: flex;
 }
 
+/* DG6 */
 .form-container-child {
   /* Centre the form */
   margin: 0 auto;
@@ -86,9 +83,6 @@ background: #99e0b2;
   gap:1em;
 }
 
-.centre-text {
-  display:inline;
-}
 .show-game {
   display:none;
 }
@@ -127,6 +121,7 @@ img {
   padding: 16px;
   background-color: #d3d3d3; /* lightgray */
 }
+
 
 /* ================= MEDIA QUERIES ================= */
 

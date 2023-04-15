@@ -39,7 +39,7 @@ window.addEventListener("error", (event) => {
    bodyElement.classList.add("centre-error-message");
 
    // Display the error on the webpage
-   bodyElement.appendChild(newDiv)   
+   bodyElement.appendChild(newDiv)
 
 });
 
@@ -93,12 +93,13 @@ function runTheGame() {
       N for Spock i.e. Leonard Simon Nimoy (March 26, 1931 – February 27, 2015)
    */
 
-   const handshapes = [[0, "R", "Rock"],
-   [1, "P", "Paper"],
-   [2, "S", "Scissors"],
-   [3, "L", "Lizard"],
-   [4, "N", "Spock"]
-   ];
+   const handshapes =
+      [[0, "R", "Rock"],
+      [1, "P", "Paper"],
+      [2, "S", "Scissors"],
+      [3, "L", "Lizard"],
+      [4, "N", "Spock"]
+      ];
 
    /* Using the above numbers - who beats who?
       e.g. 2 for Scissors, 3 for Lizard; therefore "23" means: Scissors decapitates Lizard
@@ -190,8 +191,6 @@ function runTheGame() {
    function playGame() {
       // DG5
       console.log(currentNumberOfRounds)
-      // displayContainerElem.innerHTML="Your Move!"
-      // displayContainerElem.classList.add("flex-centred");
       displayContainerElem.classList.add("yourmove");
    }
 
@@ -207,6 +206,7 @@ function runTheGame() {
          button.disabled = true;
       }
    }
+
    /**
     * imageInfo has the form [3, "L", "Lizard"]
     * So fetch the middle letter to determine type of image
@@ -269,9 +269,10 @@ function runTheGame() {
             const randomNumber = Math.floor(Math.random() * 5);
             showThisImage(handshapes[randomNumber]);
       */
-      return Math.floor(Math.random() * 5);
+      return handshapes[Math.floor(Math.random() * 5)];
 
       /*
+      DG6
       let finalAnswer = randomNumber1 * 3; // 0 3 6 9 or 12
       const theImage = document.createElement("img");
       theImage.src = imagesPath + theListOfImages[randomNumber];
