@@ -132,7 +132,7 @@ function runTheGame() {
    const computerImageElem = document.getElementById("koolai-choice-image");
    const introElem = document.getElementById("intro");
    const outcomeElem = document.getElementById("outcome");
-   const messageElem = document.getElementById("message");
+   const explanationElem = document.getElementById("explanation");
    const playAgainElem = document.getElementById("play-again");
 
    // Initialise Variable
@@ -151,13 +151,13 @@ function runTheGame() {
          throw `${errorMessage}. Aborting!`;
       }
 
-      // In this event, Call 'showThisImage' with the corresponding 'shapeValues'
+      // In this event, Call 'showThisImage' with the corresponding 'shapeValues' to display the images
       // Then determine the computer opponent's response
       buttonsList[i].addEventListener("click", function () {
          showThisImage(shapeValues);
          const computerShapeValue = determineComputerChoice();
          showThisImage(computerShapeValue);
-
+         updateScoresThenDetermineNextAction(shapeValues,computerShapeValue);
       });
    }
 
@@ -218,7 +218,7 @@ function runTheGame() {
 
    function showThisImage(imageInfo) {
       // Disable the other buttons so that there is no user interruption
-      // disableButtons();
+      disableButtons();
       const imageIndices = {
          R: 0, // Rock: 0 to 2
          P: 3, // Paper: 3 to 5
@@ -281,6 +281,132 @@ function runTheGame() {
       theImage.style.objectFit = fillImages.indexOf(randomNumber) < 0 ? "cover" : "fill";
       displayContainerElem.appendChild(theImage);
       */
+
+   }
+
+/**
+ * Determine the Winner/Loser
+ * Update the scores
+ * Update the number of rounds
+ * Then determine the next action
+ */   
+
+   function updateScoresThenDetermineNextAction(playerShapeValues,computerShapeValues) {
+            // EG for Rock vs. Paper 
+            // playerShapeValues => [0,R,Rock]
+            // computerShapeValues ==> [1,P,Paper]
+            const playerShapeNumber = playerShapeValues[0];
+            const computerShapeNumber = computerShapeValues[0];
+            determineWhoWonThatRound(playerShapeNumber,computerShapeNumber);
+            setupOutcomeMessage(playerShapeValues,computerShapeValues, playerShapeNumber === computerShapeNumber);
+            // Make visible the relevant outcome messages
+            outcomeElem.classList.remove("invisible");
+            explanationElem.classList.remove("invisible");
+   }
+
+   /**
+    * 
+    * EG for Rock vs. Paper 
+    * playerShapeNumber => 0 
+    * computerShapeNumber => 1
+    * 
+    * Mathematically, using modulo-5 the winner can be determined as follows:
+    * Subtract the number chosen by player two i.e. the computer from the number chosen by player one; 
+    * and then take the remainder modulo 5 of the result. 
+    * Player one is the victor if the difference is one or three (i.e. odd), 
+    * and player two is the victor if the difference is two or four (i.e. even). 
+    * If the difference is zero, the round is a tie.
+    * 
+    * For example
+    * if Player used 0 (Rock) and Computer used 1 (Paper)
+    * 0-1 = -1 
+    * -1 + 5 = 4 (added 5 because it was a negative number)
+    * Since 4 is even, Computer wins - Player loses
+    * 
+    * If the Player used 3 (Spock) and Computer used 1 (Paper)
+    * 4-1 = 3
+    * Since 3 is odd, Player wins - Computer loses
+    */
+   function determineWhoWonThatRound(playerShapeNumber,computerShapeNumber) {
+      if (playerShapeNumber === computerShapeNumber) {
+            // Tie!
+            incrementTies();
+            return;
+      } 
+      
+      let diff = playerShapeNumber - computerShapeNumber;
+      if (diff < 0) {
+            diff += 5;
+      }
+      diff%=5;
+      if (diff % 2 !== 0)  {
+         // odd; player wins!
+         incrementPlayerWins();
+      } else {
+         // even; computer wins!
+         incrementComputerWins();
+      }
+   }
+
+   /**
+    * Gets the current number of ties from the DOM and increments it by 1
+   */
+   function incrementTies() {
+         let oldScore = parseInt(numberOfTiesElem.innerText);
+         numberOfTiesElem.innerText = String(++oldScore);
+   }   
+
+   /**
+    * Gets the current number of Player Wins from the DOM and increments it by 1
+   */
+   function incrementPlayerWins() {
+      let oldScore = parseInt(playerScoreElem.innerText);
+      playerScoreElem.innerText = String(++oldScore);
+   }   
+
+   /**
+    * Gets the current number of Computer Wins from the DOM and increments it by 1
+   */
+   function incrementComputerWins() {
+      let oldScore = parseInt(computerScoreElem.innerText);
+      computerScoreElem.innerText = String(++oldScore);
+   }   
+
+   function setupOutcomeMessage(playerShapeValues,computerShapeValues, isItATie) {
+      // EG for Rock vs. Paper 
+      // playerShapeValues => [0,R,Rock]
+      // computerShapeValues ==> [1,P,Paper]
+      
+      if (isItATie) {
+         outcomeElem.innerText = "Tie!";
+         explanationElem.innerText = "";
+         return;
+      }
+
+      const playerShapeNumberChar = String(playerShapeValues[0]);
+      const computerShapeNumberChar = String(computerShapeValues[0]);
+
+      // Determine the correct verb
+      const index = playerShapeNumberChar + computerShapeNumberChar;
+      let verb = actions[index];
+      if (verb) {
+         outcomeElem.innerText = "You Win!";
+         explanationElem.innerText = `${playerShapeValues[2]} ${verb} ${computerShapeValues[2]}`;
+      } else {
+         /*
+            if null, swop the numbers around e.g. 
+            "42" instead of "24" in order to fetch
+            "smashes"
+         */   
+         verb = actions[computerShapeNumberChar + playerShapeNumberChar];
+         // Swop! In order to determine the right name of each shape for the message
+         [playerShapeValues, computerShapeValues] = [computerShapeValues, playerShapeValues];
+         outcomeElem.innerText =  "You Lose!"
+         explanationElem.innerText = `${playerShapeValues[2]} ${verb} ${computerShapeValues[2]}`;
+      }
+   }
+
+   function determineWhatHappensNext() {
 
    }
 

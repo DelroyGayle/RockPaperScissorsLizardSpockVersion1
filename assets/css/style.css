@@ -104,10 +104,19 @@ background: #99e0b2;
 /* This is how the image of each character will be shown */
 
 img {
-  width:  22vw;
-  height: 22vw;
+  width:  18vw;
+  height: 18vw;
   object-fit: cover;
   object-position: top;
+}
+
+.invisible {
+  display: none;
+}
+
+.display-message {
+    text-align: center;
+    margin-top: 1em;
 }
 
 .centre-error-message {
