@@ -110,8 +110,8 @@ img {
   object-position: top;
 }
 
-.invisible {
-  display: none;
+.hide-element {
+  visibility: hidden;
 }
 
 .display-message {

@@ -47,6 +47,8 @@ function runTheGame() {
 
    /* Initialise Constants */
 
+   const delayBetweenPlay = 6000; // 4 seconds
+
    // Image Names
 
    const theListOfImages = [
@@ -91,32 +93,50 @@ function runTheGame() {
 
    /* Give each handshape its own number and letter    
       N for Spock i.e. Leonard Simon Nimoy (March 26, 1931 – February 27, 2015)
+
+      NOTE: The numbering is significant
+      The shapes must be numbered in this order 
+      Rock-Paper-Scissors-Spock-Lizard   
+      See README.md and http://docmadhattan.fieldofscience.com/2015/02/rock-paper-scissors-lizard-spock.html 
+      for details
    */
 
    const handshapes =
       [[0, "R", "Rock"],
       [1, "P", "Paper"],
       [2, "S", "Scissors"],
-      [3, "L", "Lizard"],
-      [4, "N", "Spock"]
+      [3, "N", "Spock"],
+      [4, "L", "Lizard"],
       ];
 
-   /* Using the above numbers - who beats who?
+   /* Using the above numbers to determine who beats who?
       e.g. 2 for Scissors, 3 for Lizard; therefore "23" means: Scissors decapitates Lizard
            4 for Spock, 0 for Rock; therefore "40" means: Spock vaporises Rock
    */
    const actions = {
       "21": "cuts",
       "10": "covers",
-      "03": "crushes",
-      "34": "poisons",
-      "42": "smashes",
-      "23": "decapitates",
-      "31": "eats",
-      "14": "disproves",
-      "40": "vaporises",
+      "04": "crushes",
+      "43": "poisons",
+      "32": "smashes",
+      "24": "decapitates",
+      "41": "eats",
+      "13": "disproves",
+      "30": "vaporises",
       "02": "crushes"
    };
+
+/*
+   NOTE: The button order is different as it matches the name of the game
+   Need an array of numbers to reflect: 
+   Rock Papers Scissors Lizard Spock
+   values as shown in 'handshapes'
+*/   
+   const buttonOrderArray = [0,1,2,4,3];
+
+   const playerWon = 1;
+   const playerTies = 0;
+   const playerLost = -1;
 
    // Location of images
    const imagesPath = "assets/images/";
@@ -124,6 +144,7 @@ function runTheGame() {
    // Set up all the variables reflecting DOM elements 
 
    const displayContainerElem = document.getElementById("display-container");
+   const currentRoundNumberElem = document.getElementById("current-round-number");
    const numberOfRoundsElem = document.getElementById("number-of-rounds");
    const numberOfTiesElem = document.getElementById("number-of-ties");
    const playerScoreElem = document.getElementById("player-score");
@@ -135,6 +156,8 @@ function runTheGame() {
    const explanationElem = document.getElementById("explanation");
    const playAgainElem = document.getElementById("play-again");
 
+   const LIMIT = 3;
+
    // Initialise Variable
    let currentNumberOfRounds = 0;
 
@@ -142,11 +165,19 @@ function runTheGame() {
    let buttonsList = document.getElementsByClassName("shape-button");
 
    for (i = 0; i < buttonsList.length; i++) {
-      // EG for (i=0) shapeValues would be [0, 'R', 'Rock']
-      const shapeValues = handshapes.find(element => element[0] === i);
+      /* 
+         Note: for the 4th Button (Lizard, i=3) the value must be 4 i.e. [4, 'L', 'Lizard']
+               for the 5th Button (Spock, i=4) the value must be 3 i.e. [3, "N", "Spock"]
+         In order for the winner to be mathematically determined using modulo 5
+         So firstly, determine the correct value using 
+         buttonOrderArray = [0,1,2,4,3];
+      */
+      const index = buttonOrderArray[i];
+      // Now fetch the relevant info to set up the button
+      const shapeValues = handshapes.find(element => element[0] === index);
       // Check for errors
       if (shapeValues === undefined) {
-         const errorMessage = `Unknown button with this number: ${i}`;
+         const errorMessage = `Unknown button with this number: ${index}`;
          alert(errorMessage);
          throw `${errorMessage}. Aborting!`;
       }
@@ -154,10 +185,11 @@ function runTheGame() {
       // In this event, Call 'showThisImage' with the corresponding 'shapeValues' to display the images
       // Then determine the computer opponent's response
       buttonsList[i].addEventListener("click", function () {
+         console.log(shapeValues)
          showThisImage(shapeValues);
          const computerShapeValue = determineComputerChoice();
          showThisImage(computerShapeValue);
-         updateScoresThenDetermineNextAction(shapeValues,computerShapeValue);
+         updateScoresThenDetermineNextAction(shapeValues, computerShapeValue);
       });
    }
 
@@ -204,6 +236,19 @@ function runTheGame() {
 
       for (let button of buttonsList) {
          button.disabled = true;
+      }
+   }
+
+   /**
+    * Enable the other buttons to allow user interaction
+   */
+
+   function enableButtons() {
+      document.getElementById("the-rules-button").disabled = false;
+      const buttonsList = document.getElementsByClassName("shape-button");
+
+      for (let button of buttonsList) {
+         button.disabled = false;
       }
    }
 
@@ -259,6 +304,7 @@ function runTheGame() {
    /**
     * Determine the computer move and display the corresponding image
     */
+
    function determineComputerChoice() {
       const thinkingMessage = document.createElement("p");
       thinkingMessage.innerText = "THINKING!";
@@ -284,24 +330,27 @@ function runTheGame() {
 
    }
 
-/**
- * Determine the Winner/Loser
- * Update the scores
- * Update the number of rounds
- * Then determine the next action
- */   
+   /**
+    * Determine the Winner/Loser
+    * Update the scores
+    * Update the number of rounds
+    * Then determine the next action
+    */
 
-   function updateScoresThenDetermineNextAction(playerShapeValues,computerShapeValues) {
-            // EG for Rock vs. Paper 
-            // playerShapeValues => [0,R,Rock]
-            // computerShapeValues ==> [1,P,Paper]
-            const playerShapeNumber = playerShapeValues[0];
-            const computerShapeNumber = computerShapeValues[0];
-            determineWhoWonThatRound(playerShapeNumber,computerShapeNumber);
-            setupOutcomeMessage(playerShapeValues,computerShapeValues, playerShapeNumber === computerShapeNumber);
-            // Make visible the relevant outcome messages
-            outcomeElem.classList.remove("invisible");
-            explanationElem.classList.remove("invisible");
+   function updateScoresThenDetermineNextAction(playerShapeValues, computerShapeValues) {
+      // EG for Rock vs. Paper 
+      // playerShapeValues => [0,R,Rock]
+      // computerShapeValues ==> [1,P,Paper]
+      const playerShapeNumber = playerShapeValues[0];
+      const computerShapeNumber = computerShapeValues[0];
+      const result = determineWhoWonThatRound(playerShapeNumber, computerShapeNumber);
+      setupOutcomeMessage(playerShapeValues, computerShapeValues, result);
+      incrementCurrentRoundNumber();
+      // Make visible the relevant outcome messages
+      outcomeElem.classList.remove("hide-element");
+      explanationElem.classList.remove("hide-element");
+      // Pause for a few seconds then move on
+      setTimeout(determineWhatHappensNext, delayBetweenPlay)
    }
 
    /**
@@ -327,57 +376,82 @@ function runTheGame() {
     * 4-1 = 3
     * Since 3 is odd, Player wins - Computer loses
     */
-   function determineWhoWonThatRound(playerShapeNumber,computerShapeNumber) {
+   function determineWhoWonThatRound(playerShapeNumber, computerShapeNumber) {
       if (playerShapeNumber === computerShapeNumber) {
-            // Tie!
-            incrementTies();
-            return;
-      } 
-      
-      let diff = playerShapeNumber - computerShapeNumber;
-      if (diff < 0) {
-            diff += 5;
+         // Tie!
+         incrementTies();
+         return playerTies;
       }
-      diff%=5;
-      if (diff % 2 !== 0)  {
+
+      let diff = playerShapeNumber - computerShapeNumber;
+      console.log(diff)
+      if (diff < 0) {
+         diff += 5;
+      }
+      diff %= 5;
+      console.log(playerShapeNumber,computerShapeNumber,diff)
+      if (diff % 2 !== 0) {
          // odd; player wins!
          incrementPlayerWins();
+         return playerWon;
       } else {
          // even; computer wins!
          incrementComputerWins();
+         return playerLost;
       }
    }
 
    /**
     * Gets the current number of ties from the DOM and increments it by 1
    */
+
    function incrementTies() {
-         let oldScore = parseInt(numberOfTiesElem.innerText);
-         numberOfTiesElem.innerText = String(++oldScore);
-   }   
+      let oldScore = parseInt(numberOfTiesElem.innerText);
+      numberOfTiesElem.innerText = String(++oldScore);
+   }
 
    /**
     * Gets the current number of Player Wins from the DOM and increments it by 1
    */
+
    function incrementPlayerWins() {
       let oldScore = parseInt(playerScoreElem.innerText);
       playerScoreElem.innerText = String(++oldScore);
-   }   
+   }
 
    /**
     * Gets the current number of Computer Wins from the DOM and increments it by 1
    */
+
    function incrementComputerWins() {
       let oldScore = parseInt(computerScoreElem.innerText);
       computerScoreElem.innerText = String(++oldScore);
-   }   
+   }
 
-   function setupOutcomeMessage(playerShapeValues,computerShapeValues, isItATie) {
+   /**
+    * Gets the current number of Rounds from the DOM and increments it by 1
+   */
+
+   function incrementCurrentRoundNumber() {
+      let oldScore = parseInt(currentRoundNumberElem.innerText);
+      currentRoundNumberElem.innerText = String(++oldScore);
+   }
+
+
+   /**
+    * Increments the current number of rounds played
+   */
+
+   function incrementNumberOfRounds() {
+      numberOfRoundsElem.innerText = String(++currentNumberOfRounds);
+   }
+
+   function setupOutcomeMessage(playerShapeValues, computerShapeValues, result) {
       // EG for Rock vs. Paper 
       // playerShapeValues => [0,R,Rock]
       // computerShapeValues ==> [1,P,Paper]
-      
-      if (isItATie) {
+
+      if (result === playerTies) {
          outcomeElem.innerText = "Tie!";
          explanationElem.innerText = "";
          return;
@@ -390,24 +464,38 @@ function runTheGame() {
       const index = playerShapeNumberChar + computerShapeNumberChar;
       let verb = actions[index];
       if (verb) {
-         outcomeElem.innerText = "You Win!";
          explanationElem.innerText = `${playerShapeValues[2]} ${verb} ${computerShapeValues[2]}`;
       } else {
          /*
             if null, swop the numbers around e.g. 
             "42" instead of "24" in order to fetch
             "smashes"
-         */   
+         */
          verb = actions[computerShapeNumberChar + playerShapeNumberChar];
          // Swop! In order to determine the right name of each shape for the message
          [playerShapeValues, computerShapeValues] = [computerShapeValues, playerShapeValues];
-         outcomeElem.innerText =  "You Lose!"
          explanationElem.innerText = `${playerShapeValues[2]} ${verb} ${computerShapeValues[2]}`;
       }
+console.log(result,playerWon)
+      outcomeElem.innerText = result === playerWon ? "You Win!" : "You Lose!";
    }
 
    function determineWhatHappensNext() {
-
+      console.log("WWW")
+      if (currentNumberOfRounds === LIMIT) {
+         throw "DONE"
+      }
+      
+      // Remove Images
+         const element = displayContainerElem;
+         while (element.firstChild) {
+               element.removeChild(element.firstChild);
+         }
+      // Enable game buttons
+      enableButtons();
+      // Hide messages
+      outcomeElem.classList.add("hide-element");
+      explanationElem.classList.add("hide-element");
    }
 
 }
