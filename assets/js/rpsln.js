@@ -15,7 +15,7 @@ window.addEventListener("error", (event) => {
    // As described in https://www.w3schools.com/jsref/met_document_createelement.asp 
    // Create a DIV Element
    const newDiv = document.createElement("div");
-   newDiv.innerHTML = "<h1>An Internal Error Has Occurred:</p>";
+   newDiv.innerHTML = "<h1>An Internal Error Has Occurred:</h1>";
 
    // Create element for the error message
    let errorMessage = document.createElement("h2");
@@ -195,6 +195,7 @@ function runTheGame() {
       });
    }
 
+   /*
    // DG
    document.getElementById("computer-score").addEventListener("submit", (event) => {
       event.preventDefault();
@@ -205,6 +206,7 @@ function runTheGame() {
       document.getElementsByClassName("show-game")[0].style.display = "block";
       playGame();
    });
+   */
 
    // Initial Form
    const initialForm = document.getElementById("initial-form-id");
@@ -226,6 +228,11 @@ function runTheGame() {
    function playGame() {
       // DG5
       console.log(currentNumberOfRounds);
+      // Enable game buttons
+      enableButtons();
+      // Hide messages
+      outcomeElem.classList.add("hide-element");
+      explanationElem.classList.add("hide-element");
       displayContainerElem.classList.add("yourmove");
    }
 
@@ -437,20 +444,11 @@ function runTheGame() {
    }
 
    /**
-    * Gets the current number of Rounds from the DOM and increments it by 1
+    * Increment the variable that represents the Current number of Rounds
    */
 
    function incrementCurrentRoundNumber() {
-      let oldScore = parseInt(currentRoundNumberElem.innerText);
-      currentRoundNumberElem.innerText = String(++oldScore);
-   }
-
-   /**
-    * Increments the current number of rounds played
-   */
-
-   function incrementNumberOfRounds() {
-      numberOfRoundsElem.innerText = String(++currentNumberOfRounds);
+      currentRoundNumberElem.innerText = String(++currentNumberOfRounds);
    }
 
    function setupOutcomeMessage(playerShapeValues, computerShapeValues, result) {
@@ -487,7 +485,7 @@ function runTheGame() {
    }
 
    function determineWhatHappensNext() {
-      console.log("WWW"); // DG
+      console.log("WWW",currentNumberOfRounds,LIMIT); // DG
       if (currentNumberOfRounds === LIMIT) {
          throw "DONE";
       }
@@ -497,11 +495,7 @@ function runTheGame() {
          while (element.firstChild) {
                element.removeChild(element.firstChild);
          }
-      // Enable game buttons
-      enableButtons();
-      // Hide messages
-      outcomeElem.classList.add("hide-element");
-      explanationElem.classList.add("hide-element");
+      playGame();
    }
 
 }
