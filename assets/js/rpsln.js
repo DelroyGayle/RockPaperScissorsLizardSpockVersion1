@@ -1,3 +1,5 @@
+let timeoutID;
+
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
    const resultId = document.getElementById("final-score-container");
@@ -9,11 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
 // As described in https://developer.mozilla.org/en-US/docs/Web/API/Window/error_event
 
 window.addEventListener("error", (event) => {
+   /* DG
    // Remove everything from the DOM's body
    const bodyElement = document.body;
    while (bodyElement.firstChild) {
       bodyElement.removeChild(bodyElement.firstChild);
    }
+   */
+
+   clearDOMBody();
+   const bodyElement = document.body;
+
 
    // As described in https://www.w3schools.com/jsref/met_document_createelement.asp 
    // Create a DIV Element
@@ -40,6 +48,8 @@ window.addEventListener("error", (event) => {
 
    // Display the error on the webpage
    bodyElement.appendChild(newDiv);
+
+   clearTimeout(timeoutID);
 
 });
 
@@ -195,6 +205,7 @@ function runTheGame() {
          const computerShapeValue = determineComputerChoice();
          showThisImage(computerShapeValue);
          updateScoresThenDetermineNextAction(shapeValues, computerShapeValue);
+         throw "testerror2"
       });
    }
 
@@ -227,28 +238,32 @@ function runTheGame() {
    const playAgainButton = document.createElement("button");
    playAgainButton.innerText = "Play Again!";
    // Add styling
-   playAgainButton.classList.add("rules-button"); 
+   playAgainButton.classList.add("rules-button");
    playAgainButton.addEventListener("click", function (event) {
       event.preventDefault();
-      console.log("OKKKK")
+      resetInOrderToPlayAgain();
+      console.log("OKKKK2")
+      /*
       // Handle submit. That is remove the form and show the game layout
       document.getElementsByClassName("form-container")[0].style.display = "none";
       numberOfRoundsElem.innerText = String(3);
       //document.getElementById("p1").innerHTML = "New text!";
       document.getElementsByClassName("show-game")[0].style.display = "block";
+      */
       playGame();
-   });  
+   });
 
    // Initialise Variables
 
    // DG1
+   // let timeoutID;
    let imageIndex = 0;
 
    function hideMessages() {
       // Hide messages
       outcomeElem.classList.add("hide-element");
       explanationElem.classList.add("hide-element");
-      displayContainerElem.classList.add("yourmove");      
+      displayContainerElem.classList.add("yourmove");
    }
 
    function playGame() {
@@ -386,7 +401,7 @@ function runTheGame() {
       outcomeElem.classList.remove("hide-element");
       explanationElem.classList.remove("hide-element");
       // Pause for a few seconds then move on
-      setTimeout(determineWhatHappensNext, delayBetweenPlay);
+      timeoutID = setTimeout(determineWhatHappensNext, delayBetweenPlay);
    }
 
    /**
@@ -508,44 +523,47 @@ function runTheGame() {
       outcomeElem.innerText = result === playerWon ? "You Win!" : "You Lose!";
    }
 
+   function clearDisplayContainerElem() {
+      const element = displayContainerElem;
+      while (element.firstChild) {
+         element.removeChild(element.firstChild);
+      }
+   }
+
    /**
     * If the total number of rounds as not yet been reached continue playing
     * Otherwise Display the Final Score and Give the user the option to Play Again!
     */
+
    function determineWhatHappensNext() {
       // Remove Images
+      clearDisplayContainerElem();
       const element = displayContainerElem;
       while (element.firstChild) {
-               element.removeChild(element.firstChild);
+         element.removeChild(element.firstChild);
       }
-      console.log("WWW", currentNumberOfRounds, LIMIT); // DG
+      console.log("testerror1", currentNumberOfRounds, LIMIT); // DG
       if (currentNumberOfRounds !== LIMIT) {
          playGame();
          return;
       }
 
-      const playerFinalScore = parseInt(playerScoreElem.innerText);
-      const computerFinalScore = parseInt(computerScoreElem.innerText);
-   
-      // As described in https://www.w3schools.com/jsref/met_document_createelement.asp 
-      // Create a DIV Element
-      const newDiv = document.createElement("div");
-      // newDiv.innerHTML = `                    
-      //                   <div id="final-score-container">
-      //                         <div id="final-score-message" class="display-message"></div>
-      //                         <button id="play-again-button" class="rules-button">Rules</button>
-      //                   </div>
-      //                `;
-
       // Hide current messages
       hideMessages();
       displayContainerElem.classList.remove("yourmove");
 
+      const playerFinalScore = parseInt(playerScoreElem.innerText);
+      const computerFinalScore = parseInt(computerScoreElem.innerText);
+
+      // As described in https://www.w3schools.com/jsref/met_document_createelement.asp 
+      // Create a DIV Element
+      const newDiv = document.createElement("div");
+
       // Create element for the final results message
-      let theMessage = document.createElement("h2");
+      const theMessage = document.createElement("h2");
       theMessage.innerText = playerFinalScore === computerFinalScore ? "It's a draw!" :
-                                                  playerFinalScore > computerFinalScore ? "Well done, You Win!" :
-                                                                                          "You lose! I'm the Winner!";
+         playerFinalScore > computerFinalScore ? "Well done, You Win!" :
+            "You lose! I'm the Winner!";
       // Add styling
       theMessage.classList.add("final-score-message");
 
@@ -554,9 +572,10 @@ function runTheGame() {
 
       // Add the button to the newly created div
       newDiv.appendChild(playAgainButton);
-   // Display the error on the webpage
-   document.getElementById("display-container").appendChild(newDiv);
-   return;
+
+      // Display the result on the webpage
+      displayContainerElem.appendChild(newDiv);
+      return;
 
       // Create Play Again Button
       const newButton = document.createElement("button");
@@ -567,39 +586,101 @@ function runTheGame() {
       // Add the button to the newly created div
       newDiv.appendChild(newButton);
 
-/*   
-   // Show the line number where the error occurred
-   errorMessage = document.createElement("h2");
-   errorMessage.innerText = `Line Number: ${event.lineno}`;
-   newDiv.appendChild(errorMessage);
-
-   // Add styling
-   newDiv.classList.add("error-message-style");
-
-   // Centre the error message
-   bodyElement.classList.add("centre-error-message");
-*/
-
-   // Display the error on the webpage
-   document.getElementById("display-container").appendChild(newDiv);
-   return;
-
-   /*
-////////////////////////
-
-      let resultId = document.getElementById("final-score-container");
-      console.log(resultId)
-      document.getElementById("final-score-container").remove("hide-element");
-      resultId = document.getElementById("final-score-container");
-      console.log(resultId)
-
-      const playerFinalScore = parseInt(playerScoreElem.innerText);
-      const computerFinalScore = parseInt(computerScoreElem.innerText);
-      resultId.innerText = playerFinalScore === computerFinalScore ? "It's a draw!" :
-                           playerFinalScore > computerFinalScore ? "Well done, You Won!" :
-                           "I am the Winner! You lose!";
-      // document.getElementById("final-score-container").classList.toggle("hide-element");
-      document.getElementById("final-score-container").remove("hide-element");
+      /*   
+         // Show the line number where the error occurred
+         errorMessage = document.createElement("h2");
+         errorMessage.innerText = `Line Number: ${event.lineno}`;
+         newDiv.appendChild(errorMessage);
+      
+         // Add styling
+         newDiv.classList.add("error-message-style");
+      
+         // Centre the error message
+         bodyElement.classList.add("centre-error-message");
       */
+
+      // Display the error on the webpage
+      displayContainerElem.appendChild(newDiv);
+      return;
+
+      /*
+   ////////////////////////
+   
+         let resultId = document.getElementById("final-score-container");
+         console.log(resultId)
+         document.getElementById("final-score-container").remove("hide-element");
+         resultId = document.getElementById("final-score-container");
+         console.log(resultId)
+   
+         const playerFinalScore = parseInt(playerScoreElem.innerText);
+         const computerFinalScore = parseInt(computerScoreElem.innerText);
+         resultId.innerText = playerFinalScore === computerFinalScore ? "It's a draw!" :
+                              playerFinalScore > computerFinalScore ? "Well done, You Won!" :
+                              "I am the Winner! You lose!";
+         // document.getElementById("final-score-container").classList.toggle("hide-element");
+         document.getElementById("final-score-container").remove("hide-element");
+         */
+   }
+
+   /**
+    * Clear the final score messages from the screen
+    * Reset all scoring variables
+    */
+
+   function resetInOrderToPlayAgain() {
+      console.log("OKKKK")
+      /*
+      // Handle submit. That is remove the form and show the game layout
+      document.getElementsByClassName("form-container")[0].style.display = "none";
+      numberOfRoundsElem.innerText = String(3);
+      //document.getElementById("p1").innerHTML = "New text!";
+      document.getElementsByClassName("show-game")[0].style.display = "block";
+      */
+      clearDisplayContainerElem();
+      currentNumberOfRounds = 0;
+      currentRoundNumberElem.innerText = "0";
+      numberOfTiesElem.innerText = "0";
+      playerScoreElem.innerText = "0";
+      computerScoreElem.innerText = "0";
+   }
+
+
+   function goodBye() {
+
+      clearDOMBody();
+      const bodyElement = document.body;
+
+      // As described in https://www.w3schools.com/jsref/met_document_createelement.asp 
+      // Create a DIV Element
+      const newDiv = document.createElement("div");
+      newDiv.innerHTML = "<h1>Thanks For Playing</h1>";
+
+      let secondMessage = document.createElement("h2");
+      secondMessage.innerText = "Goodbye!"
+
+      // Add the message to the newly created div
+      newDiv.appendChild(secondMessage);
+
+      // Add styling
+      newDiv.classList.add("error-message-style");
+
+      // Centre the message
+      bodyElement.classList.add("centre-error-message");
+
+      // Display the Goodbye message on the webpage
+      bodyElement.appendChild(newDiv);
+
+      clearTimeout(timeoutID);
    }
 }
+
+/**
+ * Remove everything from the DOM's body
+ */
+
+function clearDOMBody() {
+      const bodyElement = document.body;
+      while (bodyElement.firstChild) {
+            bodyElement.removeChild(bodyElement.firstChild);
+      }
+} 
