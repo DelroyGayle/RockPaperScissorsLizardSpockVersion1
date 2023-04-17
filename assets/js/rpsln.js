@@ -1,5 +1,3 @@
-
-
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
    runTheGame();
@@ -15,16 +13,15 @@ window.addEventListener("error", (event) => {
    }
 
    // As described in https://www.w3schools.com/jsref/met_document_createelement.asp 
-
    // Create a DIV Element
    const newDiv = document.createElement("div");
-   newDiv.innerHTML = "<h1>An Internal Error Has Occurred:</p>"
+   newDiv.innerHTML = "<h1>An Internal Error Has Occurred:</p>";
 
    // Create element for the error message
    let errorMessage = document.createElement("h2");
    errorMessage.innerText = event.message;
 
-   // add the message to the newly created div
+   // Add the message to the newly created div
    newDiv.appendChild(errorMessage);
 
    // Show the line number where the error occurred
@@ -39,15 +36,19 @@ window.addEventListener("error", (event) => {
    bodyElement.classList.add("centre-error-message");
 
    // Display the error on the webpage
-   bodyElement.appendChild(newDiv)
+   bodyElement.appendChild(newDiv);
 
 });
+
+/**
+ * The Main Game Routine
+ */
 
 function runTheGame() {
 
    /* Initialise Constants */
 
-   const delayBetweenPlay = 6000; // 4 seconds
+   const delayBetweenPlay = 4000; // 4 seconds
 
    // Image Names
 
@@ -88,7 +89,7 @@ function runTheGame() {
       "Star Trek Character 'Spock' as portrayed by Leonard Simon Nimoy (1931 - 2015)"
    ];
 
-   // Us object-fit: fill; for these two images
+   // Us object-fit: fill; except for these two images
    const fillImages = [8, 9];
 
    /* Give each handshape its own number and letter    
@@ -110,8 +111,8 @@ function runTheGame() {
       ];
 
    /* Using the above numbers to determine who beats who?
-      e.g. 2 for Scissors, 3 for Lizard; therefore "23" means: Scissors decapitates Lizard
-           4 for Spock, 0 for Rock; therefore "40" means: Spock vaporises Rock
+      e.g. 2 for Scissors, 4 for Lizard; therefore "24" means: Scissors decapitates Lizard
+           3 for Spock, 0 for Rock; therefore "30" means: Spock vaporises Rock
    */
    const actions = {
       "21": "cuts",
@@ -128,12 +129,13 @@ function runTheGame() {
 
 /*
    NOTE: The button order is different as it matches the name of the game
-   Need an array of numbers to reflect: 
+   Therefore need an array of indices to reflect: 
    Rock Papers Scissors Lizard Spock
    values as shown in 'handshapes'
 */   
    const buttonOrderArray = [0,1,2,4,3];
 
+   // Used to indicate the result of a round
    const playerWon = 1;
    const playerTies = 0;
    const playerLost = -1;
@@ -149,6 +151,7 @@ function runTheGame() {
    const numberOfTiesElem = document.getElementById("number-of-ties");
    const playerScoreElem = document.getElementById("player-score");
    const computerScoreElem = document.getElementById("computer-score");
+   // DG7
    const playerImageElem = document.getElementById("player-choice-image");
    const computerImageElem = document.getElementById("koolai-choice-image");
    const introElem = document.getElementById("intro");
@@ -156,7 +159,7 @@ function runTheGame() {
    const explanationElem = document.getElementById("explanation");
    const playAgainElem = document.getElementById("play-again");
 
-   const LIMIT = 3;
+   const LIMIT = 3; // DG
 
    // Initialise Variable
    let currentNumberOfRounds = 0;
@@ -164,9 +167,9 @@ function runTheGame() {
    // Add Event Listeners to the buttons
    let buttonsList = document.getElementsByClassName("shape-button");
 
-   for (i = 0; i < buttonsList.length; i++) {
+   for (let i = 0; i < buttonsList.length; i++) {
       /* 
-         Note: for the 4th Button (Lizard, i=3) the value must be 4 i.e. [4, 'L', 'Lizard']
+         Note: for the 4th Button (Lizard, i=3) the value must be 4 i.e. [4, "L", "Lizard"]
                for the 5th Button (Spock, i=4) the value must be 3 i.e. [3, "N", "Spock"]
          In order for the winner to be mathematically determined using modulo 5
          So firstly, determine the correct value using 
@@ -185,7 +188,6 @@ function runTheGame() {
       // In this event, Call 'showThisImage' with the corresponding 'shapeValues' to display the images
       // Then determine the computer opponent's response
       buttonsList[i].addEventListener("click", function () {
-         console.log(shapeValues)
          showThisImage(shapeValues);
          const computerShapeValue = determineComputerChoice();
          showThisImage(computerShapeValue);
@@ -193,6 +195,7 @@ function runTheGame() {
       });
    }
 
+   // DG
    document.getElementById("computer-score").addEventListener("submit", (event) => {
       event.preventDefault();
       // Handle submit. That is, remove the form and show the game layout
@@ -222,7 +225,7 @@ function runTheGame() {
 
    function playGame() {
       // DG5
-      console.log(currentNumberOfRounds)
+      console.log(currentNumberOfRounds);
       displayContainerElem.classList.add("yourmove");
    }
 
@@ -253,7 +256,7 @@ function runTheGame() {
    }
 
    /**
-    * imageInfo has the form [3, "L", "Lizard"]
+    * imageInfo has the form [4, "L", "Lizard"]
     * So fetch the middle letter to determine type of image
     * Then pick a random number 0, 1 or 2
     * Add that to the corresponding base index in imageIndices
@@ -272,7 +275,7 @@ function runTheGame() {
          N: 12, // Spock: 12 to 14
       }
 
-      // imageInfo EG [3, "L", "Lizard"]
+      // imageInfo EG [4, "L", "Lizard"]
       // So fetch the middle letter to determine type of imaeg
       // Check for errors
       const imageCharacter = imageInfo[1];
@@ -305,13 +308,15 @@ function runTheGame() {
     * Determine the computer move and display the corresponding image
     */
 
+   // DG8
    function determineComputerChoice() {
       const thinkingMessage = document.createElement("p");
       thinkingMessage.innerText = "THINKING!";
       displayContainerElem.appendChild(thinkingMessage);
 
       /* DG      
-            // For now, simply use a random number 0-4 inclusive
+            For now, simply use a random number 0-4 inclusive
+
             const randomNumber = Math.floor(Math.random() * 5);
             showThisImage(handshapes[randomNumber]);
       */
@@ -350,7 +355,7 @@ function runTheGame() {
       outcomeElem.classList.remove("hide-element");
       explanationElem.classList.remove("hide-element");
       // Pause for a few seconds then move on
-      setTimeout(determineWhatHappensNext, delayBetweenPlay)
+      setTimeout(determineWhatHappensNext, delayBetweenPlay);
    }
 
    /**
@@ -371,11 +376,14 @@ function runTheGame() {
     * 0-1 = -1 
     * -1 + 5 = 4 (added 5 because it was a negative number)
     * Since 4 is even, Computer wins - Player loses
+    * Indeed, Paper covers Rock!
     * 
-    * If the Player used 3 (Spock) and Computer used 1 (Paper)
+    * If the Player used 4 (Lizard) and Computer used 1 (Paper)
     * 4-1 = 3
     * Since 3 is odd, Player wins - Computer loses
+    * Indeed, Lizard eats Paper!
     */
+
    function determineWhoWonThatRound(playerShapeNumber, computerShapeNumber) {
       if (playerShapeNumber === computerShapeNumber) {
          // Tie!
@@ -384,12 +392,12 @@ function runTheGame() {
       }
 
       let diff = playerShapeNumber - computerShapeNumber;
-      console.log(diff)
       if (diff < 0) {
          diff += 5;
       }
+
       diff %= 5;
-      console.log(playerShapeNumber,computerShapeNumber,diff)
+
       if (diff % 2 !== 0) {
          // odd; player wins!
          incrementPlayerWins();
@@ -437,7 +445,6 @@ function runTheGame() {
       currentRoundNumberElem.innerText = String(++oldScore);
    }
 
-
    /**
     * Increments the current number of rounds played
    */
@@ -466,24 +473,23 @@ function runTheGame() {
       if (verb) {
          explanationElem.innerText = `${playerShapeValues[2]} ${verb} ${computerShapeValues[2]}`;
       } else {
-         /*
-            if null, swop the numbers around e.g. 
-            "42" instead of "24" in order to fetch
-            "smashes"
-         */
+      /*
+         if null, swop the numbers around e.g. 
+         "32" instead of "23" in order to fetch
+         "smashes"
+      */
          verb = actions[computerShapeNumberChar + playerShapeNumberChar];
          // Swop! In order to determine the right name of each shape for the message
          [playerShapeValues, computerShapeValues] = [computerShapeValues, playerShapeValues];
          explanationElem.innerText = `${playerShapeValues[2]} ${verb} ${computerShapeValues[2]}`;
       }
-console.log(result,playerWon)
       outcomeElem.innerText = result === playerWon ? "You Win!" : "You Lose!";
    }
 
    function determineWhatHappensNext() {
-      console.log("WWW")
+      console.log("WWW"); // DG
       if (currentNumberOfRounds === LIMIT) {
-         throw "DONE"
+         throw "DONE";
       }
       
       // Remove Images

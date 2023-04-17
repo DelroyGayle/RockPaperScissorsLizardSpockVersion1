@@ -28,11 +28,11 @@ body {
 }
 
 .shape-button {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .yourmove {
-  display:block;
+  display: block;
   text-align: center;
   margin-top: 1em;
 }
@@ -41,7 +41,7 @@ body {
   content: "Your Move!";
   background-color: #ffba10;
   text-transform: uppercase;
-  border-color: white;
+  border-color: #fff;
   border-style: dotted;
 }
 
