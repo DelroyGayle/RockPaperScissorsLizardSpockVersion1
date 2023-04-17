@@ -1,9 +1,7 @@
-let timeoutID;
-
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
    const resultId = document.getElementById("final-score-container");
-   console.log(resultId)
+   console.log(resultId) // DG
 
    runTheGame();
 });
@@ -11,17 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // As described in https://developer.mozilla.org/en-US/docs/Web/API/Window/error_event
 
 window.addEventListener("error", (event) => {
-   /* DG
    // Remove everything from the DOM's body
-   const bodyElement = document.body;
-   while (bodyElement.firstChild) {
-      bodyElement.removeChild(bodyElement.firstChild);
-   }
-   */
-
    clearDOMBody();
-   const bodyElement = document.body;
-
 
    // As described in https://www.w3schools.com/jsref/met_document_createelement.asp 
    // Create a DIV Element
@@ -48,8 +37,6 @@ window.addEventListener("error", (event) => {
 
    // Display the error on the webpage
    bodyElement.appendChild(newDiv);
-
-   clearTimeout(timeoutID);
 
 });
 
@@ -205,22 +192,8 @@ function runTheGame() {
          const computerShapeValue = determineComputerChoice();
          showThisImage(computerShapeValue);
          updateScoresThenDetermineNextAction(shapeValues, computerShapeValue);
-         throw "testerror2"
       });
    }
-
-   /*
-   // DG
-   document.getElementById("computer-score").addEventListener("submit", (event) => {
-      event.preventDefault();
-      // Handle submit. That is, remove the form and show the game layout
-      document.getElementsByClassName("form-container")[0].style.display = "none";
-      // DG4
-      numberOfRoundsElem.innerText = String(3);
-      document.getElementsByClassName("show-game")[0].style.display = "block";
-      playGame();
-   });
-   */
 
    // Initial Form
    const initialForm = document.getElementById("initial-form-id");
@@ -229,7 +202,6 @@ function runTheGame() {
       // Handle submit. That is remove the form and show the game layout
       document.getElementsByClassName("form-container")[0].style.display = "none";
       numberOfRoundsElem.innerText = String(3);
-      //document.getElementById("p1").innerHTML = "New text!";
       document.getElementsByClassName("show-game")[0].style.display = "block";
       playGame();
    });
@@ -242,21 +214,12 @@ function runTheGame() {
    playAgainButton.addEventListener("click", function (event) {
       event.preventDefault();
       resetInOrderToPlayAgain();
-      console.log("OKKKK2")
-      /*
-      // Handle submit. That is remove the form and show the game layout
-      document.getElementsByClassName("form-container")[0].style.display = "none";
-      numberOfRoundsElem.innerText = String(3);
-      //document.getElementById("p1").innerHTML = "New text!";
-      document.getElementsByClassName("show-game")[0].style.display = "block";
-      */
       playGame();
    });
 
    // Initialise Variables
 
    // DG1
-   // let timeoutID;
    let imageIndex = 0;
 
    function hideMessages() {
@@ -273,32 +236,6 @@ function runTheGame() {
       enableButtons();
       // Hide messages
       hideMessages();
-   }
-
-   /**
-    * Disable the other buttons so that there is no user interruption
-    */
-
-   function disableButtons() {
-      document.getElementById("the-rules-button").disabled = true;
-      const buttonsList = document.getElementsByClassName("shape-button");
-
-      for (let button of buttonsList) {
-         button.disabled = true;
-      }
-   }
-
-   /**
-    * Enable the other buttons to allow user interaction
-   */
-
-   function enableButtons() {
-      document.getElementById("the-rules-button").disabled = false;
-      const buttonsList = document.getElementsByClassName("shape-button");
-
-      for (let button of buttonsList) {
-         button.disabled = false;
-      }
    }
 
    /**
@@ -362,23 +299,8 @@ function runTheGame() {
 
       /* DG      
             For now, simply use a random number 0-4 inclusive
-
-            const randomNumber = Math.floor(Math.random() * 5);
-            showThisImage(handshapes[randomNumber]);
       */
       return handshapes[Math.floor(Math.random() * 5)];
-
-      /*
-      DG6
-      let finalAnswer = randomNumber1 * 3; // 0 3 6 9 or 12
-      const theImage = document.createElement("img");
-      theImage.src = imagesPath + theListOfImages[randomNumber];
-      theImage.alt = theListOfAltText[randomNumber];
-      // Use 'object-fit': cover except for two exceptions
-      theImage.style.objectFit = fillImages.indexOf(randomNumber) < 0 ? "cover" : "fill";
-      displayContainerElem.appendChild(theImage);
-      */
-
    }
 
    /**
@@ -401,11 +323,10 @@ function runTheGame() {
       outcomeElem.classList.remove("hide-element");
       explanationElem.classList.remove("hide-element");
       // Pause for a few seconds then move on
-      timeoutID = setTimeout(determineWhatHappensNext, delayBetweenPlay);
+      setTimeout(determineWhatHappensNext, delayBetweenPlay);
    }
 
    /**
-    * 
     * EG for Rock vs. Paper 
     * playerShapeNumber => 0 
     * computerShapeNumber => 1
@@ -457,7 +378,7 @@ function runTheGame() {
 
    /**
     * Gets the current number of ties from the DOM and increments it by 1
-   */
+    */
 
    function incrementTies() {
       let oldScore = parseInt(numberOfTiesElem.innerText);
@@ -466,7 +387,7 @@ function runTheGame() {
 
    /**
     * Gets the current number of Player Wins from the DOM and increments it by 1
-   */
+    */
 
    function incrementPlayerWins() {
       let oldScore = parseInt(playerScoreElem.innerText);
@@ -475,7 +396,7 @@ function runTheGame() {
 
    /**
     * Gets the current number of Computer Wins from the DOM and increments it by 1
-   */
+    */
 
    function incrementComputerWins() {
       let oldScore = parseInt(computerScoreElem.innerText);
@@ -484,7 +405,7 @@ function runTheGame() {
 
    /**
     * Increment the variable that represents the Current number of Rounds
-   */
+    */
 
    function incrementCurrentRoundNumber() {
       currentRoundNumberElem.innerText = String(++currentNumberOfRounds);
@@ -534,7 +455,7 @@ function runTheGame() {
     * If the total number of rounds as not yet been reached continue playing
     * Otherwise Display the Final Score and Give the user the option to Play Again!
     */
-
+   
    function determineWhatHappensNext() {
       // Remove Images
       clearDisplayContainerElem();
@@ -542,7 +463,7 @@ function runTheGame() {
       while (element.firstChild) {
          element.removeChild(element.firstChild);
       }
-      console.log("testerror1", currentNumberOfRounds, LIMIT); // DG
+      console.log("WWW", currentNumberOfRounds, LIMIT); // DG
       if (currentNumberOfRounds !== LIMIT) {
          playGame();
          return;
@@ -575,51 +496,9 @@ function runTheGame() {
 
       // Display the result on the webpage
       displayContainerElem.appendChild(newDiv);
-      return;
 
-      // Create Play Again Button
-      const newButton = document.createElement("button");
-      newButton.innerText = "Play Again!"
-      // Add styling
-      newButton.classList.add("rules-button");
-
-      // Add the button to the newly created div
-      newDiv.appendChild(newButton);
-
-      /*   
-         // Show the line number where the error occurred
-         errorMessage = document.createElement("h2");
-         errorMessage.innerText = `Line Number: ${event.lineno}`;
-         newDiv.appendChild(errorMessage);
-      
-         // Add styling
-         newDiv.classList.add("error-message-style");
-      
-         // Centre the error message
-         bodyElement.classList.add("centre-error-message");
-      */
-
-      // Display the error on the webpage
-      displayContainerElem.appendChild(newDiv);
-      return;
-
-      /*
-   ////////////////////////
-   
-         let resultId = document.getElementById("final-score-container");
-         console.log(resultId)
-         document.getElementById("final-score-container").remove("hide-element");
-         resultId = document.getElementById("final-score-container");
-         console.log(resultId)
-   
-         const playerFinalScore = parseInt(playerScoreElem.innerText);
-         const computerFinalScore = parseInt(computerScoreElem.innerText);
-         resultId.innerText = playerFinalScore === computerFinalScore ? "It's a draw!" :
-                              playerFinalScore > computerFinalScore ? "Well done, You Won!" :
-                              "I am the Winner! You lose!";
-         // document.getElementById("final-score-container").classList.toggle("hide-element");
-         document.getElementById("final-score-container").remove("hide-element");
-         */
+      // Enable the Rules button
+      document.getElementById("the-rules-button").disabled = false;
    }
 
    /**
@@ -628,14 +507,6 @@ function runTheGame() {
     */
 
    function resetInOrderToPlayAgain() {
-      console.log("OKKKK")
-      /*
-      // Handle submit. That is remove the form and show the game layout
-      document.getElementsByClassName("form-container")[0].style.display = "none";
-      numberOfRoundsElem.innerText = String(3);
-      //document.getElementById("p1").innerHTML = "New text!";
-      document.getElementsByClassName("show-game")[0].style.display = "block";
-      */
       clearDisplayContainerElem();
       currentNumberOfRounds = 0;
       currentRoundNumberElem.innerText = "0";
@@ -644,33 +515,31 @@ function runTheGame() {
       computerScoreElem.innerText = "0";
    }
 
+}
 
-   function goodBye() {
+/**
+  * Disable the other buttons so that there is no user interruption
+  */
 
-      clearDOMBody();
-      const bodyElement = document.body;
+function disableButtons() {
+   document.getElementById("the-rules-button").disabled = true;
+   const buttonsList = document.getElementsByClassName("shape-button");
 
-      // As described in https://www.w3schools.com/jsref/met_document_createelement.asp 
-      // Create a DIV Element
-      const newDiv = document.createElement("div");
-      newDiv.innerHTML = "<h1>Thanks For Playing</h1>";
+   for (let button of buttonsList) {
+      button.disabled = true;
+   }
+}
 
-      let secondMessage = document.createElement("h2");
-      secondMessage.innerText = "Goodbye!"
+/**
+ * Enable the other buttons to allow user interaction
+*/
 
-      // Add the message to the newly created div
-      newDiv.appendChild(secondMessage);
+function enableButtons() {
+   document.getElementById("the-rules-button").disabled = false;
+   const buttonsList = document.getElementsByClassName("shape-button");
 
-      // Add styling
-      newDiv.classList.add("error-message-style");
-
-      // Centre the message
-      bodyElement.classList.add("centre-error-message");
-
-      // Display the Goodbye message on the webpage
-      bodyElement.appendChild(newDiv);
-
-      clearTimeout(timeoutID);
+   for (let button of buttonsList) {
+      button.disabled = false;
    }
 }
 
@@ -679,8 +548,8 @@ function runTheGame() {
  */
 
 function clearDOMBody() {
-      const bodyElement = document.body;
-      while (bodyElement.firstChild) {
-            bodyElement.removeChild(bodyElement.firstChild);
-      }
+   const bodyElement = document.body;
+   while (bodyElement.firstChild) {
+         bodyElement.removeChild(bodyElement.firstChild);
+   }
 } 
