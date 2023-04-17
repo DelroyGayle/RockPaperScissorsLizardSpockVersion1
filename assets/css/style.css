@@ -119,6 +119,11 @@ img {
     margin-top: 1em;
 }
 
+.final-score-message {
+  text-align: center;
+  margin: 2em;
+}
+
 .centre-error-message {
   display: flex;
   justify-content: center;

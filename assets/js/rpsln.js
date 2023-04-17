@@ -1,5 +1,8 @@
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
+   const resultId = document.getElementById("final-score-container");
+   console.log(resultId)
+
    runTheGame();
 });
 
@@ -127,13 +130,13 @@ function runTheGame() {
       "02": "crushes"
    };
 
-/*
-   NOTE: The button order is different as it matches the name of the game
-   Therefore need an array of indices to reflect: 
-   Rock Papers Scissors Lizard Spock
-   values as shown in 'handshapes'
-*/   
-   const buttonOrderArray = [0,1,2,4,3];
+   /*
+      NOTE: The button order is different as it matches the name of the game
+      Therefore need an array of indices to reflect: 
+      Rock Papers Scissors Lizard Spock
+      values as shown in 'handshapes'
+   */
+   const buttonOrderArray = [0, 1, 2, 4, 3];
 
    // Used to indicate the result of a round
    const playerWon = 1;
@@ -220,10 +223,33 @@ function runTheGame() {
       playGame();
    });
 
+   // Create Play Again Button
+   const playAgainButton = document.createElement("button");
+   playAgainButton.innerText = "Play Again!";
+   // Add styling
+   playAgainButton.classList.add("rules-button"); 
+   playAgainButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      console.log("OKKKK")
+      // Handle submit. That is remove the form and show the game layout
+      document.getElementsByClassName("form-container")[0].style.display = "none";
+      numberOfRoundsElem.innerText = String(3);
+      //document.getElementById("p1").innerHTML = "New text!";
+      document.getElementsByClassName("show-game")[0].style.display = "block";
+      playGame();
+   });  
+
    // Initialise Variables
 
    // DG1
    let imageIndex = 0;
+
+   function hideMessages() {
+      // Hide messages
+      outcomeElem.classList.add("hide-element");
+      explanationElem.classList.add("hide-element");
+      displayContainerElem.classList.add("yourmove");      
+   }
 
    function playGame() {
       // DG5
@@ -231,9 +257,7 @@ function runTheGame() {
       // Enable game buttons
       enableButtons();
       // Hide messages
-      outcomeElem.classList.add("hide-element");
-      explanationElem.classList.add("hide-element");
-      displayContainerElem.classList.add("yourmove");
+      hideMessages();
    }
 
    /**
@@ -471,11 +495,11 @@ function runTheGame() {
       if (verb) {
          explanationElem.innerText = `${playerShapeValues[2]} ${verb} ${computerShapeValues[2]}`;
       } else {
-      /*
-         if null, swop the numbers around e.g. 
-         "32" instead of "23" in order to fetch
-         "smashes"
-      */
+         /*
+            if null, swop the numbers around e.g. 
+            "32" instead of "23" in order to fetch
+            "smashes"
+         */
          verb = actions[computerShapeNumberChar + playerShapeNumberChar];
          // Swop! In order to determine the right name of each shape for the message
          [playerShapeValues, computerShapeValues] = [computerShapeValues, playerShapeValues];
@@ -484,18 +508,98 @@ function runTheGame() {
       outcomeElem.innerText = result === playerWon ? "You Win!" : "You Lose!";
    }
 
+   /**
+    * If the total number of rounds as not yet been reached continue playing
+    * Otherwise Display the Final Score and Give the user the option to Play Again!
+    */
    function determineWhatHappensNext() {
-      console.log("WWW",currentNumberOfRounds,LIMIT); // DG
-      if (currentNumberOfRounds === LIMIT) {
-         throw "DONE";
-      }
-      
       // Remove Images
-         const element = displayContainerElem;
-         while (element.firstChild) {
+      const element = displayContainerElem;
+      while (element.firstChild) {
                element.removeChild(element.firstChild);
-         }
-      playGame();
-   }
+      }
+      console.log("WWW", currentNumberOfRounds, LIMIT); // DG
+      if (currentNumberOfRounds !== LIMIT) {
+         playGame();
+         return;
+      }
 
+      const playerFinalScore = parseInt(playerScoreElem.innerText);
+      const computerFinalScore = parseInt(computerScoreElem.innerText);
+   
+      // As described in https://www.w3schools.com/jsref/met_document_createelement.asp 
+      // Create a DIV Element
+      const newDiv = document.createElement("div");
+      // newDiv.innerHTML = `                    
+      //                   <div id="final-score-container">
+      //                         <div id="final-score-message" class="display-message"></div>
+      //                         <button id="play-again-button" class="rules-button">Rules</button>
+      //                   </div>
+      //                `;
+
+      // Hide current messages
+      hideMessages();
+      displayContainerElem.classList.remove("yourmove");
+
+      // Create element for the final results message
+      let theMessage = document.createElement("h2");
+      theMessage.innerText = playerFinalScore === computerFinalScore ? "It's a draw!" :
+                                                  playerFinalScore > computerFinalScore ? "Well done, You Win!" :
+                                                                                          "You lose! I'm the Winner!";
+      // Add styling
+      theMessage.classList.add("final-score-message");
+
+      // Add the message to the newly created div
+      newDiv.appendChild(theMessage);
+
+      // Add the button to the newly created div
+      newDiv.appendChild(playAgainButton);
+   // Display the error on the webpage
+   document.getElementById("display-container").appendChild(newDiv);
+   return;
+
+      // Create Play Again Button
+      const newButton = document.createElement("button");
+      newButton.innerText = "Play Again!"
+      // Add styling
+      newButton.classList.add("rules-button");
+
+      // Add the button to the newly created div
+      newDiv.appendChild(newButton);
+
+/*   
+   // Show the line number where the error occurred
+   errorMessage = document.createElement("h2");
+   errorMessage.innerText = `Line Number: ${event.lineno}`;
+   newDiv.appendChild(errorMessage);
+
+   // Add styling
+   newDiv.classList.add("error-message-style");
+
+   // Centre the error message
+   bodyElement.classList.add("centre-error-message");
+*/
+
+   // Display the error on the webpage
+   document.getElementById("display-container").appendChild(newDiv);
+   return;
+
+   /*
+////////////////////////
+
+      let resultId = document.getElementById("final-score-container");
+      console.log(resultId)
+      document.getElementById("final-score-container").remove("hide-element");
+      resultId = document.getElementById("final-score-container");
+      console.log(resultId)
+
+      const playerFinalScore = parseInt(playerScoreElem.innerText);
+      const computerFinalScore = parseInt(computerScoreElem.innerText);
+      resultId.innerText = playerFinalScore === computerFinalScore ? "It's a draw!" :
+                           playerFinalScore > computerFinalScore ? "Well done, You Won!" :
+                           "I am the Winner! You lose!";
+      // document.getElementById("final-score-container").classList.toggle("hide-element");
+      document.getElementById("final-score-container").remove("hide-element");
+      */
+   }
 }
