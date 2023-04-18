@@ -23,8 +23,12 @@
                 </h1>
                 <form class="show-form" action="" id="initial-form-id">
                     <p>Hello! My name is Kool A.I.</p>
+                    <br>
                     <p>I challenge you to a game of</p>
                     <p>Rock, Paper, Scissors, Lizard, Spock</p>
+                    <br>
+                    <p>Please enter your name (optional):</p>
+                    <input type="text" id="player_name" class="playername-control" maxlength="12">
                     <br>
                     <p>Best of:</p>
                     <br>
@@ -34,7 +38,7 @@
                     <input type="radio" id="ten" name="total_numberof_rounds" value="10">
                     <label for="ten">10</label>
                     <br>
-                    <input type="radio" id="five" name="total_numberof_rounds" value="3" checked>
+                    <input type="radio" id="five" name="total_numberof_rounds" value="5" checked>
                     <label for="five">5</label>
                     <br>
                     <input type="radio" id="random" name="total_numberof_rounds" value="random">
@@ -68,7 +72,7 @@
 
                     </div>
                     <div class="column-centre-aligned">
-                        <h2>P012345678901</h2>
+                        <h2 id="player-name-heading"></h2>
                         <span id="player-score">0</span>
                     </div>
                     <div class="column-centre-aligned">

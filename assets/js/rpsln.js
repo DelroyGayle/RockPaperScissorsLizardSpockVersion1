@@ -155,8 +155,6 @@ function runTheGame() {
    const playerScoreElem = document.getElementById("player-score");
    const computerScoreElem = document.getElementById("computer-score");
    // DG7
-   const playerImageElem = document.getElementById("player-choice-image");
-   const computerImageElem = document.getElementById("koolai-choice-image");
    const introElem = document.getElementById("intro");
    const outcomeElem = document.getElementById("outcome");
    const explanationElem = document.getElementById("explanation");
@@ -164,8 +162,10 @@ function runTheGame() {
 
    const LIMIT = 3; // DG
 
-   // Initialise Variable
+   // Setup and Initialise Variables
+   let playerName = null;
    let currentNumberOfRounds = 0;
+
 
    // Add Event Listeners to the buttons
    let buttonsList = document.getElementsByClassName("shape-button");
@@ -203,10 +203,21 @@ function runTheGame() {
    const initialForm = document.getElementById("initial-form-id");
    initialForm.addEventListener("submit", (event) => {
       event.preventDefault();
+      // Fetch the relevant form info
+      const myForm = document.getElementsByClassName("show-form")[0]
+      const formPlayerName = myForm.player_name.value.trim();
+
       // Handle submit. That is remove the form and show the game layout
       document.getElementsByClassName("form-container")[0].style.display = "none";
       numberOfRoundsElem.innerText = String(3);
       document.getElementsByClassName("show-game")[0].style.display = "block";
+
+      // Set up the Player's Name if it was inputted
+      if (formPlayerName !== "") {
+         playerName = titleCase(formPlayerName);
+      }
+      document.getElementById("player-name-heading").innerText = playerName ?? "Player";
+
       playGame();
    });
 
@@ -234,8 +245,6 @@ function runTheGame() {
    }
 
    function playGame() {
-      // DG5
-      console.log(currentNumberOfRounds);
       // Enable game buttons
       enableButtons();
       // Hide messages
@@ -486,9 +495,9 @@ function runTheGame() {
 
       // Create element for the final results message
       const theMessage = document.createElement("h2");
-      theMessage.innerText = playerFinalScore === computerFinalScore ? "It's a draw!" :
-                             playerFinalScore > computerFinalScore ?   "Well done, You Win!" :
-                                                                       "You lose! I'm the Winner!";
+      theMessage.innerText = playerFinalScore === computerFinalScore ? displayResultMessage(playerTies) :
+         playerFinalScore > computerFinalScore ? displayResultMessage(playerWon) :
+            displayResultMessage(playerLost);
       // Add styling
       theMessage.classList.add("final-score-message");
 
@@ -503,6 +512,37 @@ function runTheGame() {
 
       // Enable the Rules button
       document.getElementById("the-rules-button").disabled = false;
+   }
+
+   /**
+    * Display resultant message with optional name
+    */
+
+   function displayResultMessage(result) {
+      let text = "";
+      
+      if (result === playerTies) {
+         if (playerName) {
+            text = playerName + "! "
+         }
+
+         return text + "It's a draw!"
+      }
+
+      if (result === playerWon) {
+         if (!playerName) {
+            return "Well done, You Win!";
+         }
+
+         return `Well done ${playerName}! You Win!`;
+      }
+
+      // Player loses
+      if (playerName) {
+         text = " " + playerName;
+      }
+
+      return `You lose${text}! I'm the Winner!`;
    }
 
    /**
@@ -547,13 +587,9 @@ function enableButtons() {
    }
 }
 
-/**
- * Remove everything from the DOM's body
- */
-
-function clearDOMBody() {
-   const bodyElement = document.body;
-   while (bodyElement.firstChild) {
-      bodyElement.removeChild(bodyElement.firstChild);
-   }
-} 
+// Taken from https://www.freecodecamp.org/news/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27/ 
+function titleCase(str) {
+   return str.toLowerCase().split(' ').map(function (word) {
+      return (word.charAt(0).toUpperCase() + word.slice(1));
+   }).join(' ');
+}
