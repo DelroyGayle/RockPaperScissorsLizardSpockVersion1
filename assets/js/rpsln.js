@@ -224,7 +224,7 @@ function runTheGame() {
    const playAgainButton = document.createElement("button");
    playAgainButton.innerText = "Play Again!";
    // Add styling
-   playAgainButton.classList.add("rules-button");
+   playAgainButton.classList.add("playagain-button");
    playAgainButton.addEventListener("click", function (event) {
       event.preventDefault();
       resetInOrderToPlayAgain();
@@ -508,6 +508,7 @@ function runTheGame() {
 
       // Enable the Rules button
       document.getElementById("the-rules-button").disabled = false;
+      document.getElementById("the-rules-button").style.display = "block";
    }
 
    /**
@@ -568,6 +569,8 @@ function runTheGame() {
 
 function disableButtons() {
    document.getElementById("the-rules-button").disabled = true;
+   document.getElementById("the-rules-button").style.display = "none";
+
    const buttonsList = document.getElementsByClassName("shape-button");
 
    for (let button of buttonsList) {
@@ -581,6 +584,8 @@ function disableButtons() {
 
 function enableButtons() {
    document.getElementById("the-rules-button").disabled = false;
+   document.getElementById("the-rules-button").style.display = "block";
+
    const buttonsList = document.getElementsByClassName("shape-button");
 
    for (let button of buttonsList) {

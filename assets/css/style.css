@@ -71,18 +71,32 @@ body {
 }
 
 input[type=submit],
-.rules-button {
+.rules-button,
+.playagain-button {
   padding: 5px 15px;
 /* DG2 */
-background: #99e0b2;
+  background: #99e0b2;
   border: 0 none;
   cursor: pointer;
   border-radius: 5px;
 }
 
+.playagain-button {
+  display: block;
+  text-align: center;
+}
+
 .rules-button {
   display: block;
   text-align: center;
+  /* Centre this button at the bottom of the screen as shown by Chankey Pathak
+     at https://stackoverflow.com/questions/22162560/button-at-the-center-and-bottom-of-div 
+  */
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;  
+  bottom: 80px;
 }
 
 .column-centre-aligned {
@@ -148,6 +162,14 @@ img {
 
 /* ================= MEDIA QUERIES ================= */
 
+@media (max-width: 840px) {
+  img {
+    width:  24vw;
+    height: 24vw;
+  }
+}
+
+
 @media (max-width: 768px) {
 
   h1, 
@@ -178,6 +200,10 @@ img {
   h2 {
     font-size: 100%;
   }
+
+  .rules-button {
+    bottom: 120px;
+  }  
 }
 
 
