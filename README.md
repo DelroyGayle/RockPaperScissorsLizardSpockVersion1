@@ -160,6 +160,9 @@ This project was deployed using Github using the following method:
 ### Credits
 ### SAMPLE ERROR
 
+![image](https://user-images.githubusercontent.com/91061592/232718879-9f92a57f-2a7d-4fd6-99b1-dd7d98b56efd.png)
+
+
 * 
 
 #### Acknowledgements
