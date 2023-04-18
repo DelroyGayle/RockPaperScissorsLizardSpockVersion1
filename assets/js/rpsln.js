@@ -1,8 +1,5 @@
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
-   const resultId = document.getElementById("final-score-container");
-   console.log(resultId) // DG
-
    runTheGame();
 });
 
@@ -133,7 +130,7 @@ function runTheGame() {
    /*
       NOTE: The button order is different as it matches the name of the game
       Therefore need an array of indices to reflect: 
-      Rock Papers Scissors Lizard Spock
+      Rock Paper Scissors Lizard Spock
       values as shown in 'handshapes'
    */
    const buttonOrderArray = [0, 1, 2, 4, 3];
@@ -158,14 +155,12 @@ function runTheGame() {
    const introElem = document.getElementById("intro");
    const outcomeElem = document.getElementById("outcome");
    const explanationElem = document.getElementById("explanation");
-   const playAgainElem = document.getElementById("play-again");
-
-   const LIMIT = 3; // DG
 
    // Setup and Initialise Variables
    let playerName = null;
    let currentNumberOfRounds = 0;
-
+   let total_numberof_rounds;
+   let random_chosen = false;
 
    // Add Event Listeners to the buttons
    let buttonsList = document.getElementsByClassName("shape-button");
@@ -206,10 +201,14 @@ function runTheGame() {
       // Fetch the relevant form info
       const myForm = document.getElementsByClassName("show-form")[0]
       const formPlayerName = myForm.player_name.value.trim();
-
-      // Handle submit. That is remove the form and show the game layout
+      const formNumberOfRounds = parseInt(myForm.total_numberof_rounds.value);
+      // if 'random' was selected generate a random number between 1 and 15 inclusive
+      [total_numberof_rounds, random_chosen] = Number.isNaN(formNumberOfRounds) ?
+                                                   [Math.floor(Math.random() * 15) + 1, true] :
+                                                   [formNumberOfRounds, false];
+      // Handle submit. That is, remove the form and show the game layout
       document.getElementsByClassName("form-container")[0].style.display = "none";
-      numberOfRoundsElem.innerText = String(3);
+      numberOfRoundsElem.innerText = String(total_numberof_rounds);
       document.getElementsByClassName("show-game")[0].style.display = "block";
 
       // Set up the Player's Name if it was inputted
@@ -233,9 +232,6 @@ function runTheGame() {
    });
 
    // Initialise Variables
-
-   // DG1
-   let imageIndex = 0;
 
    function hideMessages() {
       // Hide messages
@@ -476,8 +472,8 @@ function runTheGame() {
       while (element.firstChild) {
          element.removeChild(element.firstChild);
       }
-      console.log("WWW", currentNumberOfRounds, LIMIT); // DG
-      if (currentNumberOfRounds !== LIMIT) {
+
+      if (currentNumberOfRounds !== total_numberof_rounds) {
          playGame();
          return;
       }
@@ -520,7 +516,7 @@ function runTheGame() {
 
    function displayResultMessage(result) {
       let text = "";
-      
+
       if (result === playerTies) {
          if (playerName) {
             text = playerName + "! "
@@ -557,6 +553,11 @@ function runTheGame() {
       numberOfTiesElem.innerText = "0";
       playerScoreElem.innerText = "0";
       computerScoreElem.innerText = "0";
+      if (random_chosen) {
+         // Generate a new random number
+         total_numberof_rounds = Math.floor(Math.random() * 15 + 1);
+         numberOfRoundsElem.innerText = String(total_numberof_rounds);
+      }
    }
 
 }
