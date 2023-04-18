@@ -508,7 +508,6 @@ function runTheGame() {
 
       // Enable the Rules button
       document.getElementById("the-rules-button").disabled = false;
-      document.getElementById("the-rules-button").style.display = "block";
    }
 
    /**
@@ -569,7 +568,6 @@ function runTheGame() {
 
 function disableButtons() {
    document.getElementById("the-rules-button").disabled = true;
-   document.getElementById("the-rules-button").style.display = "none";
 
    const buttonsList = document.getElementsByClassName("shape-button");
 
@@ -584,7 +582,6 @@ function disableButtons() {
 
 function enableButtons() {
    document.getElementById("the-rules-button").disabled = false;
-   document.getElementById("the-rules-button").style.display = "block";
 
    const buttonsList = document.getElementsByClassName("shape-button");
 
