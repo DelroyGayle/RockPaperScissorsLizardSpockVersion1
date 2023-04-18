@@ -10,7 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener("error", (event) => {
    // Remove everything from the DOM's body
-   clearDOMBody();
+   const bodyElement = document.body;
+   while (bodyElement.firstChild) {
+      bodyElement.removeChild(bodyElement.firstChild);
+   }
 
    // As described in https://www.w3schools.com/jsref/met_document_createelement.asp 
    // Create a DIV Element
@@ -176,6 +179,7 @@ function runTheGame() {
          buttonOrderArray = [0,1,2,4,3];
       */
       const index = buttonOrderArray[i];
+
       // Now fetch the relevant info to set up the button
       const shapeValues = handshapes.find(element => element[0] === index);
       // Check for errors
@@ -455,7 +459,7 @@ function runTheGame() {
     * If the total number of rounds as not yet been reached continue playing
     * Otherwise Display the Final Score and Give the user the option to Play Again!
     */
-   
+
    function determineWhatHappensNext() {
       // Remove Images
       clearDisplayContainerElem();
@@ -483,8 +487,8 @@ function runTheGame() {
       // Create element for the final results message
       const theMessage = document.createElement("h2");
       theMessage.innerText = playerFinalScore === computerFinalScore ? "It's a draw!" :
-         playerFinalScore > computerFinalScore ? "Well done, You Win!" :
-            "You lose! I'm the Winner!";
+                             playerFinalScore > computerFinalScore ?   "Well done, You Win!" :
+                                                                       "You lose! I'm the Winner!";
       // Add styling
       theMessage.classList.add("final-score-message");
 
@@ -550,6 +554,6 @@ function enableButtons() {
 function clearDOMBody() {
    const bodyElement = document.body;
    while (bodyElement.firstChild) {
-         bodyElement.removeChild(bodyElement.firstChild);
+      bodyElement.removeChild(bodyElement.firstChild);
    }
 } 

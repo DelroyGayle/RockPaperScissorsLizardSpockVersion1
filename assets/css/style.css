@@ -167,14 +167,14 @@ img {
 @media (max-width: 414px) {
   h1, 
   h2 {
-    font-size: 120%;
+    font-size: 100%;
   }
 }
 
 
-@media (max-width: 320px) {
+@media (max-width: 360px) {
   h1, 
   h2 {
-    font-size: 95%;
+    font-size: 85%;
   }
 }

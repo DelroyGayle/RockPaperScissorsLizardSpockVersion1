@@ -158,7 +158,8 @@ This project was deployed using Github using the following method:
 
 ***
 ### Credits
-#### 
+### SAMPLE ERROR
+
 * 
 
 #### Acknowledgements
