@@ -21,18 +21,19 @@
                 <h1 class="header-margin-forform">
                     Rock Paper Scissors Lizard Spock
                 </h1>
-                <form class="show-form" action="" id="initial-form-id">
+                <form class="show-form" id="initial-form-id">
                     <p>Hello! My name is Kool A.I.</p>
                     <br>
                     <p>I challenge you to a game of</p>
                     <p>Rock, Paper, Scissors, Lizard, Spock</p>
                     <br>
-                    <p>Please enter your name (optional):</p>
+                    <label for="player_name">Please enter your name (optional):</label>
+                    <br>
                     <input type="text" id="player_name" class="playername-control" maxlength="12">
                     <br>
                     <p>Best of:</p>
                     <br>
-                    <input type="radio" id="fifteen" name="total_numberof_rounds" value="15">
+                    <input type="radio" id="fifteen" name="total_numberof_rounds" value="15" checked>
                     <label for="fifteen">15 (default)</label>
                     <br>
                     <input type="radio" id="ten" name="total_numberof_rounds" value="10">
@@ -41,7 +42,7 @@
                     <input type="radio" id="five" name="total_numberof_rounds" value="5">
                     <label for="five">5</label>
                     <br>
-                    <input type="radio" id="random" name="total_numberof_rounds" value="random" checked>
+                    <input type="radio" id="random" name="total_numberof_rounds" value="random">
                     <label for="random">Random number (1 - 15)</label>
                     <br>
                     <br>
@@ -54,7 +55,7 @@
         <h1 class="header-margin-forgame">
             Rock Paper Scissors Lizard Spock
         </h1>
-        <main>
+        <div>
             <br>
             <!-- DG2 -->
             <div id="intro">
@@ -72,16 +73,16 @@
 
                     </div>
                     <div class="column-centre-aligned">
-                        <h2 id="player-name-heading"></h2>
+                        <h2 id="player-name-heading">Player</h2>
                         <span id="player-score">0</span>
-                    </div>
-                    <div class="column-centre-aligned">
-                        <h2>Ties</h2>
-                        <span id="number-of-ties">0</span>
                     </div>
                     <div class="column-centre-aligned">
                         <h2>Kool AI</h2>
                         <span id="computer-score">0</span>
+                    </div>
+                    <div class="column-centre-aligned">
+                        <h2>Ties</h2>
+                        <span id="number-of-ties">0</span>
                     </div>
                 </section>
                 <br>
@@ -112,14 +113,14 @@
                 <div id="outcome" class="display-message"></div>
                 <div id="explanation" class="display-message"></div>
             </div>
-        </main>
+        </div>
         <br>
                 <!-- DG3 see above RE play again -->
                 <div id="play-again"></div>
     </section>
     <!-- DG4 need to stick this position -->
     <button id="the-rules-button" class="rules-button">Rules</button>
-    <script src="assets/js/rpsln.js" type="text/javascript"></script>
+    <script src="assets/js/rpsln.js"></script>
 </body>
 
 </html>

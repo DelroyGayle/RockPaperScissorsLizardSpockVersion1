@@ -1,23 +1,107 @@
-# RockPaperScissorsLizardSpock
-The Game of Rock-Paper-Scissors-Lizard-Spock. Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.
-A fun game that is played against the computer, namely **Kool A.I.** 
-***
+# Rock-Paper-Scissors-Lizard-Spock
+
+## Rock Paper Scissors Lizard Spock Game
+
+[Link to deployed site]()
+
+Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.
+
+Rock-Paper-Scissors-Lizard-Spock is a fun game for both adults and children.
+It is based upon the original centuries-old game of ***Rock-Paper-Scissors***
+So, this version incorporates two new items namely Lizard and Spock.
+Moreover, the opponent is the computer, who goes by the name, **Kool A.I.** 
+
+To quote
+
+> Rock, Paper, Scissors, Lizard, Spock is a game of chance that expands the traditional game of [Rock, Paper, Scissors](http://en.wikipedia.org/wiki/Rock_paper_scissors).<br>It is first used to settle a dispute about what to watch on TV between [Sheldon](https://bigbangtheory.fandom.com/wiki/Sheldon_Cooper) and [Raj](https://bigbangtheory.fandom.com/wiki/Rajesh_Koothrappali) in ["The Lizard-Spock Expansion"](https://bigbangtheory.fandom.com/wiki/The_Lizard-Spock_Expansion).<p>
+It is mentioned again in ["The Rothman Disintegration"](https://bigbangtheory.fandom.com/wiki/The_Rothman_Disintegration), where Sheldon explains the rules to Penny and Barry Kripke.<p>
+[SOURCE: bigbangtheory.fandom.com](https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock)
 
 # UX
 
+## TARGET AUDIENCE:
+
+* * *
+
+This online interactive game targets all ages 5+, and that is its beauty! Almost anyone can appreciate a good game of rock, paper, scissors.
+
+*   Children 5+
+*   Adults
+
+  
+
+USER STORIES:
+-------------
+
+* * *
+
+1. The site is designed in a way that makes the game fun and easy to play.
+2. The game feels personal as the user can input their name and see it displayed throughout.
+3. The game rounds and scores are displayed throughout. 
+4. The user will want to play again and again!
+
+Create a fun and easy to navigate interactive game of Rock, Paper & Scissors that allows the player to play against the computer who will generate its choice at random. 
+The game will last 5 rounds, displaying the tally throughout. After Round 5 the game will display the Game Winner, and allow for the option to _Play Again_.
+
+
+The site aesthetic is minimalistic: displays big buttons and bold images of the player and computer choice. It is styled with bright and contrasting colors.
+Consistent styling for easy navigation using a mobile-first approach and then ensuring it displays flawlessly across all devices. Create a code that is clear and allows to update with ease.
+
 ## User Goals
+
+* The game should be fun.
+
+* The game should work on all relevant devices, that is, desktops, tablets and mobiles.
 
 ## User Stories
 
+* As a user I want the game to be pleasing to look at. 
+* As a user I want the game to be easy to navigate.
+
 ## How to Play
-The game ends when either player or computer gets to a determined number such as 10, 15, 3 or a random number between 1 and 15 inclusive. 
-The user can also choose to read the rules by clicking the rules button in the footer.
 
-## Design choices
+### The Form
 
-I came across Anna Peterson's [tutorial](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69) on ***Rock Paper Scissors in JavaScript***
+An the onset the user is presented with a form whereby the user can optionally enter their name.
+Then the user chooses the number of rounds which would be 
+* 15 (the default)
+* 10
+* 5 or 
+* a random number bewteen 1 and 15 inclusive.
+
+Then user presses ***Let's Go!*** to begin the game.
+
+### The Game
+
+The user chooses to push one of the 5 buttons which corresponds to the weapon, ***Rock, Paper, Scissors, Lizard or Spock.*** 
+Once the user makes their choice, the computer AKA ***Kool AI*** will respond with its choice of weapon. 
+The winner is then determined and a message is shown to explain why the user ***either won or lost that round.*** 
+Then a point is given to the victor. 
+
+The number of rounds, the number of wins by the user, the number of wins by ***Kool AI*** and the number of ties is shown at the top.
+
+The game ends when either the user or the computer gets to the predetermined number of rounds. 
+The user can the choose to play ***Kool AI*** by clicking the ***Play Again!*** button.
+
+At any time, the user can choose to read the rules by clicking the rules button in the footer.
+
+Please note: if the user had selected **random** for the number of rounds, then a **new** random number of rounds between 1 and 15 inclusive will be used for the next round.
+
+## Design Choices
+
+I came across Anna Peterson's article [tutorial](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69) on ***Rock Paper Scissors in JavaScript***
 I really liked her approach so I have adapted the same approach.
-However besides her CSS initialisations
+
+That is, I looked for images and icons of which depict each of the five weapons for the game.
+For example :-
+* For ***Rock***, Dwayne Johnson
+* For ***Paper***, DC Comic Character Paper
+* For ***Scissors***, Edgar Scissorhands
+* For ***Lizard***, Star Trek character Gorn and Marvel Comics character, The Lizard AKA Dr Curtis Conners
+* For ***Spock***, actor Leonard Nimoy ()
+
+### Please note
+Although I chose to use the same approach as shown by Peterson, nevertheless, besides her CSS initialisations
 
 ```
 * {
@@ -33,61 +117,18 @@ body {
 
 ```
 
-**All the code is mine!**
+**All other code is mine!**
 
-#### Fonts
+## Images
 
-#### Icons
-* 
+I choose to use three images of each weapon in order for the computer to randomly choose an image for each round.
+The fifteen images are as follows 
 
-### Colours
-
-##### 
-
-#####
- 
-##### 
-
-### Wireframes
-* To design the wireframes I have used [balsamiq](https://balsamiq.com/wireframes/). These designs vary depending on the screen size.
-
-![image](https://user-images.githubusercontent.com/91061592/230883775-144a8510-b71f-454b-944f-75443fff62cd.png)
-
-![image](https://user-images.githubusercontent.com/91061592/230883938-858ac076-67c4-4c9e-acd4-6fc2e7108e93.png)
-
-![image](https://user-images.githubusercontent.com/91061592/230884081-1bac8ff4-f33e-4be7-a91a-8d79d6bbca60.png)
-
-![image](https://user-images.githubusercontent.com/91061592/230884206-43f7356e-872f-4d91-b20e-0fad0421341c.png)
-
-![image](https://user-images.githubusercontent.com/91061592/230884481-2b341545-e762-49e3-a944-e6aa6a6f8d86.png)
-
-
-
-
-
-
-
-
-#### Mobile 
-* 
-
-#### Tablet
-* 
-
-#### Desktop
-* 
-
-## Features
-  ### Existing Features
-  #### Header
-    *
-    
-  #### The Choices
-    * 
-  #### The Results
-    
-  #### Footer
-    * 
+* Rock
+* Paper
+* Scissors
+* Lizard
+* Spock
 
 ### Images
 
@@ -127,22 +168,143 @@ I sourced the images as follows:
 14) spock2.png - from [kindpng.com](https://www.kindpng.com/imgv/hJJoibT_spock-star-trek-clipart-hd-png-download/ )
 15) spock3.png - from [kindpng.com](https://www.kindpng.com/imgv/iiwTbib_spock-png-page-mr-spock-transparent-png/)
 
-### Testing 
+## Fonts
 
-#### Bugs
+I went to Google Fonts for my choice of fonts. I decided to use fff because I wanted the user to ***feel that they are playing against a computer.*** The font fff in my opinion, has that 80s computer game look to it.
+
+## Buttons
+* 
+I came across . These were designed by .
+
+## Colours
+
+* Black #fff is used for the main background colour
+* Gold # is used for the main font colour
+
+##### 
+
+#####
+ 
+##### 
+
+## Wireframes
+* To design the wireframes I used [balsamiq](https://balsamiq.com/wireframes/). 
+The examples shown are between a mobile and desktop.
+For **tablets** the look would be practically the same as the desktop view; just that the sizes of the images and fonts are reduced.
+
+![image](https://user-images.githubusercontent.com/91061592/230883775-144a8510-b71f-454b-944f-75443fff62cd.png)
+
+![image](https://user-images.githubusercontent.com/91061592/230883938-858ac076-67c4-4c9e-acd4-6fc2e7108e93.png)
+
+![image](https://user-images.githubusercontent.com/91061592/230884081-1bac8ff4-f33e-4be7-a91a-8d79d6bbca60.png)
+
+![image](https://user-images.githubusercontent.com/91061592/230884206-43f7356e-872f-4d91-b20e-0fad0421341c.png)
+
+![image](https://user-images.githubusercontent.com/91061592/230884481-2b341545-e762-49e3-a944-e6aa6a6f8d86.png)
+
+The wireframes above reflect my initial approach of this project however as I continued development there has been changes to the initial look as shown below.
+
+
+
+
+
+
+#### Mobile 
+* 
+
+#### Tablet
+* 
+
+#### Desktop
+* 
+
+# The Game
+
+# Features
+
+## Header
+
+Shows the user that they have entered a site to play the game Rock, Paper, Scissors.
+
+## Form
+
+The user can optionally enter their name and a choice of the number of rounds to play.
+The default being 15.
+<br>Then the user clicks the following button to begin playing the game.
+
+## Game Area
+
+This area is where the user plays the game. It shows the options of Paper, Rock and Scissor. After a move is made the computer will follow with its choice. Depending on the result a message will be displayed above wich indicates a win,loss or draw.
+
+## Score Board
+
+This shows the standings between the player and the computer, it gets updated after every round.
+
+## Rules
+
+Here is the rules of the game if needed, shown to the player so they know what wins against what.
+
+
+  ## Existing Features
+  #### Header
+    *
+    
+  #### The Choices
+    * 
+  #### The Results
+    
+  #### Footer
+    * 
+
+## ### Future Features
+
+* I would love to include some animation with the hand images such as: visual clash of computer and user hands as one beats the other.
+* I would like to change the layout so that the selection buttons, start game button and play again button are all in the exact same place on the page display. I think this would allow for an easier flow of the game.
+* Ideally I would like to always have the Header displaying game title on top. This was my initial plan, but considering my deadline and having prioritised the javascript side of this project, I decided it was more important for me to remove any need for the user to scroll down. Removing the header in these Round sections was the easiest way to achieve this.
+
+# Testing 
+
+## Validations
+
+* HTML
+
+No errors found when running the code through the W3C validator.
+https://validator.w3.org/nu/?doc
+
+* CSS
+No errors found when running the code through the Jigsaw validator.
+https://jigsaw.w3.org/css-validator/validator?uri=
+
+* Javascript
+
+No errors found when running the code through the Jshint validator.
+
+* Lighthouse
+
+### SAMPLE ERROR
+
+![image](https://user-images.githubusercontent.com/91061592/232718879-9f92a57f-2a7d-4fd6-99b1-dd7d98b56efd.png)
+
+
+## Bugs
 
  
 ***
-### Technologies Used
+# Technologies Used
 
-#### Languages
+## Languages
 * [HTML](https://en.wikipedia.org/wiki/HTML5)
 * [CSS](https://en.wikipedia.org/wiki/CSS)
 * [JavaScript](https://en.wikipedia.org/wiki/JS)
-#### Libraries And Frameworks
+
+## Libraries And Frameworks
 * [Font Awesome](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com/)
-#### Tools
+*   [Compress Jpeg](https://compressjpeg.com/)
+*   [Font Awesome](https://fontawesome.com/)
+*   [Favicon](https://favicon.io/)
+
+## Tools
 * [GitHub](https://github.com/)
 * [GitPod](https://www.gitpod.io/docs/configure/)
 * [W3C HTML Validation service](https://validator.w3.org/)
@@ -153,20 +315,33 @@ I sourced the images as follows:
 ## Features To Be Implemented
   
 ***
-### Deployment
+# Deployment
 This project was deployed using Github using the following method:
 
+1. Open the correct repository.
+2. Select settings in the menu.
+3. Click on the pages section in the side menu.
+4. Go down to Branch and select main in the dropdown.
+5. Save the changes and wait for a link that should apear at the top of the screen under Github Pages. Letting you know that the page is live. (If nothing has happened after a few minutes refresh the page and the link should apear.)
+
 ***
-### Credits
-### SAMPLE ERROR
 
-![image](https://user-images.githubusercontent.com/91061592/232718879-9f92a57f-2a7d-4fd6-99b1-dd7d98b56efd.png)
+### GitHub Page
 
+This site was deployed to Github pages using the following steps:
 
+1. Go to the Github repository
+2. Clock on the Settings tab
+3. Go to Github Pages Section
+4. From the source dropdown menu select Main branch
+5. Once this has been selected, provide the link to the completed website
+
+[Link to deployed site]()
+
+* * *
+
+## Credits
+* The layout I used was based on the titled by Anna Peterson.
+
+## Acknowledgements
 * 
-
-#### Acknowledgements
-* 
-
-#### Credits 
-* The layout I based my work on 
