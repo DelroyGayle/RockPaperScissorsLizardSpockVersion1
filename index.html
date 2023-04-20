@@ -27,26 +27,28 @@
                     <p>I challenge you to a game of</p>
                     <p>Rock, Paper, Scissors, Lizard, Spock</p>
                     <br>
-                    <label for="player_name">Please enter your name (optional):</label>
+                    <label for="player_name" class="left-margin">Please enter your name (optional):</label>
                     <br>
                     <input type="text" id="player_name" class="playername-control" maxlength="12">
                     <br>
                     <p>Best of:</p>
                     <br>
-                    <input type="radio" id="fifteen" name="total_numberof_rounds" value="15" checked>
-                    <label for="fifteen">15 (default)</label>
+                    <div class="left-margin radio-gap">
+                        <input type="radio" id="fifteen" name="total_numberof_rounds" value="15" checked>
+                        <label for="fifteen">15 (default)</label>
+                        <br>
+                        <input type="radio" id="ten" name="total_numberof_rounds" value="10">
+                        <label for="ten">10</label>
+                        <br>
+                        <input type="radio" id="five" name="total_numberof_rounds" value="5">
+                        <label for="five">5</label>
+                        <br>
+                        <input type="radio" id="random" name="total_numberof_rounds" value="random">
+                        <label for="random">Random number (1 - 15)</label>
+                    </div>
                     <br>
-                    <input type="radio" id="ten" name="total_numberof_rounds" value="10">
-                    <label for="ten">10</label>
                     <br>
-                    <input type="radio" id="five" name="total_numberof_rounds" value="5">
-                    <label for="five">5</label>
-                    <br>
-                    <input type="radio" id="random" name="total_numberof_rounds" value="random">
-                    <label for="random">Random number (1 - 15)</label>
-                    <br>
-                    <br>
-                    <input type="submit" value="Let's Play!">
+                    <input type="submit" value="Let's Play!" class="left-margin">
                 </form>
             </div>
         </div>
@@ -115,8 +117,8 @@
             </div>
         </div>
         <br>
-                <!-- DG3 see above RE play again -->
-                <div id="play-again"></div>
+        <!-- DG3 see above RE play again -->
+        <div id="play-again"></div>
     </section>
     <!-- DG4 need to stick this position -->
     <button id="the-rules-button" class="rules-button">Rules</button>

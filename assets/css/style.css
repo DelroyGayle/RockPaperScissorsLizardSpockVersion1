@@ -1,25 +1,20 @@
 /*--------------
   Global
 ---------------*/
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 * {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   border: none;
-  margin: 0 auto;
-  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
 
-/* DG1 */
 body {
   height: 100vh;
-}
-
-body {
-  font-family: "Nunito Sans", sans-serif;
-  font-weight: 300;
+  font-family: 'Press Start 2P', cursive, sans-serif;
+  background: linear-gradient(360deg, #1C1C1C 10%, #494949 360%);
+  color: #8acc25;
 }
 
 /* Use flexbox for the main layout of the screen */
@@ -51,30 +46,42 @@ body {
   display: flex;
 }
 
-/* DG6 */
 .form-container-child {
   /* Centre the form */
   margin: 0 auto;
 }
 
 .show-form {
-    display:block;
+  display: block;
+}
+
+.show-form p {
+  margin: 1em;
+}
+
+.left-margin {
+  margin-left: 1em;
+}
+
+.radio-gap input[type=radio] {
+  margin: 4px 0;
 }
 
 .playername-control {
-  border: 2px solid black;
+  border: 2px solid #000;
   padding: 10px;
   border-radius: 4px;
-  box-sizing: border-box; 
-  margin: 1em 0;
+  box-sizing: border-box;
+  margin: 1em 1em;
   text-transform: capitalize;
+  width: 15%;
 }
 
 input[type=submit],
 .rules-button,
 .playagain-button {
   padding: 5px 15px;
-/* DG2 */
+  /* DG2 */
   background: #99e0b2;
   border: 0 none;
   cursor: pointer;
@@ -95,23 +102,23 @@ input[type=submit],
   position: absolute;
   left: 50%;
   margin-left: -50px;
-  width: 100px;  
+  width: 100px;
   top: 640px;
 }
 
 .column-centre-aligned {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  gap:1em;
+  gap: 1em;
 }
 
 .show-game {
-  display:none;
+  display: none;
 }
 
 .header-margin-forform {
-  margin: 1em 0;
+  margin: 1em 0 2em 0;
   text-align: center;
 }
 
@@ -121,13 +128,13 @@ input[type=submit],
 }
 
 .side-margins {
-      margin: 0 20vw;
+  margin: 0 20vw;
 }
 
 /* This is how the image of each character will be shown */
 
 img {
-  width:  18vw;
+  width: 18vw;
   height: 18vw;
   object-fit: cover;
   object-position: top;
@@ -138,8 +145,8 @@ img {
 }
 
 .display-message {
-    text-align: center;
-    margin-top: 1em;
+  text-align: center;
+  margin-top: 1em;
 }
 
 .final-score-message {
@@ -156,60 +163,77 @@ img {
 
 .error-message-style {
   padding: 16px;
-  background-color: #d3d3d3; /* lightgray */
+  /* lightgray */
+  background-color: #d3d3d3;
 }
 
-
-/* ================= MEDIA QUERIES ================= */
-
-@media (max-width: 840px) {
-  img {
-    width:  24vw;
-    height: 24vw;
-  }
-
-  .rules-button {
-    top: 600px;
-  }    
-}
-
-
-@media (max-width: 768px) {
-
-  h1, 
-  h2 {
-    font-size: 75%;
-  }
-  
-  .side-margins {
-    margin: 0 10vw;
-  }
-
-  img {
-    width:  34vw;
-    height: 34vw;
-    object-fit: cover;
-    object-position: top;
-  }  
-}
-
-.centre-error-message h1, 
+.centre-error-message h1,
 .centre-error-message h2 {
   font-size: 100%;
 }
 
 
-@media (max-width: 414px) {
-  h1, 
+/* ================= MEDIA QUERIES ================= */
+
+@media (max-width: 960px) {
+
+  h1,
   h2 {
-    font-size: 100%;
+    font-size: 75%;
   }
+
+}
+
+@media (max-width: 840px) {
+  img {
+    width: 24vw;
+    height: 24vw;
+  }
+
+  .rules-button {
+    top: 600px;
+  }
+
+  .playername-control {
+    width: 27%;
+  }
+
 }
 
 
-@media (max-width: 360px) {
-  h1, 
+@media (max-width: 768px) {
+
+  * {
+    font-size: 93%;
+  }
+
+  .side-margins {
+    margin: 0 10vw;
+  }
+
+  img {
+    width: 34vw;
+    height: 34vw;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+@media (max-width: 375px) {
+
+  * {
+    font-size: 88%;
+  }
+
+  h1,
   h2 {
     font-size: 85%;
+  }
+
+}
+
+@media (max-width: 280px) {
+  .header-margin-forgame {
+    font-size: 75%;
   }
 }
