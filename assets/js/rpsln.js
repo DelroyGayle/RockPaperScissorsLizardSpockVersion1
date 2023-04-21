@@ -92,17 +92,17 @@ function runTheGame() {
    // Us object-fit: fill; except for these two images
    const fillImages = [8, 9];
 
-   /* Give each handshape its own number and letter    
+   /* Give each weapon its own number and letter    
       N for Spock i.e. Leonard Simon Nimoy (March 26, 1931 – February 27, 2015)
 
       NOTE: The numbering is significant
-      The shapes must be numbered in this order 
+      The weapons must be numbered in this order 
       Rock-Paper-Scissors-Spock-Lizard   
       See README.md and http://docmadhattan.fieldofscience.com/2015/02/rock-paper-scissors-lizard-spock.html 
       for details
    */
 
-   const handshapes =
+   const hand_weapons =
       [[0, "R", "Rock"],
       [1, "P", "Paper"],
       [2, "S", "Scissors"],
@@ -131,7 +131,7 @@ function runTheGame() {
       NOTE: The button order is different as it matches the name of the game
       Therefore need an array of indices to reflect: 
       Rock Paper Scissors Lizard Spock
-      values as shown in 'handshapes'
+      values as shown in 'hand_weapons'
    */
    const buttonOrderArray = [0, 1, 2, 4, 3];
 
@@ -163,7 +163,7 @@ function runTheGame() {
    let random_chosen = false;
 
    // Add Event Listeners to the buttons
-   let buttonsList = document.getElementsByClassName("shape-button");
+   let buttonsList = document.getElementsByClassName("weapon-button");
 
    for (let i = 0; i < buttonsList.length; i++) {
       /* 
@@ -176,21 +176,21 @@ function runTheGame() {
       const index = buttonOrderArray[i];
 
       // Now fetch the relevant info to set up the button
-      const shapeValues = handshapes.find(element => element[0] === index);
+      const weaponValues = hand_weapons.find(element => element[0] === index);
       // Check for errors
-      if (shapeValues === undefined) {
+      if (weaponValues === undefined) {
          const errorMessage = `Unknown button with this number: ${index}`;
          alert(errorMessage);
          throw `${errorMessage}. Aborting!`;
       }
 
-      // In this event, Call 'showThisImage' with the corresponding 'shapeValues' to display the images
+      // In this event, Call 'showThisImage' with the corresponding 'weaponValues' to display the images
       // Then determine the computer opponent's response
       buttonsList[i].addEventListener("click", function () {
-         showThisImage(shapeValues);
-         const computerShapeValue = determineComputerChoice();
-         showThisImage(computerShapeValue);
-         updateScoresThenDetermineNextAction(shapeValues, computerShapeValue);
+         showThisImage(weaponValues);
+         const computerWeaponValue = determineComputerChoice();
+         showThisImage(computerWeaponValue);
+         updateScoresThenDetermineNextAction(weaponValues, computerWeaponValue);
       });
    }
 
@@ -309,7 +309,7 @@ function runTheGame() {
       /* DG      
             For now, simply use a random number 0-4 inclusive
       */
-      return handshapes[Math.floor(Math.random() * 5)];
+      return hand_weapons[Math.floor(Math.random() * 5)];
    }
 
    /**
@@ -319,14 +319,14 @@ function runTheGame() {
     * Then determine the next action
     */
 
-   function updateScoresThenDetermineNextAction(playerShapeValues, computerShapeValues) {
+   function updateScoresThenDetermineNextAction(playerWeaponValues, computerWeaponValues) {
       // EG for Rock vs. Paper 
-      // playerShapeValues => [0,R,Rock]
-      // computerShapeValues ==> [1,P,Paper]
-      const playerShapeNumber = playerShapeValues[0];
-      const computerShapeNumber = computerShapeValues[0];
-      const result = determineWhoWonThatRound(playerShapeNumber, computerShapeNumber);
-      setupOutcomeMessage(playerShapeValues, computerShapeValues, result);
+      // playerWeaponValues => [0,R,Rock]
+      // computerWeaponValues ==> [1,P,Paper]
+      const playerWeaponNumber = playerWeaponValues[0];
+      const computerWeaponNumber = computerWeaponValues[0];
+      const result = determineWhoWonThatRound(playerWeaponNumber, computerWeaponNumber);
+      setupOutcomeMessage(playerWeaponValues, computerWeaponValues, result);
       incrementCurrentRoundNumber();
       // Make visible the relevant outcome messages
       outcomeElem.classList.remove("hide-element");
@@ -337,8 +337,8 @@ function runTheGame() {
 
    /**
     * EG for Rock vs. Paper 
-    * playerShapeNumber => 0 
-    * computerShapeNumber => 1
+    * playerWeaponNumber => 0 
+    * computerWeaponNumber => 1
     * 
     * Mathematically, using modulo-5 the winner can be determined as follows:
     * Subtract the number chosen by player two i.e. the computer from the number chosen by player one; 
@@ -360,14 +360,14 @@ function runTheGame() {
     * Indeed, Lizard eats Paper!
     */
 
-   function determineWhoWonThatRound(playerShapeNumber, computerShapeNumber) {
-      if (playerShapeNumber === computerShapeNumber) {
+   function determineWhoWonThatRound(playerWeaponNumber, computerWeaponNumber) {
+      if (playerWeaponNumber === computerWeaponNumber) {
          // Tie!
          incrementTies();
          return playerTies;
       }
 
-      let diff = playerShapeNumber - computerShapeNumber;
+      let diff = playerWeaponNumber - computerWeaponNumber;
       if (diff < 0) {
          diff += 5;
       }
@@ -420,10 +420,10 @@ function runTheGame() {
       currentRoundNumberElem.innerText = String(++currentNumberOfRounds);
    }
 
-   function setupOutcomeMessage(playerShapeValues, computerShapeValues, result) {
+   function setupOutcomeMessage(playerWeaponValues, computerWeaponValues, result) {
       // EG for Rock vs. Paper 
-      // playerShapeValues => [0,R,Rock]
-      // computerShapeValues ==> [1,P,Paper]
+      // playerWeaponValues => [0,R,Rock]
+      // computerWeaponValues ==> [1,P,Paper]
 
       if (result === playerTies) {
          outcomeElem.innerText = "Tie!";
@@ -431,24 +431,24 @@ function runTheGame() {
          return;
       }
 
-      const playerShapeNumberChar = String(playerShapeValues[0]);
-      const computerShapeNumberChar = String(computerShapeValues[0]);
+      const playerWeaponNumberChar = String(playerWeaponValues[0]);
+      const computerWeaponNumberChar = String(computerWeaponValues[0]);
 
       // Determine the correct verb
-      const index = playerShapeNumberChar + computerShapeNumberChar;
+      const index = playerWeaponNumberChar + computerWeaponNumberChar;
       let verb = actions[index];
       if (verb) {
-         explanationElem.innerText = `${playerShapeValues[2]} ${verb} ${computerShapeValues[2]}`;
+         explanationElem.innerText = `${playerWeaponValues[2]} ${verb} ${computerWeaponValues[2]}`;
       } else {
          /*
             if null, swop the numbers around e.g. 
             "32" instead of "23" in order to fetch
             "smashes"
          */
-         verb = actions[computerShapeNumberChar + playerShapeNumberChar];
-         // Swop! In order to determine the right name of each shape for the message
-         [playerShapeValues, computerShapeValues] = [computerShapeValues, playerShapeValues];
-         explanationElem.innerText = `${playerShapeValues[2]} ${verb} ${computerShapeValues[2]}`;
+         verb = actions[computerWeaponNumberChar + playerWeaponNumberChar];
+         // Swop! In order to determine the right name of each weapon for the message
+         [playerWeaponValues, computerWeaponValues] = [computerWeaponValues, playerWeaponValues];
+         explanationElem.innerText = `${playerWeaponValues[2]} ${verb} ${computerWeaponValues[2]}`;
       }
       outcomeElem.innerText = result === playerWon ? "You Win!" : "You Lose!";
    }
@@ -569,10 +569,12 @@ function runTheGame() {
 function disableButtons() {
    document.getElementById("the-rules-button").disabled = true;
 
-   const buttonsList = document.getElementsByClassName("shape-button");
+   const buttonsList = document.getElementsByClassName("weapon-button");
 
    for (let button of buttonsList) {
       button.disabled = true;
+      button.style.opacity = "0.6";
+      button.style.cursor = "not-allowed";
    }
 }
 
@@ -583,10 +585,13 @@ function disableButtons() {
 function enableButtons() {
    document.getElementById("the-rules-button").disabled = false;
 
-   const buttonsList = document.getElementsByClassName("shape-button");
+   const buttonsList = document.getElementsByClassName("weapon-button");
 
    for (let button of buttonsList) {
       button.disabled = false;
+      button.style.opacity = "1";
+      button.style.cursor = "pointer";
+
    }
 }
 
