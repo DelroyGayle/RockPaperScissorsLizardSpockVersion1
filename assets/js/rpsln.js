@@ -231,13 +231,17 @@ function runTheGame() {
       playGame();
    });
 
-   // Initialise Variables
+   // Create the 'Your Move' indicator
+   const your_move_indicator = create_your_move();
+
 
    function hideMessages() {
       // Hide messages
       outcomeElem.classList.add("hide-element");
       explanationElem.classList.add("hide-element");
-      displayContainerElem.classList.add("yourmove");
+      // displayContainerElem.classList.add("yourmove");
+      displayContainerElem.appendChild(your_move_indicator);
+      
    }
 
    function playGame() {
@@ -600,4 +604,14 @@ function titleCase(str) {
    return str.toLowerCase().split(' ').map(function (word) {
       return (word.charAt(0).toUpperCase() + word.slice(1));
    }).join(' ');
+}
+
+function create_your_move() {
+   const newDiv = document.createElement("div");
+   newDiv.innerText = "Your Move!";
+   newDiv.innerHTML = `<i class="fas fa-hand-point-up"></i><br>YOUR MOVE!`;
+   newDiv.innerHTML = `<div><i class="fa-solid fa-hand-pointer"></i><p>YOUR</p><p>MOVE!</p>`;
+   // Add styling
+   newDiv.classList.add("circle");
+   return newDiv;
 }
