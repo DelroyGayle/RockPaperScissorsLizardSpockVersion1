@@ -27,7 +27,7 @@ If you need to hear it again, in this video, the explanation is repeated twice (
 
 ### Kool A.I.
 
-In my version the player will challenge the computer who goes by the name of **Kool A.I.**
+In this version of the game,  the player will challenge the computer which goes by the name of **Kool A.I.**
 Each round, **Kool A.I.** will choose between two different strategies in an attempt to win.
 
 # UX
@@ -41,80 +41,87 @@ This online game targets all ages 5+.
 *   Children 5+
 *   Adults
 
-  
-
-USER STORIES:
--------------
-
-* * *
-
-1. The site is designed in a way that makes the game fun and easy to play.
-2. The game feels personal as the user can input their name and see it displayed throughout.
-3. The game rounds and scores are displayed throughout. 
-4. The user will want to play again and again!
-
-Create a fun and easy to navigate interactive game of Rock, Paper & Scissors that allows the player to play against the computer who will generate its choice at random. 
-The game will last 5 rounds, displaying the tally throughout. After Round 5 the game will display the Game Winner, and allow for the option to _Play Again_.
-
-
-The site aesthetic is minimalistic: displays big buttons and bold images of the player and computer choice. It is styled with bright and contrasting colors.
-Consistent styling for easy navigation using a mobile-first approach and then ensuring it displays flawlessly across all devices. Create a code that is clear and allows to update with ease.
-
 ## User Goals
 
 * The game should be fun.
-
 * The game should work on all relevant devices, that is, desktops, tablets and mobiles.
 
 ## User Stories
 
-* As a user I want the game to be pleasing to look at. 
-* As a user I want the game to be easy to navigate.
+* As a user I want the game to be easy to learn and easy to play.
+* The user has five choices: rock, paper, scissors, lizard or Spock
+* In each round, after the user has made their move, the computer opponent will respond with its own move.
+* The game will keep the score and the number of rounds and display these figures accordingly.
+* The user has the option to play again and again!
 
 ## How to Play
 
 ### The Form
 
-An the onset the user is presented with a form whereby the user can optionally enter their name.
-Then the user chooses the number of rounds which would be 
+![image](https://user-images.githubusercontent.com/91061592/233741670-e4ea1763-4ffc-4df1-b1fa-ef63df971676.png)
+
+
+At the onset the user is presented with a form whereby the user can optionally enter their name.
+Then the user chooses the number of rounds. The choice being:
 * 15 (the default)
 * 10
 * 5 or 
-* a random number bewteen 1 and 15 inclusive.
+* a random number between 1 and 15 inclusive.
 
-Then user presses ***Let's Go!*** to begin the game.
+Then the user presses ***Let's Go!*** to begin the game.
 
 ### The Game
 
-The user chooses to push one of the 5 buttons which corresponds to the weapon, ***Rock, Paper, Scissors, Lizard or Spock.*** 
-Once the user makes their choice, the computer AKA ***Kool AI*** will respond with its choice of weapon. 
+![image](https://user-images.githubusercontent.com/91061592/233741911-1fdaacb7-213b-4a90-89b4-49aa65021568.png)
+
+The user chooses to push one of the five buttons which corresponds to the weapon, ***Rock, Paper, Scissors, Lizard or Spock.*** 
+Once the user makes their choice, the computer AKA ***Kool AI*** will respond with its choice of weapon.
+An image depicting the user's choice is shown on the left; seconds later, an image of ***Kool AI***'s choice is then shown on the right.
+
 The winner is then determined and a message is shown to explain why the user ***either won or lost that round.*** 
 Then a point is given to the victor. 
 
-The number of rounds, the number of wins by the user, the number of wins by ***Kool AI*** and the number of ties is shown at the top.
+In this round, ***Kool AI*** wins because its choice of **Spock** smashes the user's choice of **scissors**.
+
+![image](https://user-images.githubusercontent.com/91061592/233742390-88efe33c-361f-487c-a1cc-15121097bd0e.png)
+
+In the next round, both ***tie*** with their choice of **rock**
+
+![image](https://user-images.githubusercontent.com/91061592/233742495-90d56ef1-3a05-47ee-9f39-9252ddfb5728.png)
+
+In this round, the users wins because the user chose **rock** which crushes ***Kool AI***'s choice of **lizard**.
+
+![image](https://user-images.githubusercontent.com/91061592/233742683-4d297670-ef76-4807-bb3f-979df5b36ce9.png)
+
+
+The number of rounds, the number of wins by the user, the number of wins by ***Kool AI*** and the number of ties are shown at the top.
 
 The game ends when either the user or the computer gets to the predetermined number of rounds. 
-The user can the choose to play ***Kool AI*** by clicking the ***Play Again!*** button.
 
-At any time, the user can choose to read the rules by clicking the rules button in the footer.
+The user can the choose to play ***Kool AI*** again by clicking the ***Play Again!*** button.
+
+At any time, the user can choose to read the rules by clicking the rules button at the bottom of the screen.
+
+![image](https://user-images.githubusercontent.com/91061592/233743234-df002091-939d-4931-a602-0dadb7712633.png)
+
 
 Please note: if the user had selected **random** for the number of rounds, then a **new** random number of rounds between 1 and 15 inclusive will be used for the next round.
 
 ## Design Choices
 
-I came across Anna Peterson's article [tutorial](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69) on ***Rock Paper Scissors in JavaScript***
-I really liked her approach so I have adapted the same approach.
+I came across Anna Peterson's [article](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69) titled **The World’s Easiest “The Rock” Themed Rock Paper Scissors JavaScript Tutorial**<br>with the caption <em>*If you’ve ever wanted Dwayne “The Rock” Johnson to teach you JavaScript, well, this isn’t your lucky day, but it is <strong>almost like</strong> your lucky day!</em><p>
 
-That is, I looked for images and icons of which depict each of the five weapons for the game.
+I really liked her innovative approach so I have adapted the same approach.
+That is, I looked for images and icons of which would depict each of the five weapons for the game.
 For example :-
-* For ***Rock***, Dwayne Johnson
-* For ***Paper***, DC Comic Character Paper
-* For ***Scissors***, Edgar Scissorhands
-* For ***Lizard***, Star Trek character Gorn and Marvel Comics character, The Lizard AKA Dr Curtis Conners
-* For ***Spock***, actor Leonard Nimoy ()
+* For ***Rock***, Dwayne Johnson and Marvel Comics character, The Thing AKA Benjamin Jacob Grimm
+* For ***Paper***, DC Comics Character Teen Titans [Paper](https://dc.fandom.com/wiki/Paper_(Teen_Titans_TV_Series))
+* For ***Scissors***, Edgar Scissorhands and DC Comics Character Teen Titans [Scissors](https://dc.fandom.com/wiki/Scissors_(Teen_Titans_TV_Series))
+* For ***Lizard***, Star Trek character Gorn and Marvel Comics character, The Lizard AKA Dr. Curtis "Curt" Connors
+* For ***Spock***, actor Leonard Nimoy (1931-2015)
 
 ### Please note
-Although I chose to use the same approach as shown by Peterson, nevertheless, besides her CSS initialisations
+Although I chose to use the same approach as shown by Peterson, nevertheless, besides using the ***defer tag*** has Peterson explains it and my usage of her CSS initialisations
 
 ```
 * {
@@ -130,11 +137,12 @@ body {
 
 ```
 
-**All other code is mine!**
+**All the code in this project is mine!**
 
 ## Images
 
-I choose to use three images of each weapon in order for the computer to randomly choose an image for each round.
+I choose to use three images of each weapon in order that for each round, the computer could randomly choose an image to depict both the user's choice of weapon and the computer's choice of weapon.
+  
 The fifteen images are as follows 
 
 * Rock
