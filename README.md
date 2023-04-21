@@ -6,16 +6,29 @@
 
 Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.
 
+### Introduction
 Rock-Paper-Scissors-Lizard-Spock is a fun game for both adults and children.
 It is based upon the original centuries-old game of ***Rock-Paper-Scissors***
-So, this version incorporates two new items namely Lizard and Spock.
-Moreover, the opponent is the computer, who goes by the name, **Kool A.I.** 
+To quote [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
+> ***Rock-Paper-Scissors*** is is an [intransitive](https://en.wikipedia.org/wiki/Intransitive_game) hand game], usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are "rock" (a closed fist), "paper" (a flat hand), and "scissors" (a fist with the index finger and middle finger extended, forming a V). 
 
-To quote
+Therefore, this version of the game, ***Rock-Paper-Scissors-Lizard-Spock*** incorporates two new shapes namely Lizard and Spock.
+<br>To quote [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
+> ***"rock paper scissors Spock lizard"***, invented by [Sam Kass and Karen Bryla](http://www.samkass.com/theories/RPSSL.html), which adds "Spock" and "lizard" to the standard three choices. "Spock" is signified with the Star Trek Vulcan salute, while "lizard" is shown by forming the hand into a sock-puppet-like mouth. Spock smashes scissors and vaporizes rock; he is poisoned by lizard and disproved by paper. Lizard poisons Spock and eats paper; it is crushed by rock and decapitated by scissors. This variant was mentioned in a [2005 article in The Times of London](https://web.archive.org/web/20100531231332/http://www.timesonline.co.uk/tol/comment/leading_article/article1080425.ece) and was later the subject of an [episode](https://en.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes#ep25) of the American sitcom **[The Big Bang Theory](https://en.wikipedia.org/wiki/The_Big_Bang_Theory)** in 2008.
 
-> Rock, Paper, Scissors, Lizard, Spock is a game of chance that expands the traditional game of [Rock, Paper, Scissors](http://en.wikipedia.org/wiki/Rock_paper_scissors).<br>It is first used to settle a dispute about what to watch on TV between [Sheldon](https://bigbangtheory.fandom.com/wiki/Sheldon_Cooper) and [Raj](https://bigbangtheory.fandom.com/wiki/Rajesh_Koothrappali) in ["The Lizard-Spock Expansion"](https://bigbangtheory.fandom.com/wiki/The_Lizard-Spock_Expansion).<p>
-It is mentioned again in ["The Rothman Disintegration"](https://bigbangtheory.fandom.com/wiki/The_Rothman_Disintegration), where Sheldon explains the rules to Penny and Barry Kripke.<p>
-[SOURCE: bigbangtheory.fandom.com](https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock)
+### Videos
+Here is a YouTube video whereby you can see [Sheldon](https://bigbangtheory.fandom.com/wiki/Sheldon_Cooper) and [Raj](https://bigbangtheory.fandom.com/wiki/Rajesh_Koothrappali) settle settle a dispute about what to watch on TV using this game.
+
+* [The Big Bang Theory -- Rock, Paper, Scissors, Lizard, Spock](https://www.youtube.com/watch?v=iSHPVCBsnLw)
+
+If you need to hear it again, in this video, the explanation is repeated twice (up to **1:14secs**):
+
+* [Rock Paper Scissors Lizard Spock - Extended Cut ~ The Big Bang Theory](https://www.youtube.com/watch?v=x5Q6-wMx-K8)
+
+### Kool A.I.
+
+In my version the player will challenge the computer who goes by the name of **Kool A.I.**
+Each round, **Kool A.I.** will choose between two different strategies in an attempt to win.
 
 # UX
 
@@ -23,7 +36,7 @@ It is mentioned again in ["The Rothman Disintegration"](https://bigbangtheory.fa
 
 * * *
 
-This online interactive game targets all ages 5+, and that is its beauty! Almost anyone can appreciate a good game of rock, paper, scissors.
+This online game targets all ages 5+.
 
 *   Children 5+
 *   Adults
