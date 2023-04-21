@@ -151,8 +151,6 @@ function runTheGame() {
    const numberOfTiesElem = document.getElementById("number-of-ties");
    const playerScoreElem = document.getElementById("player-score");
    const computerScoreElem = document.getElementById("computer-score");
-   // DG7
-   const introElem = document.getElementById("intro");
    const outcomeElem = document.getElementById("outcome");
    const explanationElem = document.getElementById("explanation");
 
@@ -234,20 +232,27 @@ function runTheGame() {
    // Create the 'Your Move' indicator
    const your_move_indicator = create_your_move();
 
-
+   // Hide messages
    function hideMessages() {
-      // Hide messages
       outcomeElem.classList.add("hide-element");
-      explanationElem.classList.add("hide-element");
-      // displayContainerElem.classList.add("yourmove"); DG1
-      displayContainerElem.appendChild(your_move_indicator);
-      
+      explanationElem.classList.add("hide-element");      
    }
 
+   // Show YOUR MOVE!
+   function showYourMoveIndicator() {
+      displayContainerElem.appendChild(your_move_indicator);
+   }
+
+   // Remove YOUR MOVE!
+   function removeYourMoveIndicator() {
+      displayContainerElem.removeChild(displayContainerElem.firstChild);
+   }   
+
    function playGame() {
+      // Show YOUR MOVE!
+      showYourMoveIndicator();
       // Enable game buttons
       enableButtons();
-      displayContainerElem.appendChild(your_move_indicator); // DG1
       // Hide messages
       hideMessages();
    }
@@ -305,12 +310,7 @@ function runTheGame() {
     * Determine the computer move and display the corresponding image
     */
 
-   // DG8
    function determineComputerChoice() {
-      const thinkingMessage = document.createElement("p");
-      thinkingMessage.innerText = "THINKING!";
-      displayContainerElem.appendChild(thinkingMessage);
-
       /* DG      
             For now, simply use a random number 0-4 inclusive
       */
@@ -485,8 +485,8 @@ function runTheGame() {
 
       // Hide current messages
       hideMessages();
-      // DG1 displayContainerElem.classList.remove("yourmove");
-      displayContainerElem.removeChild(displayContainerElem.firstChild); // DG2
+      // Remove YOUR MOVE!
+      removeYourMoveIndicator();
 
       const playerFinalScore = parseInt(playerScoreElem.innerText);
       const computerFinalScore = parseInt(computerScoreElem.innerText);
@@ -521,7 +521,7 @@ function runTheGame() {
     */
 
    function displayResultMessage(result) {
-      let text = ""; // DG2
+      let text = "";
 
       if (result === playerTies) {
          if (playerName) {
@@ -541,7 +541,6 @@ function runTheGame() {
 
       // Player loses
       if (playerName) {
-         text = " " + playerName; // DG2
          return `You lose ${playerName}!<br>I'm the Winner!`;
       }
 

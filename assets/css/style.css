@@ -40,27 +40,6 @@ body {
   cursor: pointer;
 }
 
-.yourmove {
-  display: block;
-  text-align: center;
-  margin-top: 4em;
-}
-
-.yourmove::after {
-  content: "Your Move!";
-  background-color: #2ba805;
-  color: #fff;
-  text-transform: uppercase;
-
-/* Added a colour shadow to 'yourmove' by following the example shown here:
-   https://blog.hubspot.com/website/css-border regarding <p class="colorshadow">
-*/
-
-  border: 2px solid #fffa8a;
-  padding: 10px;
-  box-shadow: 6px 4px #fffa8a;  
-}
-
 /* .circle {
   background: gold;
   width: 40px; 
@@ -70,6 +49,10 @@ body {
   align-items: center; 
   justify-content: center;
 } */
+
+/* Place "YOUR MOVE!" in a circle based on the example shown by Armand at
+   https://stackoverflow.com/questions/4801181/vertically-and-horizontally-centering-text-in-circle-in-css-like-iphone-notific
+*/
 
 .circle {
   background: #527a16;
