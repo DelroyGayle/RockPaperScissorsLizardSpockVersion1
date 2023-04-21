@@ -239,7 +239,7 @@ function runTheGame() {
       // Hide messages
       outcomeElem.classList.add("hide-element");
       explanationElem.classList.add("hide-element");
-      // displayContainerElem.classList.add("yourmove");
+      // displayContainerElem.classList.add("yourmove"); DG1
       displayContainerElem.appendChild(your_move_indicator);
       
    }
@@ -247,6 +247,7 @@ function runTheGame() {
    function playGame() {
       // Enable game buttons
       enableButtons();
+      displayContainerElem.appendChild(your_move_indicator); // DG1
       // Hide messages
       hideMessages();
    }
@@ -484,7 +485,8 @@ function runTheGame() {
 
       // Hide current messages
       hideMessages();
-      displayContainerElem.classList.remove("yourmove");
+      // DG1 displayContainerElem.classList.remove("yourmove");
+      displayContainerElem.removeChild(displayContainerElem.firstChild); // DG2
 
       const playerFinalScore = parseInt(playerScoreElem.innerText);
       const computerFinalScore = parseInt(computerScoreElem.innerText);
@@ -495,7 +497,7 @@ function runTheGame() {
 
       // Create element for the final results message
       const theMessage = document.createElement("h2");
-      theMessage.innerText = playerFinalScore === computerFinalScore ? displayResultMessage(playerTies) :
+      theMessage.innerHTML = playerFinalScore === computerFinalScore ? displayResultMessage(playerTies) :
          playerFinalScore > computerFinalScore ? displayResultMessage(playerWon) :
             displayResultMessage(playerLost);
       // Add styling
@@ -519,7 +521,7 @@ function runTheGame() {
     */
 
    function displayResultMessage(result) {
-      let text = "";
+      let text = ""; // DG2
 
       if (result === playerTies) {
          if (playerName) {
@@ -534,15 +536,16 @@ function runTheGame() {
             return "Well done, You Win!";
          }
 
-         return `Well done ${playerName}! You Win!`;
+         return `Well done ${playerName}!<br>You Win!`;
       }
 
       // Player loses
       if (playerName) {
-         text = " " + playerName;
+         text = " " + playerName; // DG2
+         return `You lose ${playerName}!<br>I'm the Winner!`;
       }
 
-      return `You lose${text}! I'm the Winner!`;
+      return `You lose! I'm the Winner!`;
    }
 
    /**
