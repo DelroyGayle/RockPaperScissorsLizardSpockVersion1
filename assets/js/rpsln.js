@@ -183,7 +183,8 @@ function runTheGame() {
          throw `${errorMessage}. Aborting!`;
       }
 
-      let newListener = createFunction(showThisImage,weaponValues);
+      // create a listener for the current value of 'weaponValues'
+      let newListener = createListener(showThisImage,weaponValues);
 
       // In this event, Call 'showThisImage' with the corresponding 'weaponValues' to display the images
       // Then determine the computer opponent's response
@@ -299,7 +300,16 @@ function runTheGame() {
       displayContainerElem.appendChild(theImage);
    }
 
-   function createFunction(showThisImage, weaponValues) {
+   /**
+    * 
+    * For each of the five weapons, 'weaponValues' will have a different value
+    * In order to add the current value of 'weaponValues' to a new addEventListener function
+    * so that it can be added to its corresponding button currently being processed;
+    * a new function needs to be created by the method of 'Closures'
+    * The newly created function is then returned whereby addEventListener()
+    * will be used to add it to the corresponding button
+    */
+   function createListener(showThisImage, weaponValues) {
       return function () {
          showThisImage(weaponValues);
          const computerWeaponValue = determineComputerChoice();
