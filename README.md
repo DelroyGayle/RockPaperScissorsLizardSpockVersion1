@@ -10,7 +10,7 @@ Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.
 Rock-Paper-Scissors-Lizard-Spock is a fun game for both adults and children.
 It is based upon the original centuries-old game of ***Rock-Paper-Scissors***
 To quote [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
-> ***Rock-Paper-Scissors*** is is an [intransitive](https://en.wikipedia.org/wiki/Intransitive_game) hand game], usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are "rock" (a closed fist), "paper" (a flat hand), and "scissors" (a fist with the index finger and middle finger extended, forming a V). 
+> ***Rock-Paper-Scissors*** is an [intransitive](https://en.wikipedia.org/wiki/Intransitive_game) hand game], usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are "rock" (a closed fist), "paper" (a flat hand), and "scissors" (a fist with the index finger and middle finger extended, forming a V). 
 
 Therefore, this version of the game, ***Rock-Paper-Scissors-Lizard-Spock*** incorporates two new shapes namely Lizard and Spock.
 <br>To quote [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
@@ -237,22 +237,55 @@ I sourced the images as follows:
 
 ## Fonts
 
-I went to Google Fonts for my choice of fonts. I decided to use fff because I wanted the user to ***feel that they are playing against a computer.*** The font fff in my opinion, has that 80s computer game look to it.
+I went to Google Fonts for my choice of fonts. I decided to use **'Press Start 2P'** because I wanted the user to ***feel that they are playing against a computer.*** The font **'Press Start 2P'** in my opinion has that 80s computer game feel and look to it.
 
-## Buttons
-* 
-I came across . These were designed by .
+## Icon Buttons
 
+For the buttons' choice of each weapon I spell out each weapon followed by ***an icon which depicts the hand shape***
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233748441-ff004337-1004-43ec-996a-0321bfcd968e.png)
+The icons I sourced from [fontawesome.com (version 5.15.4](https://fontawesome.com/v5/search).
+So, the five buttons have the form as follows: 
+  ```
+  1. Rock <i class="fas fa-hand-rock"></i>
+  2. Paper <i class="fas fa-hand-paper"></i>
+  3. Scissors <i class="fas fa-hand-scissors"></i>
+  4. Lizard <i class="fas fa-hand-lizard"></i>
+  5. Spock <i class="fas fa-hand-spock"></i>
+  ```
+  
 ## Colours
 
-* Black #fff is used for the main background colour
-* Gold # is used for the main font colour
+* For the background I use a ***black*** linear-gradient(360deg, #1C1C1C 10%, #494949 360%) for the main background colour.
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233749450-fb43792d-5eb3-4092-b683-f08df54cde14.png)
 
-##### 
+  I sourced that linear-gradient from [Hook Agency](https://hookagency.com/blog/ui-gradients/).
+* The green colour **#8acc25** is used for the main font colour.
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233749415-9946ea1a-740f-4bf0-8fdf-d29a04d471f7.png)
+  
+* The background colour of the weapon buttons is **#05aa6d**
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233749541-b6dd2bf3-5088-4d3a-b083-7764f0149a8d.png)
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233749622-8a52b0d1-ac62-47ae-b627-6986766528ee.png)
+* The background colour of the **YOUR MOVE!** indicator is **#527a16**
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233749828-ad7a6fe2-6565-48aa-a53d-f5bc8aec470e.png)
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233749891-9b907a88-0a86-497d-b42d-e83946609050.png)
 
-#####
- 
-##### 
+ * The background colour for the ***Let's Play!*** button, the ***Play Again*** button and the ***Rules*** button is **#6725cc**
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233750182-d5bf5a40-bf8e-42a1-9854-fec2fde1dadb.png)
+
+  TODO Play Again
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233750137-f612b761-9a2c-4ce4-a0c9-aba0f946474a.png)
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233750300-e1d38e73-b84c-467a-8a31-dea5ada023f2.png)
+
 
 ## Wireframes
 * To design the wireframes I used [balsamiq](https://balsamiq.com/wireframes/). 
@@ -301,7 +334,7 @@ The default being 15.
 
 ## Game Area
 
-This area is where the user plays the game. It shows the options of Paper, Rock and Scissor. After a move is made the computer will follow with its choice. Depending on the result a message will be displayed above wich indicates a win,loss or draw.
+This area is where the user plays the game. It shows the options of Paper, Rock and Scissors. After a move is made the computer will follow with its choice. Depending on the result a message will be displayed above which indicates a win, loss or draw.
 
 ## Score Board
 
@@ -323,11 +356,7 @@ Here is the rules of the game if needed, shown to the player so they know what w
   #### Footer
     * 
 
-## ### Future Features
-
-* I would love to include some animation with the hand images such as: visual clash of computer and user hands as one beats the other.
-* I would like to change the layout so that the selection buttons, start game button and play again button are all in the exact same place on the page display. I think this would allow for an easier flow of the game.
-* Ideally I would like to always have the Header displaying game title on top. This was my initial plan, but considering my deadline and having prioritised the javascript side of this project, I decided it was more important for me to remove any need for the user to scroll down. Removing the header in these Round sections was the easiest way to achieve this.
+## Future Features
 
 # Testing 
 
@@ -342,7 +371,7 @@ https://validator.w3.org/nu/?doc
 No errors found when running the code through the Jigsaw validator.
 https://jigsaw.w3.org/css-validator/validator?uri=
 
-* Javascript
+* JavaScript
 
 No errors found when running the code through the Jshint validator.
 
@@ -383,23 +412,23 @@ No errors found when running the code through the Jshint validator.
   
 ***
 # Deployment
-This project was deployed using Github using the following method:
+This project was deployed using GitHub using the following method:
 
 1. Open the correct repository.
 2. Select settings in the menu.
 3. Click on the pages section in the side menu.
 4. Go down to Branch and select main in the dropdown.
-5. Save the changes and wait for a link that should apear at the top of the screen under Github Pages. Letting you know that the page is live. (If nothing has happened after a few minutes refresh the page and the link should appear.)
+5. Save the changes and wait for a link that should appear at the top of the screen under GitHub Pages. Letting you know that the page is live. (If nothing has happened after a few minutes refresh the page and the link should appear.)
 
 ***
 
 ### GitHub Page
 
-This site was deployed to Github pages using the following steps:
+This site was deployed to GitHub pages using the following steps:
 
-1. Go to the Github repository
+1. Go to the GitHub repository
 2. Clock on the Settings tab
-3. Go to Github Pages Section
+3. Go to GitHub Pages Section
 4. From the source dropdown menu select Main branch
 5. Once this has been selected, provide the link to the completed website
 
@@ -408,7 +437,7 @@ This site was deployed to Github pages using the following steps:
 * * *
 
 ## Credits
-* The layout I used was based on the titled by Anna Peterson.
+* The concept of using images for each weapons that I used was based on Anna Peterson's novel approach as shown in her article [The World’s Easiest “The Rock” Themed Rock Paper Scissors JavaScript Tutorial](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69)
 
 ## Acknowledgements
 * 
