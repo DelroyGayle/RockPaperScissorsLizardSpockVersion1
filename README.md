@@ -49,7 +49,7 @@ This online game targets all ages 5+.
 ## User Stories
 
 * As a user I want the game to be easy to learn and easy to play.
-* The user has five choices: rock, paper, scissors, lizard or Spock.
+* The user has five choices: Rock, Paper, Scissors, Lizard or Spock.
 * In each round, after the user has made their move, the computer opponent will respond with its own move.
 * The game will keep the score and the number of rounds and display these figures accordingly.
 * The user has the option to play again and again!
@@ -98,7 +98,9 @@ That is, I looked for images and icons which would depict each of the five weapo
 * For ***Spock***, actor Leonard Nimoy (1931-2015)
 
 ### Please note
-Although I chose to use the same approach as shown by Peterson, nevertheless, besides using the ***defer tag*** has Peterson explained and my usage of her CSS initialisations
+Although I chose to use the same approach as shown by Peterson, nevertheless, besides 
+1. using the ***defer tag*** has Peterson explained and 
+2. my usage of her CSS initialisations
 
 ```
 * {
@@ -388,13 +390,68 @@ No errors found when running the code through [the Jshint validator](https://jsh
 
 * Lighthouse
 
-### SAMPLE ERROR
-
-![image](https://user-images.githubusercontent.com/91061592/232718879-9f92a57f-2a7d-4fd6-99b1-dd7d98b56efd.png)
-
-
 ## Bugs
 
+### Script kept on running even after throwing an error!
+
+It was my understanding that if **an error is thrown and there is no catch** the error will be console.logged as ***Uncaught*** with a corresponding message.
+After which the script would stop. However, this was not my experience whilst developing this game.<br>
+That is, I had ***error-handling*** code in place in case of any errors. This code worked and indeed pointed out a logic error in my program.
+The error handling code was as follows:
+
+```
+     if (!imageCharacter || imageIndices[imageCharacter] === undefined) {
+         const errorMessage = `Unknown image info: ${imageInfo}`;
+         alert(errorMessage);
+         throw `${errorMessage}. Aborting!`;
+      }
+```
+However although the error was indeed being shown in the console.log
+
+![image](https://user-images.githubusercontent.com/91061592/233799369-0ecf85ec-e112-432e-abe3-4b90f3776543.png)
+
+Yet my script kept on running expecting the player's next game move!<br>
+It was my understanding that Javascript was **meant to stop** when an error occurs!<br>
+
+Whilst investigating the matter I came across [this quote](https://softwareengineering.stackexchange.com/questions/324992/unlike-c-why-does-uncaught-exception-in-javascript-not-terminate-the-script)
+
+> An uncaught exception in a ***Javascript script <strong>does</strong> cause the script to be terminated***, but the browser executing the script **does not remember that it terminated abnormally.**
+
+So in effect, that is what was happening with my script. The browser (in my case, Chrome) kept on executing the script therefore the game kept running expecting the player's next move!
+
+### Solution: Window: error event
+
+I looked at this [Window: error event information](https://developer.mozilla.org/en-US/docs/Web/API/Window/error_event) and thereby implemented an error handling routine:
+
+```
+window.addEventListener("error", (event) => {
+   // Remove everything from the DOM's body
+...
+const newDiv = document.createElement("div");
+   newDiv.innerHTML = "<h1>An Internal Error Has Occurred:</h1>";
+
+   // Create element for the error message
+   let errorMessage = document.createElement("h2");
+   errorMessage.innerText = event.message;
+
+   // Add the message to the newly created div
+   newDiv.appendChild(errorMessage);
+...
+   // Display the error on the webpage
+   bodyElement.appendChild(newDiv);
+
+});
+
+```
+
+Now if any error occurs the entire webpage is cleared and a central error message is displayed.
+
+### Sample Error Message
+
+![image](https://user-images.githubusercontent.com/91061592/233800108-cacb73c1-de58-45ad-ba80-db0008992236.png)
+
+
+## Jshint warning 
  
 ***
 ## Technologies Used
