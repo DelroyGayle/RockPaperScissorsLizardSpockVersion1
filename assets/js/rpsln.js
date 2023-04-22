@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
    runTheGame();
@@ -182,14 +183,11 @@ function runTheGame() {
          throw `${errorMessage}. Aborting!`;
       }
 
+      let newListener = createFunction(showThisImage,weaponValues);
+
       // In this event, Call 'showThisImage' with the corresponding 'weaponValues' to display the images
       // Then determine the computer opponent's response
-      buttonsList[i].addEventListener("click", function () {
-         showThisImage(weaponValues);
-         const computerWeaponValue = determineComputerChoice();
-         showThisImage(computerWeaponValue);
-         updateScoresThenDetermineNextAction(weaponValues, computerWeaponValue);
-      });
+      buttonsList[i].addEventListener("click", newListener);
    }
 
    // Initial Form
@@ -197,7 +195,7 @@ function runTheGame() {
    initialForm.addEventListener("submit", (event) => {
       event.preventDefault();
       // Fetch the relevant form info
-      const myForm = document.getElementsByClassName("show-form")[0]
+      const myForm = document.getElementsByClassName("show-form")[0];
       const formPlayerName = myForm.player_name.value.trim();
       const formNumberOfRounds = parseInt(myForm.total_numberof_rounds.value);
       // if 'random' was selected generate a random number between 1 and 15 inclusive
@@ -270,7 +268,7 @@ function runTheGame() {
          S: 6, // Scissors: 6 to 8
          L: 9, // Lizard: 9 to 11
          N: 12, // Spock: 12 to 14
-      }
+      };
 
       // imageInfo EG [4, "L", "Lizard"]
       // So fetch the middle letter to determine type of imaeg
@@ -299,6 +297,15 @@ function runTheGame() {
       // Use 'object-fit': cover except for two exceptions
       theImage.style.objectFit = fillImages.indexOf(randomNumber) < 0 ? "cover" : "fill";
       displayContainerElem.appendChild(theImage);
+   }
+
+   function createFunction(showThisImage, weaponValues) {
+      return function () {
+         showThisImage(weaponValues);
+         const computerWeaponValue = determineComputerChoice();
+         showThisImage(computerWeaponValue);
+         updateScoresThenDetermineNextAction(weaponValues, computerWeaponValue);
+      };
    }
 
    /**
@@ -518,10 +525,10 @@ function runTheGame() {
 
       if (result === playerTies) {
          if (playerName) {
-            text = playerName + "! "
+            text = playerName + "! ";
          }
 
-         return text + "It's a draw!"
+         return text + "It's a draw!";
       }
 
       if (result === playerWon) {
