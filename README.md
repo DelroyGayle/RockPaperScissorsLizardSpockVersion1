@@ -189,7 +189,7 @@ What follows are screenshots of the same above scenarios. The difference being t
   
   
   
-## Existing Features
+## Other Features
 ### Header
   
   ![image](https://user-images.githubusercontent.com/91061592/233777915-588db696-f4b6-4153-86be-14edc0d7f4b9.png)
@@ -231,8 +231,8 @@ This shows the standings between the player and the computer, it gets updated af
   
 ### Rules
 
-Here are the rules of the game if needed, shown to the player so they know what wins against what.
-  
+Here are the rules of the game which are shown to the player after pressing the **Rules Button**.<br>
+TODO Video  
   
 ## Images
 
@@ -376,16 +376,15 @@ So, the five buttons have the form as follows:
 
 * HTML
 
-No errors found when running the code through the W3C validator.
-https://validator.w3.org/nu/?doc
+No errors found when running the code through [the W3C validator](https://validator.w3.org/nu/#textarea).
 
 * CSS
-No errors found when running the code through the Jigsaw validator.
-https://jigsaw.w3.org/css-validator/validator?uri=
+No errors found when running the code through [the Jigsaw validator](https://jigsaw.w3.org/css-validator/validator?uri=).
+
 
 * JavaScript
 
-No errors found when running the code through the Jshint validator.
+No errors found when running the code through [the Jshint validator](https://jshint.com/).
 
 * Lighthouse
 
@@ -416,6 +415,7 @@ No errors found when running the code through the Jshint validator.
 * [GitPod](https://www.gitpod.io/docs/configure/)
 * [W3C HTML Validation service](https://validator.w3.org/)
 * [W3C CSS Validation service](https://jigsaw.w3.org/css-validator/)
+* [JSHint, a JavaScript Code Quality Tool](https://jshint.com/)
 
 ***
 
@@ -437,7 +437,7 @@ This project was deployed using GitHub using the following method:
 * * *
 
 ## Credits
-* The concept of using images for each weapons that I used was based on Anna Peterson's novel approach as shown in her article [The World’s Easiest “The Rock” Themed Rock Paper Scissors JavaScript Tutorial](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69)
+The concept of using images for each weapons that I used was based on Anna Peterson's novel approach as shown in her article<br> [The World’s Easiest “The Rock” Themed Rock Paper Scissors JavaScript Tutorial](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69)
 
 ## Acknowledgements
-* 
+Many thanks to my mentor Derek McAuley for his technical expertise and guidance.
