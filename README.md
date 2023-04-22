@@ -1,7 +1,8 @@
 # Rock-Paper-Scissors-Lizard-Spock
 
-## Rock Paper Scissors Lizard Spock Game
 * * *
+## Rock Paper Scissors Lizard Spock Game
+
 
 [Link to deployed site](https://delroygayle.github.io/RockPaperScissorsLizardSpock/)
 
@@ -9,8 +10,8 @@ Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.
 
 ### Introduction
 Rock-Paper-Scissors-Lizard-Spock is a fun game for both adults and children.
-It is based upon the original centuries-old game of <br>***Rock-Paper-Scissors***
-<br>To quote [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
+It is based upon the original centuries-old game of <br>***Rock-Paper-Scissors***.
+<br><br>To quote [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
 > ***Rock-Paper-Scissors*** is an [intransitive](https://en.wikipedia.org/wiki/Intransitive_game) hand game, usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are "rock" (a closed fist), "paper" (a flat hand), and "scissors" (a fist with the index finger and middle finger extended, forming a V). 
 
 Therefore, this version of the game, ***Rock-Paper-Scissors-Lizard-Spock*** incorporates two new shapes namely Lizard and Spock.
@@ -31,8 +32,8 @@ If you need to hear it again, in this video, the explanation is repeated twice (
 In this version of the game,  the player will challenge the computer which goes by the name of **Kool A.I.**
 <br>Each round, **Kool A.I.** will choose between two different strategies in an attempt to win.
 
-# UX
 ***
+# UX
 ## Target Audience
 
 This online game targets all ages 5+.
@@ -81,13 +82,13 @@ For **tablets** the look would be practically the same as the desktop view; just
 
 The wireframes above reflect my initial approach of this project however as I continued development there has been significant changes to the initial look as shown below.
 
-## Design Choice
 ***
+## Design Choice
 
-I came across Anna Peterson's [article](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69) titled **The World’s Easiest “The Rock” Themed Rock Paper Scissors JavaScript Tutorial**<br>with the caption <em>*If you’ve ever wanted Dwayne “The Rock” Johnson to teach you JavaScript, well, this isn’t your lucky day, but it is <strong>almost like</strong> your lucky day!</em><p>
+I came across Anna Peterson's [article](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69) titled **The World’s Easiest “The Rock” Themed Rock Paper Scissors JavaScript Tutorial**<br>with the caption <em>If you’ve ever wanted Dwayne “The Rock” Johnson to teach you JavaScript, well, this isn’t your lucky day, but it is <strong>almost like</strong> your lucky day!</em><p>
 
 I really liked her innovative approach so I have adapted the same approach.
-That is, I looked for images and icons of which would depict each of the five weapons for the game.
+That is, I looked for images and icons which would depict each of the five weapons for the game.
 
   For example :-
 * For ***Rock***, Dwayne Johnson and Marvel Comics character, The Thing AKA Benjamin Jacob Grimm
@@ -116,8 +117,8 @@ body {
 ... **All the code in this project is mine!**
 
   
+***
 ## How to Play
-***  
 
 ### The Form
 
@@ -134,7 +135,7 @@ Then the user presses ***Let's Play!*** to begin the game.
 
 ### The Game
 
-The user is prompted by the **YOUR MOVE!** prompt to choose between the five buttons which correspond to the weapons, ***Rock, Paper, Scissors, Lizard or Spock.*** 
+The user is prompted by the **YOUR MOVE!** prompt to choose between the five buttons which correspond to the weapons,<br> ***Rock, Paper, Scissors, Lizard or Spock.*** 
 
 ![image](https://user-images.githubusercontent.com/91061592/233741911-1fdaacb7-213b-4a90-89b4-49aa65021568.png)
 
@@ -151,19 +152,19 @@ Then a point is given to the victor.
 
 ![image](https://user-images.githubusercontent.com/91061592/233742390-88efe33c-361f-487c-a1cc-15121097bd0e.png)
 
-* In this next round, both the user and ***Kool AI tie*** because of their choice of **rock**.
+* In this round, both the user and ***Kool AI*** tie because of their choice of **rock**.
 
 ![image](https://user-images.githubusercontent.com/91061592/233742495-90d56ef1-3a05-47ee-9f39-9252ddfb5728.png)
 
-* In this round, the users wins because the user choice of **rock**. **Rock** crushes ***Kool AI***'s choice of **lizard**.
+* In this round, the user wins because the user chose **rock**. **Rock** crushes ***Kool AI***'s choice of **lizard**.
 
 ![image](https://user-images.githubusercontent.com/91061592/233742683-4d297670-ef76-4807-bb3f-979df5b36ce9.png)
 
 * The number of rounds, the number of wins by the user, the number of wins by ***Kool AI*** and the number of ties are shown at the top.<br>
 
-The game ends when either the user or the computer gets to the predetermined number of rounds.<br> 
+* The game ends when either the user or the computer gets to the predetermined number of rounds.<br> 
 
-The user can then choose to play ***Kool AI*** again by clicking the ***Play Again!*** button.
+* The user can then choose to play ***Kool AI*** again by clicking the ***Play Again!*** button.
   
  ![image](https://user-images.githubusercontent.com/91061592/233752898-d2bf2c07-8898-4db8-90fb-188594933d12.png)
 
@@ -237,19 +238,7 @@ Here are the rules of the game if needed, shown to the player so they know what 
 
 I choose to use three images of each weapon in order that for each round, the computer could randomly choose an image to depict both the user's choice of weapon and the computer's choice of weapon.
   
-The fifteen images are as follows 
-
-* Rock
-* Paper
-* Scissors
-* Lizard
-* Spock
-
-### Images
-
-I chose to use 3 images for each of the game's shapes
-All the images are free for personal use in regards to their licensing.
-I sourced the images as follows:
+The fifteen images are as follows: 
 
 * **Rock**
 
@@ -381,51 +370,9 @@ So, the five buttons have the form as follows:
   ![image](https://user-images.githubusercontent.com/91061592/233750300-e1d38e73-b84c-467a-8a31-dea5ada023f2.png)
 
 
-# The Game
+## Testing 
 
-# Features
-
-## Header
-
-Shows the user that they have entered a site to play the game Rock, Paper, Scissors.
-
-## Form
-
-The user can optionally enter their name and a choice of the number of rounds to play.
-The default being 15.
-<br>Then the user clicks the following button to begin playing the game.
-
-## Game Area
-
-This area is where the user plays the game. It shows the options of Paper, Rock and Scissors. After a move is made the computer will follow with its choice. Depending on the result a message will be displayed above which indicates a win, loss or draw.
-
-## Score Board
-
-This shows the standings between the player and the computer, it gets updated after every round.
-
-## Rules
-
-Here are the rules of the game if needed, shown to the player so they know what wins against what.
-
-
-  ## Existing Features
-  #### Header
-  
-  ![image](https://user-images.githubusercontent.com/91061592/233777915-588db696-f4b6-4153-86be-14edc0d7f4b9.png)
-
-    
-  #### The Choices
-    * 
-  #### The Results
-    
-  #### Footer
-    * 
-
-## Future Features
-
-# Testing 
-
-## Validations
+### Validations
 
 * HTML
 
@@ -451,21 +398,20 @@ No errors found when running the code through the Jshint validator.
 
  
 ***
-# Technologies Used
+## Technologies Used
 
-## Languages
+### Languages
 * [HTML](https://en.wikipedia.org/wiki/HTML5)
 * [CSS](https://en.wikipedia.org/wiki/CSS)
-* [JavaScript](https://en.wikipedia.org/wiki/JS)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
-## Libraries And Frameworks
+### Libraries And Frameworks
 * [Font Awesome](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com/)
-*   [Compress Jpeg](https://compressjpeg.com/)
-*   [Font Awesome](https://fontawesome.com/)
-*   [Favicon](https://favicon.io/)
+* [Compress Jpeg](https://compressjpeg.com/)
+* [Favicon](https://favicon.io/)
 
-## Tools
+### Tools
 * [GitHub](https://github.com/)
 * [GitPod](https://www.gitpod.io/docs/configure/)
 * [W3C HTML Validation service](https://validator.w3.org/)
@@ -475,8 +421,8 @@ No errors found when running the code through the Jshint validator.
 
 ## Features To Be Implemented
   
-# Deployment
 ***
+## Deployment
 This project was deployed using GitHub using the following method:
 
 1. Open the correct repository.
