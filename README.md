@@ -450,8 +450,22 @@ Now if any error occurs the entire webpage is cleared and a central error messag
 
 ![image](https://user-images.githubusercontent.com/91061592/233800108-cacb73c1-de58-45ad-ba80-db0008992236.png)
 
+***
+## Jshint warnings
 
-## Jshint warning 
+In order to remove warnings such as<br>
+* **'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6')**
+* **'template literal syntax' is only available in ES6 (use 'esversion: 6')**
+<br><br>Solution: I had to<br>
+* Unclick ***New JavaScript features (ES6)***
+* Then add <strong>/*jshint esversion: 6 */</strong> to the top of my script
+
+
+Then I got the warning<br>
+* **'nullish coalescing' is only available in ES11 (use 'esversion: 11')**
+<br><br>Solution: I had to<br>
+* replace the /* jshint esversion: 6 */ comment with 
+* <strong>/* jshint esversion: 11 */</strong>
  
 ***
 ## Technologies Used
