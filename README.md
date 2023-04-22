@@ -48,7 +48,7 @@ This online game targets all ages 5+.
 ## User Stories
 
 * As a user I want the game to be easy to learn and easy to play.
-* The user has five choices: rock, paper, scissors, lizard or Spock
+* The user has five choices: rock, paper, scissors, lizard or Spock.
 * In each round, after the user has made their move, the computer opponent will respond with its own move.
 * The game will keep the score and the number of rounds and display these figures accordingly.
 * The user has the option to play again and again!
@@ -59,23 +59,23 @@ This online game targets all ages 5+.
 The examples shown are between a mobile view and a desktop view.
 For **tablets** the look would be practically the same as the desktop view; just that the sizes of the images and fonts are reduced.
 
-* **Showing the User/Player beating the computer, namely, Kool A.I.**.
+* **Showing the User/Player beating the computer, namely, Kool A.I.**
 
 ![image](https://user-images.githubusercontent.com/91061592/230883775-144a8510-b71f-454b-944f-75443fff62cd.png)
 
-* **Showing a Tie.
+* <strong>Showing a Tie.</strong>
 
 ![image](https://user-images.githubusercontent.com/91061592/230883938-858ac076-67c4-4c9e-acd4-6fc2e7108e93.png)
 
-* **Showing the end of the game whereby the User/Player as won.
+* <strong>Showing the end of the game whereby the User/Player has won.</strong>
 
 ![image](https://user-images.githubusercontent.com/91061592/230884081-1bac8ff4-f33e-4be7-a91a-8d79d6bbca60.png)
 
-* **Showing the end of the game whereby Kool A.I. as won.
+* <strong>Showing the end of the game whereby Kool A.I. has won.</strong>
 
 ![image](https://user-images.githubusercontent.com/91061592/230884206-43f7356e-872f-4d91-b20e-0fad0421341c.png)
 
-* **Showing the end of the game whereby it is a draw.
+* <strong>Showing the end of the game whereby it is a draw.</strong>
 
 ![image](https://user-images.githubusercontent.com/91061592/230884481-2b341545-e762-49e3-a944-e6aa6a6f8d86.png)
 
@@ -121,56 +121,118 @@ body {
 
 ### The Form
 
-![image](https://user-images.githubusercontent.com/91061592/233741670-e4ea1763-4ffc-4df1-b1fa-ef63df971676.png)
-
-
-At the onset the user is presented with a form whereby the user can optionally enter their name.
-Then the user chooses the number of rounds. The choice being:
+At the onset the user is presented with a form whereby the user can **optionally** enter their name.<br>That is, it is not compulsory to enter one's name. It can be left blank.
+<br>Then the user chooses the number of rounds. The choice being:
 * 15 (the default)
 * 10
 * 5 or 
 * a random number between 1 and 15 inclusive.
 
-Then the user presses ***Let's Go!*** to begin the game.
+Then the user presses ***Let's Play!*** to begin the game.
+  
+![image](https://user-images.githubusercontent.com/91061592/233741670-e4ea1763-4ffc-4df1-b1fa-ef63df971676.png)
 
 ### The Game
 
+The user is prompted by the **YOUR MOVE!** prompt to choose between the five buttons which correspond to the weapons, ***Rock, Paper, Scissors, Lizard or Spock.*** 
+
 ![image](https://user-images.githubusercontent.com/91061592/233741911-1fdaacb7-213b-4a90-89b4-49aa65021568.png)
 
-The user chooses to push one of the five buttons which corresponds to the weapon, ***Rock, Paper, Scissors, Lizard or Spock.*** 
-Once the user makes their choice, the computer AKA ***Kool AI*** will respond with its choice of weapon.
-An image depicting the user's choice is shown on the left; seconds later, an image of ***Kool AI***'s choice is then shown on the right.
+  
+Once the user makes their choice, the computer AKA ***Kool AI*** will respond with its choice of weapon.<br>
+An image depicting the user's weapon choice is shown on the left; seconds later, an image of ***Kool AI***'s weapon choice is then shown on the right.<br><br>
 
-The winner is then determined and a message is shown to explain why the user ***either won or lost that round.*** 
+The winner of that round is then determined and a message is shown to explain why the user ***either won or lost that round.***<br> 
 Then a point is given to the victor. 
 
-In this round, ***Kool AI*** wins because its choice of **Spock** smashes the user's choice of **scissors**.
+#### Game Play Examples
+  
+* In this round, ***Kool AI*** won because of its choice of **Spock**. **Spock** smashes the user's choice of **scissors**.
 
 ![image](https://user-images.githubusercontent.com/91061592/233742390-88efe33c-361f-487c-a1cc-15121097bd0e.png)
 
-In the next round, both ***tie*** with their choice of **rock**
+* In this next round, both the user and ***Kool AI tie*** because of their choice of **rock**.
 
 ![image](https://user-images.githubusercontent.com/91061592/233742495-90d56ef1-3a05-47ee-9f39-9252ddfb5728.png)
 
-In this round, the users wins because the user chose **rock** which crushes ***Kool AI***'s choice of **lizard**.
+* In this round, the users wins because the user choice of **rock**. **Rock** crushes ***Kool AI***'s choice of **lizard**.
 
 ![image](https://user-images.githubusercontent.com/91061592/233742683-4d297670-ef76-4807-bb3f-979df5b36ce9.png)
 
+* The number of rounds, the number of wins by the user, the number of wins by ***Kool AI*** and the number of ties are shown at the top.<br>
 
-The number of rounds, the number of wins by the user, the number of wins by ***Kool AI*** and the number of ties are shown at the top.
+The game ends when either the user or the computer gets to the predetermined number of rounds.<br> 
 
-The game ends when either the user or the computer gets to the predetermined number of rounds. 
+The user can then choose to play ***Kool AI*** again by clicking the ***Play Again!*** button.
+  
+ ![image](https://user-images.githubusercontent.com/91061592/233752898-d2bf2c07-8898-4db8-90fb-188594933d12.png)
 
-The user can the choose to play ***Kool AI*** again by clicking the ***Play Again!*** button.
+* At any time, the user can choose to read the rules by clicking the rules button at the bottom of the screen.
 
-At any time, the user can choose to read the rules by clicking the rules button at the bottom of the screen.
-
-![image](https://user-images.githubusercontent.com/91061592/233743234-df002091-939d-4931-a602-0dadb7712633.png)
+![image](https://user-images.githubusercontent.com/91061592/233779989-9f0ae49f-2081-4491-88f1-091d3f0b6550.png)
 
 
 Please note: if the user had selected **random** for the number of rounds, then a **new** random number of rounds between 1 and 15 inclusive will be used for the next round.
 
+### Player's Name
+  
+What follows are screenshots of the same above scenarios. The difference being that the user had entered their name:<br>
+  
+* Please note: as one enters their name, the name is automatically converted to ***Title case***. That is, each separate word is capitalised whilst the rest of the letters are in lowercase. 
+  
+![image](https://user-images.githubusercontent.com/91061592/233777585-7137f0ff-2c9b-4dc6-958a-cb789dd31041.png)
+  
+* ***Title case*** is also used to display the player's name when the game begins.  
+  
+![image](https://user-images.githubusercontent.com/91061592/233778298-12188d27-8146-4a28-8ba2-a93f6848fb1f.png)
+  
+  
+  
+## Existing Features
+### Header
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233777915-588db696-f4b6-4153-86be-14edc0d7f4b9.png)
+  
+### Score Board
 
+This shows the standings between the player and the computer, it gets updated after every round.
+  
+![image](https://user-images.githubusercontent.com/91061592/233778054-d8be47cc-5e89-4e8b-bc77-1ea9fb935b13.png)
+  
+### Game Endings
+  
+* This shows what happens when the user wins.  
+
+![image](https://user-images.githubusercontent.com/91061592/233779065-0541f808-89c9-4ea1-b40d-dd2d7e2e8285.png)
+  
+* This shows what happens when the user loses.
+  
+![image](https://user-images.githubusercontent.com/91061592/233778811-169d9d85-a95b-46ee-b50b-a25f968d83b8.png)
+  
+* This shows what happens when the game ends as a draw.
+  
+![image](https://user-images.githubusercontent.com/91061592/233778743-74c02ca8-b14f-4f9c-932f-b2bac452d4e7.png)
+
+### Game Endings where the user had entered their name.
+
+* This shows what happens when the user wins.  
+
+  ![image](https://user-images.githubusercontent.com/91061592/233779155-2017a916-1300-4a5c-92c3-cf275e03b33e.png)
+  
+* This shows what happens when the user loses.
+  
+![image](https://user-images.githubusercontent.com/91061592/233778914-ea6dfba0-32df-4a4b-b5e4-bd188be74386.png) 
+  
+* This shows what happens when the game ends as a draw.
+
+![image](https://user-images.githubusercontent.com/91061592/233778610-f9e7c604-c8e3-4d9b-bd9f-7421e46e9008.png)
+  
+  
+### Rules
+
+Here are the rules of the game if needed, shown to the player so they know what wins against what.
+  
+  
 ## Images
 
 I choose to use three images of each weapon in order that for each round, the computer could randomly choose an image to depict both the user's choice of weapon and the computer's choice of weapon.
@@ -314,24 +376,10 @@ So, the five buttons have the form as follows:
 
   ![image](https://user-images.githubusercontent.com/91061592/233752898-d2bf2c07-8898-4db8-90fb-188594933d12.png)
   
-  ![image](https://user-images.githubusercontent.com/91061592/233750137-f612b761-9a2c-4ce4-a0c9-aba0f946474a.png)
+  ![image](https://user-images.githubusercontent.com/91061592/233780013-52e486ab-3fca-485c-b1d1-d56b55182770.png)
   
   ![image](https://user-images.githubusercontent.com/91061592/233750300-e1d38e73-b84c-467a-8a31-dea5ada023f2.png)
 
-
-
-
-
-
-
-#### Mobile 
-* 
-
-#### Tablet
-* 
-
-#### Desktop
-* 
 
 # The Game
 
@@ -357,12 +405,14 @@ This shows the standings between the player and the computer, it gets updated af
 
 ## Rules
 
-Here is the rules of the game if needed, shown to the player so they know what wins against what.
+Here are the rules of the game if needed, shown to the player so they know what wins against what.
 
 
   ## Existing Features
   #### Header
-    *
+  
+  ![image](https://user-images.githubusercontent.com/91061592/233777915-588db696-f4b6-4153-86be-14edc0d7f4b9.png)
+
     
   #### The Choices
     * 
@@ -425,28 +475,17 @@ No errors found when running the code through the Jshint validator.
 
 ## Features To Be Implemented
   
-***
 # Deployment
+***
 This project was deployed using GitHub using the following method:
 
 1. Open the correct repository.
-2. Select settings in the menu.
-3. Click on the pages section in the side menu.
-4. Go down to Branch and select main in the dropdown.
-5. Save the changes and wait for a link that should appear at the top of the screen under GitHub Pages. Letting you know that the page is live. (If nothing has happened after a few minutes refresh the page and the link should appear.)
-
-***
-
-### GitHub Page
-
-This site was deployed to GitHub pages using the following steps:
-
-1. Go to the GitHub repository
-2. Clock on the Settings tab
-3. Go to GitHub Pages Section
-4. From the source dropdown menu select Main branch
-5. Once this has been selected, provide the link to the completed website
-
+2. Click on **Settings** in the menu.
+3. Click on **Pages** in the side menu.
+4. Go down to **Branch** under **Build and deployment** and select main in the dropdown.  
+5. Save the changes. Then wait for a link that should appear at the top of the screen under GitHub Pages. Letting you know that the page is live.<br> 
+(If nothing has happened after a few minutes then refresh the page and the link should appear.)<br><br>
+  
 [Link to deployed site](https://delroygayle.github.io/RockPaperScissorsLizardSpock/)
 
 * * *
