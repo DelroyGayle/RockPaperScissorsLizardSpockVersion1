@@ -1,6 +1,7 @@
 # Rock-Paper-Scissors-Lizard-Spock
 
 ## Rock Paper Scissors Lizard Spock Game
+* * *
 
 [Link to deployed site](https://delroygayle.github.io/RockPaperScissorsLizardSpock/)
 
@@ -8,16 +9,16 @@ Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.
 
 ### Introduction
 Rock-Paper-Scissors-Lizard-Spock is a fun game for both adults and children.
-It is based upon the original centuries-old game of ***Rock-Paper-Scissors***
-To quote [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
-> ***Rock-Paper-Scissors*** is an [intransitive](https://en.wikipedia.org/wiki/Intransitive_game) hand game], usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are "rock" (a closed fist), "paper" (a flat hand), and "scissors" (a fist with the index finger and middle finger extended, forming a V). 
+It is based upon the original centuries-old game of <br>***Rock-Paper-Scissors***
+<br>To quote [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
+> ***Rock-Paper-Scissors*** is an [intransitive](https://en.wikipedia.org/wiki/Intransitive_game) hand game, usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are "rock" (a closed fist), "paper" (a flat hand), and "scissors" (a fist with the index finger and middle finger extended, forming a V). 
 
 Therefore, this version of the game, ***Rock-Paper-Scissors-Lizard-Spock*** incorporates two new shapes namely Lizard and Spock.
 <br>To quote [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
-> ***"rock paper scissors Spock lizard"***, invented by [Sam Kass and Karen Bryla](http://www.samkass.com/theories/RPSSL.html), which adds "Spock" and "lizard" to the standard three choices. "Spock" is signified with the Star Trek Vulcan salute, while "lizard" is shown by forming the hand into a sock-puppet-like mouth. Spock smashes scissors and vaporizes rock; he is poisoned by lizard and disproved by paper. Lizard poisons Spock and eats paper; it is crushed by rock and decapitated by scissors. This variant was mentioned in a [2005 article in The Times of London](https://web.archive.org/web/20100531231332/http://www.timesonline.co.uk/tol/comment/leading_article/article1080425.ece) and was later the subject of an [episode](https://en.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes#ep25) of the American sitcom **[The Big Bang Theory](https://en.wikipedia.org/wiki/The_Big_Bang_Theory)** in 2008.
+>One popular five-weapon expansion is ***"rock paper scissors Spock lizard"***, invented by [Sam Kass and Karen Bryla](http://www.samkass.com/theories/RPSSL.html), which adds "Spock" and "lizard" to the standard three choices. "Spock" is signified with the Star Trek Vulcan salute, while "lizard" is shown by forming the hand into a sock-puppet-like mouth. Spock smashes scissors and vaporizes rock; he is poisoned by lizard and disproved by paper. Lizard poisons Spock and eats paper; it is crushed by rock and decapitated by scissors. This variant was mentioned in a [2005 article in The Times of London](https://web.archive.org/web/20100531231332/http://www.timesonline.co.uk/tol/comment/leading_article/article1080425.ece) and was later the subject of an [episode](https://en.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes#ep25) of the American sitcom **[The Big Bang Theory](https://en.wikipedia.org/wiki/The_Big_Bang_Theory)** in 2008.
 
 ### Videos
-Here is a YouTube video whereby you can see [Sheldon](https://bigbangtheory.fandom.com/wiki/Sheldon_Cooper) and [Raj](https://bigbangtheory.fandom.com/wiki/Rajesh_Koothrappali) settle settle a dispute about what to watch on TV using this game.
+Here is a YouTube video whereby you can see [Sheldon](https://bigbangtheory.fandom.com/wiki/Sheldon_Cooper) and [Raj](https://bigbangtheory.fandom.com/wiki/Rajesh_Koothrappali) settle a dispute about what to watch on TV using this game.
 
 * [The Big Bang Theory -- Rock, Paper, Scissors, Lizard, Spock](https://www.youtube.com/watch?v=iSHPVCBsnLw)
 
@@ -25,16 +26,14 @@ If you need to hear it again, in this video, the explanation is repeated twice (
 
 * [Rock Paper Scissors Lizard Spock - Extended Cut ~ The Big Bang Theory](https://www.youtube.com/watch?v=x5Q6-wMx-K8)
 
-### Kool A.I.
+### Your opponent: Kool A.I.
 
 In this version of the game,  the player will challenge the computer which goes by the name of **Kool A.I.**
-Each round, **Kool A.I.** will choose between two different strategies in an attempt to win.
+<br>Each round, **Kool A.I.** will choose between two different strategies in an attempt to win.
 
 # UX
-
-## TARGET AUDIENCE:
-
-* * *
+***
+## Target Audience
 
 This online game targets all ages 5+.
 
@@ -54,7 +53,71 @@ This online game targets all ages 5+.
 * The game will keep the score and the number of rounds and display these figures accordingly.
 * The user has the option to play again and again!
 
+
+## Wireframes
+* To design the wireframes I used [balsamiq](https://balsamiq.com/wireframes/). 
+The examples shown are between a mobile view and a desktop view.
+For **tablets** the look would be practically the same as the desktop view; just that the sizes of the images and fonts are reduced.
+
+* **Showing the User/Player beating the computer, namely, Kool A.I.**.
+
+![image](https://user-images.githubusercontent.com/91061592/230883775-144a8510-b71f-454b-944f-75443fff62cd.png)
+
+* **Showing a Tie.
+
+![image](https://user-images.githubusercontent.com/91061592/230883938-858ac076-67c4-4c9e-acd4-6fc2e7108e93.png)
+
+* **Showing the end of the game whereby the User/Player as won.
+
+![image](https://user-images.githubusercontent.com/91061592/230884081-1bac8ff4-f33e-4be7-a91a-8d79d6bbca60.png)
+
+* **Showing the end of the game whereby Kool A.I. as won.
+
+![image](https://user-images.githubusercontent.com/91061592/230884206-43f7356e-872f-4d91-b20e-0fad0421341c.png)
+
+* **Showing the end of the game whereby it is a draw.
+
+![image](https://user-images.githubusercontent.com/91061592/230884481-2b341545-e762-49e3-a944-e6aa6a6f8d86.png)
+
+The wireframes above reflect my initial approach of this project however as I continued development there has been significant changes to the initial look as shown below.
+
+## Design Choice
+***
+
+I came across Anna Peterson's [article](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69) titled **The World’s Easiest “The Rock” Themed Rock Paper Scissors JavaScript Tutorial**<br>with the caption <em>*If you’ve ever wanted Dwayne “The Rock” Johnson to teach you JavaScript, well, this isn’t your lucky day, but it is <strong>almost like</strong> your lucky day!</em><p>
+
+I really liked her innovative approach so I have adapted the same approach.
+That is, I looked for images and icons of which would depict each of the five weapons for the game.
+
+  For example :-
+* For ***Rock***, Dwayne Johnson and Marvel Comics character, The Thing AKA Benjamin Jacob Grimm
+* For ***Paper***, DC Comics Character Teen Titans [Paper](https://dc.fandom.com/wiki/Paper_(Teen_Titans_TV_Series))
+* For ***Scissors***, Edgar Scissorhands and DC Comics Character Teen Titans [Scissors](https://dc.fandom.com/wiki/Scissors_(Teen_Titans_TV_Series))
+* For ***Lizard***, Star Trek character Gorn and Marvel Comics character, The Lizard AKA Dr. Curtis "Curt" Connors
+* For ***Spock***, actor Leonard Nimoy (1931-2015)
+
+### Please note
+Although I chose to use the same approach as shown by Peterson, nevertheless, besides using the ***defer tag*** has Peterson explained and my usage of her CSS initialisations
+
+```
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+}
+
+body {
+  height: 100vh;
+}
+
+```
+
+... **All the code in this project is mine!**
+
+  
 ## How to Play
+***  
 
 ### The Form
 
@@ -107,37 +170,6 @@ At any time, the user can choose to read the rules by clicking the rules button 
 
 Please note: if the user had selected **random** for the number of rounds, then a **new** random number of rounds between 1 and 15 inclusive will be used for the next round.
 
-## Design Choices
-
-I came across Anna Peterson's [article](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69) titled **The World’s Easiest “The Rock” Themed Rock Paper Scissors JavaScript Tutorial**<br>with the caption <em>*If you’ve ever wanted Dwayne “The Rock” Johnson to teach you JavaScript, well, this isn’t your lucky day, but it is <strong>almost like</strong> your lucky day!</em><p>
-
-I really liked her innovative approach so I have adapted the same approach.
-That is, I looked for images and icons of which would depict each of the five weapons for the game.
-For example :-
-* For ***Rock***, Dwayne Johnson and Marvel Comics character, The Thing AKA Benjamin Jacob Grimm
-* For ***Paper***, DC Comics Character Teen Titans [Paper](https://dc.fandom.com/wiki/Paper_(Teen_Titans_TV_Series))
-* For ***Scissors***, Edgar Scissorhands and DC Comics Character Teen Titans [Scissors](https://dc.fandom.com/wiki/Scissors_(Teen_Titans_TV_Series))
-* For ***Lizard***, Star Trek character Gorn and Marvel Comics character, The Lizard AKA Dr. Curtis "Curt" Connors
-* For ***Spock***, actor Leonard Nimoy (1931-2015)
-
-### Please note
-Although I chose to use the same approach as shown by Peterson, nevertheless, besides using the ***defer tag*** has Peterson explains it and my usage of her CSS initialisations
-
-```
-* {
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
-  text-align: center;
-  margin: 0 auto;
-}
-
-body {
-  height: 100vh;
-}
-
-```
-
-**All the code in this project is mine!**
 
 ## Images
 
@@ -286,23 +318,6 @@ So, the five buttons have the form as follows:
   
   ![image](https://user-images.githubusercontent.com/91061592/233750300-e1d38e73-b84c-467a-8a31-dea5ada023f2.png)
 
-
-## Wireframes
-* To design the wireframes I used [balsamiq](https://balsamiq.com/wireframes/). 
-The examples shown are between a mobile and desktop.
-For **tablets** the look would be practically the same as the desktop view; just that the sizes of the images and fonts are reduced.
-
-![image](https://user-images.githubusercontent.com/91061592/230883775-144a8510-b71f-454b-944f-75443fff62cd.png)
-
-![image](https://user-images.githubusercontent.com/91061592/230883938-858ac076-67c4-4c9e-acd4-6fc2e7108e93.png)
-
-![image](https://user-images.githubusercontent.com/91061592/230884081-1bac8ff4-f33e-4be7-a91a-8d79d6bbca60.png)
-
-![image](https://user-images.githubusercontent.com/91061592/230884206-43f7356e-872f-4d91-b20e-0fad0421341c.png)
-
-![image](https://user-images.githubusercontent.com/91061592/230884481-2b341545-e762-49e3-a944-e6aa6a6f8d86.png)
-
-The wireframes above reflect my initial approach of this project however as I continued development there has been changes to the initial look as shown below.
 
 
 
