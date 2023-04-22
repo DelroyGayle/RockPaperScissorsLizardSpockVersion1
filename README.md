@@ -276,11 +276,11 @@ So, the five buttons have the form as follows:
   
   ![image](https://user-images.githubusercontent.com/91061592/233749891-9b907a88-0a86-497d-b42d-e83946609050.png)
 
- * The background colour for the ***Let's Play!*** button, the ***Play Again*** button and the ***Rules*** button is **#6725cc**
+ * The background colour for the ***Let's Play!*** button, the ***Play Again!*** button and the ***Rules*** button is **#6725cc**
   
   ![image](https://user-images.githubusercontent.com/91061592/233750182-d5bf5a40-bf8e-42a1-9854-fec2fde1dadb.png)
 
-  TODO Play Again
+  ![image](https://user-images.githubusercontent.com/91061592/233752898-d2bf2c07-8898-4db8-90fb-188594933d12.png)
   
   ![image](https://user-images.githubusercontent.com/91061592/233750137-f612b761-9a2c-4ce4-a0c9-aba0f946474a.png)
   
