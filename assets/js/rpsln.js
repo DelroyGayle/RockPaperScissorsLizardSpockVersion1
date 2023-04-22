@@ -241,11 +241,6 @@ function runTheGame() {
    // Show YOUR MOVE!
    function showYourMoveIndicator() {
       displayContainerElem.appendChild(your_move_indicator);
-   }
-
-   // Remove YOUR MOVE!
-   function removeYourMoveIndicator() {
-      displayContainerElem.removeChild(displayContainerElem.firstChild);
    }   
 
    function playGame() {
@@ -290,8 +285,8 @@ function runTheGame() {
       let randomNumber = Math.floor(Math.random() * 3);
       randomNumber += imageIndices[imageCharacter];
 
-      // Remove any classes from displayContainer i.e. the Your Move message
-      displayContainerElem.classList.remove("yourmove");
+      //TODO Remove any classes from displayContainer i.e. the Your Move message
+      //TODO displayContainerElem.classList.remove("yourmove");
       // Also remove the last child if it is not an image i.e. a message or a <div>
       const theLast = displayContainerElem.lastElementChild;
       if (theLast && theLast.nodeName !== "IMG") {
@@ -485,8 +480,6 @@ function runTheGame() {
 
       // Hide current messages
       hideMessages();
-      // Remove YOUR MOVE!
-      removeYourMoveIndicator();
 
       const playerFinalScore = parseInt(playerScoreElem.innerText);
       const computerFinalScore = parseInt(computerScoreElem.innerText);
