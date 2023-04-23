@@ -284,9 +284,7 @@ function runTheGame() {
       let randomNumber = Math.floor(Math.random() * 3);
       randomNumber += imageIndices[imageCharacter];
 
-      //TODO Remove any classes from displayContainer i.e. the Your Move message
-      //TODO displayContainerElem.classList.remove("yourmove");
-      // Also remove the last child if it is not an image i.e. a message or a <div>
+      // Remove the last child from displayContainerElem if it is not an image i.e. a message or a <div>
       const theLast = displayContainerElem.lastElementChild;
       if (theLast && theLast.nodeName !== "IMG") {
          displayContainerElem.removeChild(theLast);
