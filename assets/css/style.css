@@ -181,6 +181,35 @@ img {
   line-height: 2em;
 }
 
+/* Rules Page Handling */
+
+.show-rules-page {
+    display: none;
+}
+
+.rules-container {
+  font-family: "Krona One", Arial, Tahoma, sans-serif;
+  color: #fff;
+  /* margin: 0 2em; */
+  text-align: center;
+  font-size: 120%;
+}
+
+.video-container {
+  display: none;
+  font-family: "Krona One", Arial, Tahoma, sans-serif;
+  color: #fff;
+  text-align: center;
+  font-size: 150%;
+}
+
+/* No line and blue colour */
+
+.a, .a:link, a:visited, a {
+  text-decoration: none;
+  color: #8acc25;
+}
+
 .centre-error-message {
   display: flex;
   justify-content: center;

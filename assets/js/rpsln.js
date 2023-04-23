@@ -160,7 +160,12 @@ function runTheGame() {
    let currentNumberOfRounds = 0;
    let total_numberof_rounds;
    let random_chosen = false;
-   
+   let game_area_showing = false;
+
+   let theRulesText = "";   
+   // Set up the text regarding the rules of the game
+   setupTheRulesText();
+
    // Add Event Listeners to the buttons
    let buttonsList = document.getElementsByClassName("weapon-button");
 
@@ -243,8 +248,110 @@ function runTheGame() {
    function showYourMoveIndicator() {
       displayContainerElem.appendChild(your_move_indicator);
    }   
+   
+   // Handle the RULES Page
+
+   function setupTheRulesText() {
+
+      const actions = [
+         "21", "cuts",
+         "10", "covers",
+         "04", "crushes",
+         "43", "poisons",
+         "32", "smashes",
+         "24", "decapitates",
+         "41", "eats",
+         "13", "disproves",
+         "30", "vaporises",
+         "02", "crushes"
+      ];
+
+      // | indicates a carriage return i.e. <br>
+      theRulesText = "Kool A.I. is ready to play|Please choose your weapon by clicking either|";
+      theRulesText += "Rock, Paper, Scissors, Lizard or Spock|Whoever wins gets a point|The rules are as follows:||";
+      for (let i=0; i < actions.length; i+=2) {
+            const twoDigits = actions[i];
+            // e.g. 21 ==> 2 stands for Scissors; 1 stands for Paper;
+            const weapon1 = twoDigits[0];
+            const weapon2 = twoDigits[1];
+            const verb = actions[i + 1];
+            // Each item of 'hand_weapons' have the following format [0, "R", "Rock"]
+            theRulesText += `${hand_weapons[+weapon1][2]} ${verb} ${hand_weapons[+weapon2][2]}|`
+      }                   
+   }
+
+   function clearThePage(rulesButton) {
+      // Disable and remove the Rules button
+      rulesButton.disabled = true;
+      rulesButton.style.display = "none";
+      // Remove everything from the screen
+      // Either the Form page
+      if (!game_area_showing) {
+         document.getElementsByClassName("form-container")[0].style.display = "none";
+      } else {
+         // or the Game page
+         document.getElementsByClassName("show-game")[0].style.display = "none";
+      }
+   }
+
+   function determinePlayerName() {
+      if (!game_area_showing) {
+            // Showing the form - check if the player has inputted their name
+            const myForm = document.getElementsByClassName("show-form")[0];
+            const formPlayerName = myForm.player_name.value.trim();
+            return (formPlayerName !== "") ? titleCase(formPlayerName) : "";
+      }      
+
+      // Other playerName will hold the value of the Player's name if it was inputted
+      return playerName ? playerName : "";
+   }   
+
+   function typeTheRules(theText) {
+      let i = 0;
+      let speed = 50;
+      const theRulesContainerId = document.getElementById("the-rules-container");
+      typeWriter();
+      
+      function typeWriter() {
+        if (i < theText.length) {
+          const theChar = theText.charAt(i);
+          // * is the indicator to Show the Conclusion and OK button
+          if (theChar === "*") {
+               concludeTheRulesText()
+          } else {
+               // | indicates a carriage return i.e. <br>
+               theRulesContainerId.innerHTML += theChar !== "|" ? theChar : "<br>";
+               theRulesContainerId.classList.add("rules-container");
+          }
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+
+      function concludeTheRulesText() {
+           // Show the Conclusion and OK button
+           document.getElementsByClassName("video-container")[0].style.display = "block";
+      }
+   }
+
+   function showTheRules() {
+      const rulesButton = document.getElementById("the-rules-button");
+     // Remove everything from the screen
+      clearThePage(rulesButton);
+      // Show the greetings
+      document.getElementsByClassName("show-rules-page")[0].style.display = "block";
+      // Add the Player's name if present
+      let theText="Greetings";
+      const thePlayerName = determinePlayerName();
+      theText += thePlayerName ? " " + thePlayerName + "!|" : "!|"
+      // * Indicates the conclusion whereby the video link and OK button is then displayed
+      theText += theRulesText + "*";
+      // Type out the Rules
+      typeTheRules(theText);
+   }
 
    function playGame() {
+      game_area_showing = true;
       // Show YOUR MOVE!
       showYourMoveIndicator();
       // Enable game buttons
@@ -625,13 +732,4 @@ function create_your_move() {
    // Add styling
    newDiv.classList.add("circle");
    return newDiv;
-}
-
-// Handle the RULES Page
-function showTheRules() {
-   // Remove anything on the screen
-   // Either the Form page
-        document.getElementsByClassName("form-container")[0].style.display = "none";     
-   // or the Game page
-        document.getElementsByClassName("show-game")[0].style.display = "none";
 }
