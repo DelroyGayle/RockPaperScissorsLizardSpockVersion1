@@ -388,7 +388,10 @@ No errors found when running the code through [the Jigsaw validator](https://jig
 
 No errors found when running the code through [the Jshint validator](https://jshint.com/).
 
-* Lighthouse
+### Lighthouse
+
+![image](https://user-images.githubusercontent.com/91061592/233813832-f88f1f63-cd36-4963-af35-b44cbe6b4a60.png)
+
 
 ## Bugs
 
@@ -560,7 +563,7 @@ The above changes successfully removed the Jshint warning.
 ### Libraries And Frameworks
 * [Font Awesome](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com/)
-* [Compress Jpeg](https://compressjpeg.com/)
+* [TinyPNG](https://tinypng.com/)
 * [Favicon](https://favicon.io/)
 
 ### Tools
