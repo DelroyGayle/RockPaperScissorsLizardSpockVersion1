@@ -453,7 +453,7 @@ Now if any error occurs the entire webpage is cleared and a central error messag
 ***
 ## Jshint warnings
 
-In order to remove warnings such as<br>
+In order to remove warnings such as:<br>
 * **'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6')**
 * **'template literal syntax' is only available in ES6 (use 'esversion: 6')**
 <br><br>Solution: I had to<br>
@@ -461,7 +461,7 @@ In order to remove warnings such as<br>
 * Then add <strong>/*jshint esversion: 6 */</strong> to the top of my script
 
 
-Then I got the warning<br>
+Then I got the warning:<br>
 * **'nullish coalescing' is only available in ES11 (use 'esversion: 11')**
 <br><br>Solution: I had to<br>
 * replace the /* jshint esversion: 6 */ comment with 
@@ -508,7 +508,7 @@ This project was deployed using GitHub using the following method:
 * * *
 
 ## Credits
-The concept of using images for each weapons that I used was based on Anna Peterson's novel approach as shown in her article<br> [The World’s Easiest “The Rock” Themed Rock Paper Scissors JavaScript Tutorial](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69)
+The concept of using images for each weapon that I had used was based on Anna Peterson's novel approach as shown in her article<br> [The World’s Easiest “The Rock” Themed Rock Paper Scissors JavaScript Tutorial](https://javascript.plainenglish.io/the-worlds-easiest-the-rock-themed-rock-paper-scissors-javascript-tutorial-ee99b7f83e69)
 
 ## Acknowledgements
 Many thanks to my mentor Derek McAuley for his technical expertise and guidance.

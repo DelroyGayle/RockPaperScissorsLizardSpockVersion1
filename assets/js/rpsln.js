@@ -454,19 +454,18 @@ function runTheGame() {
       // Determine the correct verb
       const index = playerWeaponNumberChar + computerWeaponNumberChar;
       let verb = actions[index];
-      if (verb) {
-         explanationElem.innerText = `${playerWeaponValues[2]} ${verb} ${computerWeaponValues[2]}`;
-      } else {
-         /*
+      if (!verb) {
+      /*
             if null, swop the numbers around e.g. 
             "32" instead of "23" in order to fetch
             "smashes"
-         */
-         verb = actions[computerWeaponNumberChar + playerWeaponNumberChar];
-         // Swop! In order to determine the right name of each weapon for the message
-         [playerWeaponValues, computerWeaponValues] = [computerWeaponValues, playerWeaponValues];
-         explanationElem.innerText = `${playerWeaponValues[2]} ${verb} ${computerWeaponValues[2]}`;
+      */
+            verb = actions[computerWeaponNumberChar + playerWeaponNumberChar];
+            // Swop! In order to determine the right name of each weapon for the message
+            [playerWeaponValues, computerWeaponValues] = [computerWeaponValues, playerWeaponValues];
       }
+
+      explanationElem.innerText = `${playerWeaponValues[2]} ${verb} ${computerWeaponValues[2]}`;
       outcomeElem.innerText = result === playerWon ? "You Win!" : "You Lose!";
    }
 
