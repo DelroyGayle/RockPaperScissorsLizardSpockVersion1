@@ -2,11 +2,8 @@
 
 * * *
 ## Rock Paper Scissors Lizard Spock Game
-
-
-[Link to deployed site](https://delroygayle.github.io/RockPaperScissorsLizardSpock/)
-
-Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.
+Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.<br>
+[Link to deployed site](https://delroygayle.github.io/RockPaperScissorsLizardSpock/)<br><br>
 
 ### Introduction
 Rock-Paper-Scissors-Lizard-Spock is a fun game for both adults and children.
@@ -586,7 +583,9 @@ This project was deployed using GitHub using the following method:
 2. Click on **Settings** in the menu.
 3. Click on **Pages** in the side menu.
 4. Go down to **Branch** under **Build and deployment** and select main in the dropdown.  
-5. Save the changes. Then wait for a link that should appear at the top of the screen under GitHub Pages. Letting you know that the page is live.<br> 
+5. Save the changes. Then wait for a link that should appear at the top of the screen under GitHub Pages.<br>
+The link would be worded as **Your site is live at https://***\<Your GitHub Name\>***.github.io\/***\<Repo Name\>***/** <br>followed by a
+**Visit site** button.<br> 
 (If nothing has happened after a few minutes then refresh the page and the link should appear.)<br><br>
   
 [Link to deployed site](https://delroygayle.github.io/RockPaperScissorsLizardSpock/)
