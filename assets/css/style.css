@@ -40,16 +40,6 @@ body {
   cursor: pointer;
 }
 
-/* .circle {
-  background: gold;
-  width: 40px; 
-  height: 40px;
-  border-radius: 50%;
-  display: flex; /* or inline-flex * /
-  align-items: center; 
-  justify-content: center;
-} */
-
 /* Place "YOUR MOVE!" in a circle based on the example shown by Armand at
    https://stackoverflow.com/questions/4801181/vertically-and-horizontally-centering-text-in-circle-in-css-like-iphone-notific
 */
@@ -143,6 +133,12 @@ input[type=submit],
   gap: 1em;
 }
 
+/* Handle the length of the player's name */
+
+.column-centre-aligned h2 {
+  font-size: 120%;
+}
+
 .show-game {
   display: none;
 }
@@ -215,9 +211,20 @@ img {
     font-size: 75%;
   }
 
+/* Create more width */
+
+  .side-margins {
+    margin: 0 10vw;
+  }
+
+  .playername-control {
+    width: 20%;
+  }
+
 }
 
 @media (max-width: 840px) {
+
   img {
     width: 24vw;
     height: 24vw;
@@ -233,15 +240,10 @@ img {
 
 }
 
-
 @media (max-width: 768px) {
 
   * {
     font-size: 93%;
-  }
-
-  .side-margins {
-    margin: 0 10vw;
   }
 
   img {
@@ -250,6 +252,38 @@ img {
     object-fit: cover;
     object-position: top;
   }
+
+}
+
+/* Handle the spacing of the weapon buttons */
+
+@media (max-width: 650px) {
+
+  .flex {
+    justify-content: space-between;
+  }
+
+  .weapon-button {
+    margin: 1em 0em;
+    max-width: min-content;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+/* Handle the spacing of the weapon buttons */
+
+  .weapon-button {
+    font-size: 75%;
+  }
+
+  /* Handle the length of the player's name */
+
+  .column-centre-aligned h2 {
+    font-size: 90%;
+  }    
+
 }
 
 @media (max-width: 375px) {
@@ -260,13 +294,38 @@ img {
 
   h1,
   h2 {
-    font-size: 85%;
+    font-size: 80%;
+  }
+
+/* Handle the spacing of the weapon buttons */
+
+  .flex {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }  
+
+  .weapon-button {
+    font-size: 180%;
+    padding: 5px 20px;
+  }
+
+}
+
+/* Handle the spacing of the weapon buttons */
+
+@media (max-width: 325px) {
+
+  .weapon-button {
+    font-size: 150%;
+    padding: 5px 15px;
   }
 
 }
 
 @media (max-width: 280px) {
+
   .header-margin-forgame {
     font-size: 75%;
   }
+
 }
