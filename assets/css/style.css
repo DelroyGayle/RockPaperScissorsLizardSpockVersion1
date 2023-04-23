@@ -347,3 +347,16 @@ img {
   }
   
 }
+
+
+/* Cater for https://ui.dev/amiresponsive's 320x480px resolution
+  The rules button needs to be moved up
+*/
+
+@media (max-height: 480px) {
+
+  .rules-button {
+    top: 430px;
+  }
+  
+}
