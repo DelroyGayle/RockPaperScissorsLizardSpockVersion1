@@ -5,6 +5,9 @@
 Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.<br>
 [Link to deployed site](https://delroygayle.github.io/RockPaperScissorsLizardSpock/)<br><br>
 
+![image](https://user-images.githubusercontent.com/91061592/233851131-602024a2-34f5-440f-918e-247c5fa10893.png)
+
+
 ### Introduction
 Rock-Paper-Scissors-Lizard-Spock is a fun game for both adults and children.
 It is based upon the original centuries-old game of <br>***Rock-Paper-Scissors***.
@@ -411,7 +414,7 @@ However although the error was indeed being shown in the console.log
 ![image](https://user-images.githubusercontent.com/91061592/233799369-0ecf85ec-e112-432e-abe3-4b90f3776543.png)
 
 Yet my script kept on running expecting the player's next game move!<br>
-It was my understanding that Javascript was **meant to stop** when an error occurs!<br>
+It was my understanding that JavaScript was **meant to stop** when an error occurs!<br>
 
 Whilst investigating the matter I came across [this quote](https://softwareengineering.stackexchange.com/questions/324992/unlike-c-why-does-uncaught-exception-in-javascript-not-terminate-the-script)
 
