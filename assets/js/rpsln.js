@@ -196,7 +196,10 @@ function runTheGame() {
       buttonsList[i].addEventListener("click", newListener);
    }
 
-   document.getElementById("the-rules-button").addEventListener("click", showTheRules);
+   // Initialise these two buttons
+   document.getElementById("the-rules-button").addEventListener("click", showTheRulesPage);
+   document.getElementById("the-ok-button").addEventListener("click", removeTheRulesPage);
+   document.getElementById("the-ok-button").disabled = true;
 
    // Initial Form
    const initialForm = document.getElementById("initial-form-id");
@@ -334,11 +337,13 @@ function runTheGame() {
       }
    }
 
-   function showTheRules() {
+   function showTheRulesPage() {
       const rulesButton = document.getElementById("the-rules-button");
      // Remove everything from the screen
       clearThePage(rulesButton);
-      // Show the greetings
+      // Enable the OK button
+      document.getElementById("the-ok-button").disabled = false;
+      // Show the page introduction
       document.getElementsByClassName("show-rules-page")[0].style.display = "block";
       // Add the Player's name if present
       let theText="Greetings";
@@ -349,6 +354,32 @@ function runTheGame() {
       // Type out the Rules
       typeTheRules(theText);
    }
+
+   function removeTheRulesPage() {
+      // Remove the displayed page
+      document.getElementsByClassName("show-rules-page")[0].style.display = "none";
+      // Remove the Conclusion and OK button
+      document.getElementsByClassName("video-container")[0].style.display = "none";      
+      // Remove all the elements in 'the-rules-container'
+      const element = document.getElementById("the-rules-container");
+      while (element.firstChild) {
+         element.removeChild(element.firstChild);
+      }      
+      // Disable the OK button
+      document.getElementById("the-ok-button").disabled = true;
+      // Show the Rules button
+      document.getElementById("the-rules-button").style.display = "block";
+      // Enable the Rules button
+      document.getElementById("the-rules-button").disabled = false;
+      // Show the original page
+      // Either the Form page
+      if (!game_area_showing) {
+         document.getElementsByClassName("form-container")[0].style.display = "block";
+      } else {
+         // or the Game page
+         document.getElementsByClassName("show-game")[0].style.display = "block";
+      }
+   }   
 
    function playGame() {
       game_area_showing = true;
@@ -591,11 +622,6 @@ function runTheGame() {
    function determineWhatHappensNext() {
       // Remove Images
       clearDisplayContainerElem();
-      const element = displayContainerElem;
-      while (element.firstChild) {
-         element.removeChild(element.firstChild);
-      }
-
       if (currentNumberOfRounds !== total_numberof_rounds) {
          playGame();
          return;
@@ -689,7 +715,11 @@ function runTheGame() {
   */
 
 function disableButtons() {
-   document.getElementById("the-rules-button").disabled = true;
+   const buttonId = document.getElementById("the-rules-button");
+   buttonId.disabled = true;
+   buttonId.style.opacity = "0.6";
+   buttonId.style.cursor = "not-allowed";
+   console.log(document.getElementById("the-rules-button"))
 
    const buttonsList = document.getElementsByClassName("weapon-button");
 
@@ -705,7 +735,10 @@ function disableButtons() {
 */
 
 function enableButtons() {
-   document.getElementById("the-rules-button").disabled = false;
+   const buttonId = document.getElementById("the-rules-button");
+   buttonId.disabled = false;
+   buttonId.style.opacity = "1";
+   buttonId.style.cursor = "pointer";
 
    const buttonsList = document.getElementsByClassName("weapon-button");
 
