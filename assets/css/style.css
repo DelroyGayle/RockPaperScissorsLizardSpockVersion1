@@ -230,10 +230,6 @@ img {
     height: 24vw;
   }
 
-  .rules-button {
-    top: 600px;
-  }
-
   .playername-control {
     width: 27%;
   }
@@ -320,6 +316,16 @@ img {
     padding: 5px 15px;
   }
 
+  /* After testing with https://ui.dev/amiresponsive
+    The YOUR MOVE! needs to be smaller
+  */
+
+  .circle {
+  width: 90px;
+  height: 90px;
+  font-size: 18px;
+  }
+
 }
 
 @media (max-width: 280px) {
@@ -328,4 +334,16 @@ img {
     font-size: 75%;
   }
 
+}
+
+/* After testing with https://ui.dev/amiresponsive
+  The rules button needs to be moved up
+*/
+
+@media (max-height: 720px) {
+
+  .rules-button {
+    top: 520px;
+  }
+  
 }
