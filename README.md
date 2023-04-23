@@ -468,6 +468,88 @@ Then I got the warning:<br>
 * <strong>/* jshint esversion: 11 */</strong>
  
 ***
+## Jshint 'Confusing Semantics' warning
+
+Jshint produced the following warning:<br>
+**Functions declared within loops referencing an outer scoped variable may lead to confusing semantics.**<br>
+***(showThisImage, determineComputerChoice, updateScoresThenDetermineNextAction)***<br><br>
+Strictly speaking, this is ***a warning not an error!***
+<br>Nevertheless I tried to remove it.
+The warning was due to the following code:
+
+```
+      buttonsList[i].addEventListener("click", function () {
+         showThisImage(weaponValues);
+         const computerWeaponValue = determineComputerChoice();
+         showThisImage(computerWeaponValue);
+         updateScoresThenDetermineNextAction(weaponValues, computerWeaponValue);
+      });
+```
+
+
+I tried using the editor 'Refactor' functionality 
+
+```
+      buttonsList[i].addEventListener("click", function () {
+         addListenerToButton(showThisImage, weaponValues, determineComputerChoice, updateScoresThenDetermineNextAction);
+      });
+
+
+followed by
+
+   function addListenerToButton(showThisImage, weaponValues, determineComputerChoice, updateScoresThenDetermineNextAction) {
+            showThisImage(weaponValues);
+            const computerWeaponValue = determineComputerChoice();
+            showThisImage(computerWeaponValue);
+            updateScoresThenDetermineNextAction(weaponValues, computerWeaponValue);
+   }
+
+```
+
+This produced the same warning i.e.<br>
+**Functions declared within loops referencing an outer scoped variable may lead to confusing semantics.**<br> 
+***(addFunctionToButton, showThisImage, determineComputerChoice, updateScoresThenDetermineNextAction)***
+
+### Solution: Use a Closure
+
+I found the following example of a Closure solution in this article<br>
+[JavaScript closure inside loops – simple practical example](https://stackoverflow.com/questions/750486/javascript-closure-inside-loops-simple-practical-example)
+
+```
+    const funcs = [];
+    function createfunc(i) {
+        return function() {
+          console.log("My value: " + i);
+        };
+    }
+    for (let i = 0; i < 3; i++) {
+        funcs[i] = createfunc(i);
+    }
+```
+
+Thus individual functions were being created with the ***closured current values of 'i'*** then placed in an array.<br>
+I needed to do something similar with ***the current values of 'weaponValues'*** in my script.<br>
+So that the resultant ***listener*** functions would thereby be added to each of the relevant five buttons depicting weapons.<br>
+The result I came up with was:
+```
+
+      let newListener = createListener(showThisImage,weaponValues);
+      buttonsList[i].addEventListener("click", newListener);
+
+      followed by
+
+      function createListener(showThisImage, weaponValues) {
+          return function () {
+              showThisImage(weaponValues);
+              const computerWeaponValue = determineComputerChoice();
+              showThisImage(computerWeaponValue);
+              updateScoresThenDetermineNextAction(weaponValues, computerWeaponValue);
+          };
+      }      
+```
+
+The above changes successfully removed the Jshint warning.
+
 ## Technologies Used
 
 ### Languages
