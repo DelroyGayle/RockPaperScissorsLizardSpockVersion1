@@ -9,8 +9,8 @@ Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.<br>
 
 
 ### Introduction
-Rock-Paper-Scissors-Lizard-Spock is a fun game for both adults and children.
-It is based upon the original centuries-old game of <br>***Rock-Paper-Scissors***.
+Rock-Paper-Scissors-Lizard-Spock is a fun game for both adults and children.<br>
+It is based upon the original centuries-old game of ***Rock-Paper-Scissors***.
 <br><br>To quote [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
 > ***Rock-Paper-Scissors*** is an [intransitive](https://en.wikipedia.org/wiki/Intransitive_game) hand game, usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are "rock" (a closed fist), "paper" (a flat hand), and "scissors" (a fist with the index finger and middle finger extended, forming a V). 
 
@@ -233,8 +233,14 @@ This shows the standings between the player and the computer, it gets updated af
   
 ### Rules
 
-Here are the rules of the game which are shown to the player after pressing the **Rules Button**.<br>
-TODO Video  
+When the user clicks the **Rules Button** the following page is displayed.<br>
+Kool A.I. actually ***types out*** the rules for the user to read!<br>
+
+![image](https://user-images.githubusercontent.com/91061592/233870731-0a63117c-b32f-4ad4-bad2-723a400bdd3f.png)
+
+The green link at the bottom will open up a YouTube video of [an episode of ***Big Bang Theory***](https://www.youtube.com/watch?v=iapcKVn7DdY) where Sheldon explains and demonstrates the game to Raj.
+
+![image](https://user-images.githubusercontent.com/91061592/233870411-f2e90a23-f48c-47b6-abfa-d6baa91b0fd1.png)
   
 ## Images
 
@@ -566,6 +572,7 @@ The above changes successfully removed the Jshint warning.
 * [Google Fonts](https://fonts.google.com/)
 * [TinyPNG](https://tinypng.com/)
 * [Favicon](https://favicon.io/)
+* [Stack Overflow](https://stackoverflow.com/)
 
 ### Tools
 * [GitHub](https://github.com/)
