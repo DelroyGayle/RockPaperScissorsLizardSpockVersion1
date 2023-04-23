@@ -1,3 +1,17 @@
+/* This is a hack so that I can produce an amiresponsive page
+   of the Game Area page as opposed to the initial Form page
+   at https://ui.dev/amiresponsive?url=https://delroygayle.github.io/RockPaperScissorsLizardSpock
+
+   So this program is practically identical to The Main Script 'rpsln.js'
+   What it does is to skip showing the initial Form page and instead shows the Game Area page.
+
+   To run it
+   Replace the bottom line of index.html i.e.
+   <script src="assets/js/rpsln.js" defer></script>
+   with
+   <script src="assets/js/amiresponsive.js" defer></script>
+*/   
+
 /* jshint esversion: 11 */
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
