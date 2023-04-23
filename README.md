@@ -532,8 +532,9 @@ I found the following example of a Closure solution in this article<br>
 
 Thus individual functions were being created with the ***closured current values of 'i'*** then placed in an array.<br>
 I needed to do something similar with ***the current values of 'weaponValues'*** in my script.<br>
-So that the resultant ***listener*** functions would thereby be added to each of the relevant five buttons depicting weapons.<br>
+So that the resultant ***listener*** functions would thereby be added to each of the relevant five weapon-depicting buttons.<br>
 The result I came up with was:
+
 ```
 
       let newListener = createListener(showThisImage,weaponValues);

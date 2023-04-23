@@ -160,7 +160,7 @@ function runTheGame() {
    let currentNumberOfRounds = 0;
    let total_numberof_rounds;
    let random_chosen = false;
-
+   
    // Add Event Listeners to the buttons
    let buttonsList = document.getElementsByClassName("weapon-button");
 
@@ -190,6 +190,8 @@ function runTheGame() {
       // Then determine the computer opponent's response
       buttonsList[i].addEventListener("click", newListener);
    }
+
+   document.getElementById("the-rules-button").addEventListener("click", showTheRules);
 
    // Initial Form
    const initialForm = document.getElementById("initial-form-id");
@@ -623,4 +625,13 @@ function create_your_move() {
    // Add styling
    newDiv.classList.add("circle");
    return newDiv;
+}
+
+// Handle the RULES Page
+function showTheRules() {
+   // Remove anything on the screen
+   // Either the Form page
+        document.getElementsByClassName("form-container")[0].style.display = "none";     
+   // or the Game page
+        document.getElementsByClassName("show-game")[0].style.display = "none";
 }
