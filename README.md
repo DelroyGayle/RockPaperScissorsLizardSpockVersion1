@@ -584,7 +584,9 @@ The above changes successfully removed the Jshint warning.
 
 ***
 
-## Features To Be Implemented
+## Future features
+* Alongside the option to ***Play Again!***, add a Home button so that user can enter a new rounds selection or even another name
+* Add sound effects that play when a move is made
   
 ***
 ## Deployment
