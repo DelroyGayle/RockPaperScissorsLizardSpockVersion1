@@ -309,6 +309,10 @@ function runTheGame() {
       return playerName ? playerName : "";
    }   
 
+   /* Followed the tuturial at https://www.w3schools.com/howto/howto_js_typewriter.asp  
+      in order to create this 'typewriter' effect
+   */
+
    function typeTheRules(theText) {
       let i = 0;
       let speed = 50;

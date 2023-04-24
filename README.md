@@ -573,6 +573,7 @@ The above changes successfully removed the Jshint warning.
 * [TinyPNG](https://tinypng.com/)
 * [Favicon](https://favicon.io/)
 * [Stack Overflow](https://stackoverflow.com/)
+* [W3 schools](https://www.w3schools.com)
 
 ### Tools
 * [GitHub](https://github.com/)
