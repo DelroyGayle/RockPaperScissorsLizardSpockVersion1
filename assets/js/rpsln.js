@@ -53,6 +53,9 @@ function runTheGame() {
 
    // Number of weapons
    const numberOfWeapons = 5;
+   // Produced a range reflecting the number of weapons starting from 0 i.e. [0, 1, 2, 3, 4]
+   // As shown at https://www.freecodecamp.org/news/javascript-range-create-an-array-of-numbers-with-the-from-method/ 
+   const weaponNumbersArray = Array.from({ length: numberOfWeapons}, (_, index) => index);
 
    // Image Names
 
@@ -165,15 +168,24 @@ function runTheGame() {
    let random_chosen = false;
    let game_area_showing = false;
    let computerWeaponOfChoice;
-   let chosenStrategy = 1;
+   let previousPlayerChoice;
+   let previousComputerChoice;
+   // For Strategy 2, assume a Tie to begin with
+   let previousOutcome = playerTies; 
+   // Randomly choose either STRATEGY 1 or STRATEGY 2
+   let chosenStrategy = Math.floor(Math.random() * 2) + 1;
 
    /* For STRATEGY 1
       Since there are five weapons, start of with the scenario that
       the chances for each of the weapons being chosen are evenly distributed.
       That is, each of the weapons has a weight of 1
+
+      Fill the array with one's using example from 
+      https://dmitripavlutin.com/javascript-fill-array/
    */
    let weaponWeights = Array(numberOfWeapons).fill(1);
 
+   /* Regarding the Rules page */   
    let theRulesText = "";   
    // Set up the text regarding the rules of the game
    setupTheRulesText();
@@ -291,7 +303,7 @@ function runTheGame() {
             const weapon2 = twoDigits[1];
             const verb = actions[i + 1];
             // Each item of 'hand_weapons' have the following format [0, "R", "Rock"]
-            theRulesText += `${hand_weapons[+weapon1][2]} ${verb} ${hand_weapons[+weapon2][2]}|`
+            theRulesText += `${hand_weapons[+weapon1][2]} ${verb} ${hand_weapons[+weapon2][2]}|`;
       }                   
    }
 
@@ -336,7 +348,7 @@ function runTheGame() {
           const theChar = theText.charAt(i);
           // * is the indicator to Show the Conclusion and OK button
           if (theChar === "*") {
-               concludeTheRulesText()
+               concludeTheRulesText();
           } else {
                // | indicates a carriage return i.e. <br>
                theRulesContainerId.innerHTML += theChar !== "|" ? theChar : "<br>";
@@ -364,7 +376,7 @@ function runTheGame() {
       // Add the Player's name if present
       let theText="Greetings";
       const thePlayerName = determinePlayerName();
-      theText += thePlayerName ? " " + thePlayerName + "!|" : "!|"
+      theText += thePlayerName ? " " + thePlayerName + "!|" : "!|";
       // * Indicates the conclusion whereby the video link and OK button is then displayed
       theText += theRulesText + "*";
       // Type out the Rules
@@ -472,13 +484,9 @@ function runTheGame() {
       };
    }
 
-   /**
-    * Determine the computer move and display the corresponding image
-    */
+   // STRATEGY 1 - Weighted Random Number - see README.md for explanation
 
    function strategy1_determineWeightedComputerChoice() {
-   /* STRATEGY 1 - Weighted Random Number - see README.md for explanation
-   */
          const randomNumber = Math.random();
          const theTotal = weaponWeights.reduce((total, item) => total + item, 0);
          let sum = 0;
@@ -492,8 +500,42 @@ function runTheGame() {
          return weaponWeights.length - 1;
    }
 
+
+   /* STRATEGY 2 - Use Game Theory - see README.md for further explanation
+   
+      Here's the winning strategy in the form of two heuristics:
+
+      If you win using one element, for the next round, 
+      go for whatever element your opponent just lost with in the current round.
+ 
+      If you lose using one element, for the next round, 
+      go for whatever was not called by either of the players in the current round.
+   */
+
+   function strategy2_game_theory() {
+      if (previousOutcome === playerTies) {
+         // Since it was a tie, return a random number 0-4 inclusive
+               return Math.floor(Math.random() * 5);
+      }
+
+      if (previousOutcome === playerLost) {
+         // go for whatever element your opponent just lost with
+               return previousPlayerChoice;
+      }
+
+      // Computer lost therefore go for whatever was not called by either of the players
+      const choicesArray = weaponNumbersArray.filter(element => element !== previousComputerChoice &&
+                                                                element !== previousPlayerChoice);
+      return choicesArray[Math.floor(Math.random() * choicesArray.length)];
+  }
+
+   /**
+    * Determine the computer move and display the corresponding image
+    */
+
    function determineComputerChoice() {
-      computerWeaponOfChoice = strategy1_determineWeightedComputerChoice();
+      computerWeaponOfChoice = chosenStrategy === 1 ? strategy1_determineWeightedComputerChoice() : strategy2_game_theory();
+      
       return hand_weapons[computerWeaponOfChoice];
    }
 
@@ -549,6 +591,7 @@ function runTheGame() {
       if (playerWeaponNumber === computerWeaponNumber) {
          // Tie!
          incrementTies();
+         previousOutcome = playerTies;
          return playerTies;
       }
 
@@ -562,11 +605,13 @@ function runTheGame() {
       if (diff % 2 !== 0) {
          // odd; player wins!
          incrementPlayerWins();
+         previousOutcome = playerWon;
          return playerWon;
       } else {
          // even; computer wins!
          incrementComputerWins();
          nextStrategyMove();
+         previousOutcome = playerLost;
          return playerLost;
       }
    }
@@ -627,6 +672,8 @@ function runTheGame() {
 
       const playerWeaponNumberChar = String(playerWeaponValues[0]);
       const computerWeaponNumberChar = String(computerWeaponValues[0]);
+      previousPlayerChoice = playerWeaponValues[0];
+      previousComputerChoice = computerWeaponValues[0];
 
       // Determine the correct verb
       const index = playerWeaponNumberChar + computerWeaponNumberChar;
@@ -742,12 +789,16 @@ function runTheGame() {
       computerScoreElem.innerText = "0";
       if (random_chosen) {
          // Generate a new random number
-         total_numberof_rounds = Math.floor(Math.random() * 15 + 1);
+         total_numberof_rounds = Math.floor(Math.random() * 15) + 1;
          numberOfRoundsElem.innerText = String(total_numberof_rounds);
       }
 
-      // Reset array
+      // For Strategy 1, reset array
       weaponWeights = Array(numberOfWeapons).fill(1);
+      // For Strategy 2, assume a Tie to begin with
+      previousOutcome = playerTies; 
+      // Randomly choose a new strategy, either STRATEGY 1 or STRATEGY 2
+      chosenStrategy = Math.floor(Math.random() * 2) + 1;
    }
 
 }
