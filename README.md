@@ -242,6 +242,39 @@ The green link at the bottom will open up a YouTube video of [an episode of ***B
 
 ![image](https://user-images.githubusercontent.com/91061592/233870411-f2e90a23-f48c-47b6-abfa-d6baa91b0fd1.png)
   
+### Mathematics determines the winner
+
+Modulo-5, that is, the remainder after dividing an integer by five, is used to determine the winner of each round.<br>
+Each weapon has been assigned the following values:<br>
+* ROCK = 0
+* PAPER = 1
+* SCISSORS = 2
+* SPOCK = 3
+* LIZARD = 4
+  
+<br>**Note: the different order of the last two moves is significant.**<br>To quote [HandWiki's Rock–Paper–Scissors entry](https://handwiki.org/wiki/Rock%E2%80%93paper%E2%80%93scissors)<br><br>
+  > Rock-Paper-Scissors-Spock-Lizard (note the different order of the last two moves) may be modeled as a game in which each player picks a number from one to five. Subtract the number chosen by player two from the number chosen by player one, and then take the remainder modulo 5 of the result. 
+**Player one is the victor if the difference is one or three**, and ***player two is the victor if the difference is two or four.*** If the difference is zero, the game is a tie.<br><br>
+Alternatively, the rankings in Rock-Paper-Scissors-Spock-Lizard may be modeled by a comparison of the parity of the two choices. 
+If it is the same **(two odd-numbered moves or two even-numbered ones)** then the lower number wins, while if they are different ***(one odd and one even) the higher wins.***
+  
+Therefore, mathematics is being used to determine the winner. I have chosen the first scenario, that is, subtracting the remainder modulo 5 of the two weapons used. 
+However, instead of numbering the weapons 1 to 5, I have numbered them 0 to 4.<br>
+To demonstrate - **Player one being the User** and ***Player two being the Computer***:
+  
+  ```
+    If User played 0 (Rock) and Computer played 1 (Paper)
+    then 0-1 = -1 
+    -1 + 5 = 4 (added 5 because it was a negative number)
+    Since 4 is even, Computer wins - User loses
+    Indeed, Paper covers Rock!
+    
+    If User played 4 (Lizard) and Computer played 1 (Paper)
+    then 4-1 = 3
+    Since 3 is odd, User wins - Computer loses
+    Indeed, Lizard eats Paper!
+ ```
+
 ## Images
 
 I choose to use three images of each weapon in order that for each round, the computer could randomly choose an image to depict both the user's choice of weapon and the computer's choice of weapon.
@@ -571,7 +604,7 @@ The above changes successfully removed the Jshint warning.
 * [Font Awesome](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com/)
 * [TinyPNG](https://tinypng.com/)
-* [Favicon](https://favicon.io/)
+* [Favicon](https://favicon.io/favicon-generator/)
 * [Stack Overflow](https://stackoverflow.com/)
 * [W3 schools](https://www.w3schools.com)
 
