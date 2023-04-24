@@ -216,7 +216,7 @@ This shows the standings between the player and the computer, it gets updated af
   
 ![image](https://user-images.githubusercontent.com/91061592/233778743-74c02ca8-b14f-4f9c-932f-b2bac452d4e7.png)
 
-### Game Endings where the user had entered their name.
+### Game Endings where the user had entered their name
 
 * This shows what happens when the user wins.  
 
