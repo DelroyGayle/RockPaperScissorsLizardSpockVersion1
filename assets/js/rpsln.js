@@ -197,7 +197,7 @@ function runTheGame() {
       /* 
          Note: for the 4th Button (Lizard, i=3) the value must be 4 i.e. [4, "L", "Lizard"]
                for the 5th Button (Spock, i=4) the value must be 3 i.e. [3, "N", "Spock"]
-         In order for the winner to be mathematically determined using modulo 5
+         In order for the winner to be mathematically determined using modulo 5 (See the README.md)
          So firstly, determine the correct value using 
          buttonOrderArray = [0,1,2,4,3];
       */
