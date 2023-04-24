@@ -51,6 +51,9 @@ function runTheGame() {
 
    const delayBetweenPlay = 4000; // 4 seconds
 
+   // Number of weapons
+   const numberOfWeapons = 5;
+
    // Image Names
 
    const theListOfImages = [
@@ -161,6 +164,15 @@ function runTheGame() {
    let total_numberof_rounds;
    let random_chosen = false;
    let game_area_showing = false;
+   let computerWeaponOfChoice;
+   let chosenStrategy = 1;
+
+   /* For STRATEGY 1
+      Since there are five weapons, start of with the scenario that
+      the chances for each of the weapons being chosen are evenly distributed.
+      That is, each of the weapons has a weight of 1
+   */
+   let weaponWeights = Array(numberOfWeapons).fill(1);
 
    let theRulesText = "";   
    // Set up the text regarding the rules of the game
@@ -305,7 +317,7 @@ function runTheGame() {
             return (formPlayerName !== "") ? titleCase(formPlayerName) : "";
       }      
 
-      // Other playerName will hold the value of the Player's name if it was inputted
+      // Otherwise playerName will hold the value of the Player's name if it was inputted
       return playerName ? playerName : "";
    }   
 
@@ -464,11 +476,25 @@ function runTheGame() {
     * Determine the computer move and display the corresponding image
     */
 
+   function strategy1_determineWeightedComputerChoice() {
+   /* STRATEGY 1 - Weighted Random Number - see README.md for explanation
+   */
+         const randomNumber = Math.random();
+         const theTotal = weaponWeights.reduce((total, item) => total + item, 0);
+         let sum = 0;
+         for (let i = 0; i < weaponWeights.length - 1; i++)
+         {
+              sum = sum + weaponWeights[i] / theTotal;
+              if (randomNumber < sum) {
+                    return i;
+              }
+         }
+         return weaponWeights.length - 1;
+   }
+
    function determineComputerChoice() {
-      /* DG      
-            For now, simply use a random number 0-4 inclusive
-      */
-      return hand_weapons[Math.floor(Math.random() * 5)];
+      computerWeaponOfChoice = strategy1_determineWeightedComputerChoice();
+      return hand_weapons[computerWeaponOfChoice];
    }
 
    /**
@@ -528,10 +554,10 @@ function runTheGame() {
 
       let diff = playerWeaponNumber - computerWeaponNumber;
       if (diff < 0) {
-         diff += 5;
+         diff += numberOfWeapons;
       }
 
-      diff %= 5;
+      diff %= numberOfWeapons;
 
       if (diff % 2 !== 0) {
          // odd; player wins!
@@ -540,6 +566,7 @@ function runTheGame() {
       } else {
          // even; computer wins!
          incrementComputerWins();
+         nextStrategyMove();
          return playerLost;
       }
    }
@@ -577,6 +604,14 @@ function runTheGame() {
 
    function incrementCurrentRoundNumber() {
       currentRoundNumberElem.innerText = String(++currentNumberOfRounds);
+   }
+
+   function nextStrategyMove() {
+      if (chosenStrategy === 1) {
+         // Update array in regards to Strategy 1
+         weaponWeights[computerWeaponOfChoice]++;
+         return;
+      }
    }
 
    function setupOutcomeMessage(playerWeaponValues, computerWeaponValues, result) {
@@ -710,6 +745,9 @@ function runTheGame() {
          total_numberof_rounds = Math.floor(Math.random() * 15 + 1);
          numberOfRoundsElem.innerText = String(total_numberof_rounds);
       }
+
+      // Reset array
+      weaponWeights = Array(numberOfWeapons).fill(1);
    }
 
 }
@@ -723,7 +761,6 @@ function disableButtons() {
    buttonId.disabled = true;
    buttonId.style.opacity = "0.6";
    buttonId.style.cursor = "not-allowed";
-   console.log(document.getElementById("the-rules-button"))
 
    const buttonsList = document.getElementsByClassName("weapon-button");
 
