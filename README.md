@@ -275,6 +275,69 @@ To demonstrate - **Player one being the User** and ***Player two being the Compu
     Indeed, Lizard eats Paper!
  ```
 
+### Kool A.I. uses Two Strategies 
+
+Whilst developing this game I went with simply choosing a random number between 0 and 4 inclusive to determine the weapon choice:
+```
+   function determineComputerChoice() {
+      /* 
+            For now, simply use a random number between 0-4 inclusive
+      */
+      return hand_weapons[Math.floor(Math.random() * 5)];
+   }
+```
+
+Once the game was up and running I added two strategies for the computer to use when playing against the user.<br>
+At the beginning of each game i.e before ***playGame()*** is called; either number 1 or number 2 is selected randomly;<br>then that is ***the strategy number*** that the computer uses.
+
+#### Strategy 1 - Weighted Random Choices
+
+* Assign each weapon a unique number: **ROCK=0, PAPER=1, SCISSORS=2, SPOCK=3, LIZARD=4**
+* Each of the five weapons would start of with a equal weight of 1
+* The ***weaponWeights*** array would look like this [1, 1, 1, 1, 1]
+
+* So when the computer AKA Kool AI, is about to choose a weapon the following algorithm is followed:
+  
+1. Add up all the weights e.g. 1 + 1 + 1 + 1 + 1 = 5 - call it ***'total'***
+2. Produce a random number less than one - call it ***'randomNumber'***
+3. Then loop through the ***weaponWeights*** array as follows:
+
+***Pseudocode:***
+
+```
+sum=0
+for (i=0; i < weaponWeights.length - 1; i++)
+{
+        sum = sum + weaponWeights[i] / total
+        if randomNumber < sum
+              return i
+        end if
+}
+return weaponWeights.length - 1
+```
+
+The value returned would be used to select the computer's choice of weapon<br>
+            
+Effectively, the above algorithm is choosing between 1/5, 2/5, 3/5, 4/5, 5/5 i.e. 1<br>
+if sum < 1/5 return 0 i.e. ROCK<br>
+else if sum < 2/5 return 1 i.e. PAPER<br>
+else if sum < 3/5 return 2 i.e. SCISSORS<br>
+else if sum < 4/5 return 3 i.e. SPOCK<br>
+else return 4 i.e. LIZARD
+<br><br>
+First time round, the chances of each weapon being chosen are ***evenly distributed;*** each has a value of 1/5 i.e. 0.2.
+
+Now if Kool AI happens to win that round, for example, with its choice of SPOCK, then these steps will follow:
+
+* Add 1 to the SPOCK value in the ***weaponWeights*** array
+* So ***weaponWeights*** becomes [1, 1, 1, **2**, 1]
+
+So then, the next time the above algorithm is executed, **total** is calculated as 1+1+1+2+1=6<br>
+Effectively, a random number then must be chosen from 1/6, 2/6, 3/6, 5/6, 6/6<br>
+The range that is ***> 3/6 and <= 5/6*** is larger than the other ranges therefore there is a ***greater chance*** that ROCK will be selected again.<br>
+So conclusively for **Strategy 1**, this algorithm is used for each of Kool AI's winning choice.<br>
+In doing so, the computer's winning choices will have a greater possibility of being chosen for the next round.
+
 ## Images
 
 I choose to use three images of each weapon in order that for each round, the computer could randomly choose an image to depict both the user's choice of weapon and the computer's choice of weapon.
