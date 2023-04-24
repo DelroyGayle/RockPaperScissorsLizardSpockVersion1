@@ -389,3 +389,21 @@ img {
   }
   
 }
+
+/*
+This excellent Orientation Lock is courtesy of Andreas Gotfredsen
+It was posted by Chris Coyier at https://css-tricks.com/snippets/css/orientation-lock/ 
+*/
+
+@media screen and (max-height: 599px) and (orientation: landscape) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
