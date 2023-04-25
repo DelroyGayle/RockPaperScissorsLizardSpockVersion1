@@ -501,7 +501,7 @@ function runTheGame() {
    }
 
 
-   /* STRATEGY 2 - Use Game Theory - see README.md for further explanation
+   /* STRATEGY 2 - Heuristics in Decision Theory - see README.md for further explanation
    
       Here's the winning strategy in the form of two heuristics:
 
@@ -512,7 +512,7 @@ function runTheGame() {
       go for whatever was not called by either of the players in the current round.
    */
 
-   function strategy2_game_theory() {
+   function strategy2_heuristics() {
       if (previousOutcome === playerTies) {
          // Since it was a tie, return a random number 0-4 inclusive
                return Math.floor(Math.random() * 5);
@@ -534,7 +534,7 @@ function runTheGame() {
     */
 
    function determineComputerChoice() {
-      computerWeaponOfChoice = chosenStrategy === 1 ? strategy1_determineWeightedComputerChoice() : strategy2_game_theory();
+      computerWeaponOfChoice = chosenStrategy === 1 ? strategy1_determineWeightedComputerChoice() : strategy2_heuristics();
       
       return hand_weapons[computerWeaponOfChoice];
    }
