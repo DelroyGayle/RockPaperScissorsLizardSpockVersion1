@@ -229,8 +229,7 @@ This shows the standings between the player and the computer, it gets updated af
 * This shows what happens when the game ends as a draw.
 
 ![image](https://user-images.githubusercontent.com/91061592/233778610-f9e7c604-c8e3-4d9b-bd9f-7421e46e9008.png)
-  
-  
+    
 ### Rules
 
 When the user clicks the **Rules Button** the following page is displayed.<br>
@@ -241,7 +240,8 @@ Kool A.I. actually ***types out*** the rules for the user to read!<br>
 The green link at the bottom will open up a YouTube video of [an episode of ***Big Bang Theory***](https://www.youtube.com/watch?v=iapcKVn7DdY) where Sheldon explains and demonstrates the game to Raj.
 
 ![image](https://user-images.githubusercontent.com/91061592/233870411-f2e90a23-f48c-47b6-abfa-d6baa91b0fd1.png)
-  
+
+***
 ### Mathematics determines the winner
 
 Modulo-5, that is, the remainder after dividing an integer by five, is used to determine the winner of each round.<br>
@@ -275,6 +275,7 @@ To demonstrate - **Player one being the User** and ***Player two being the Compu
     Indeed, Lizard eats Paper!
  ```
 
+***
 ### Kool A.I. uses Two Strategies 
 
 Whilst developing this game I went with simply choosing a random number between 0 and 4 inclusive to determine the weapon choice:
@@ -288,7 +289,7 @@ Whilst developing this game I went with simply choosing a random number between 
 ```
 
 Once the game was up and running I added two strategies for the computer to use when playing against the user.<br>
-At the beginning of each game i.e before ***playGame()*** is called; either number 1 or number 2 is selected randomly;<br>then that is ***the strategy number*** that the computer uses.
+At the beginning of each game i.e. ***starting from round 0***; either number 1 or number 2 is selected randomly;<br>then that is ***the strategy number*** that the computer uses for that game.
 
 #### Strategy 1 - Weighted Random Choices
 
@@ -338,6 +339,31 @@ The range that is ***> 3/6 and <= 5/6*** is larger than the other ranges therefo
 So conclusively for **Strategy 1**, this algorithm is used for each of Kool AI's winning choice.<br>
 In doing so, the computer's winning choices will have a greater possibility of being chosen for the next round.
 
+ ***
+ #### Strategy 2 - Heuristics in Decision Theory
+  
+There is a branch of science known as game theory.<br>
+Game theory researchers have been trying to figure out a winning strategy for the typical rock-paper-scissors game, and have come up with intriguing results.<br>
+To quote this article titled [How To Use Science To Win At Rock-Paper-Scissors?](https://streetscience.net/how-to-use-science-to-win-at-rock-paper-scissors/)
+  
+> Having faced challenges with applying game theory, some Chinese researchers decided to conduct an experiment with 360 participants. They split the participants into groups of 6 and conducted a series of rock-paper-scissors games.<br>
+They came up with two key empirical observations that didn’t fit the theory of chance:<br>
+>1. When **a player won** a round, more often than not, the player **chose the same winning element** for the next round.<br>
+>2. When **a player lost** a round, more often than not, the player **chose to avoid the same losing element** for the next round.
+  <br>...<br>
+  >Based on the empirical observations, the researchers came up with 2 conditional responses, also known as <br>**[heuristics](https://www.merriam-webster.com/dictionary/heuristic) in decision theory**.<br>
+  After testing, they confirmed that the strategy performed better than game theory in maximizing win rates.
+  
+  <br>Based on these observations, the researchers came up with the following winning strategy <br>that performed better than the findings of game theory.<br>
+  
+  From [the above article](https://streetscience.net/how-to-use-science-to-win-at-rock-paper-scissors/), here are the winning strategy in the form of two [heuristics](https://www.merriam-webster.com/dictionary/heuristic):<br>
+  1. **If you win** using one element, for the next round, **go for whatever element your opponent just lost with** in the current round.
+  2. **If you lose** using one element, for the next round, **go for whatever was not called by either of the players** in the current round.
+
+Therefore, for **Strategy 2**, the above algorithm is used by Kool AI in determining which weapon it will use.<br>
+  
+As a reminder, each time, a new game is begun with Kool AI, i.e. ***starting from round 0***;<br>either number 1 or number 2 is selected randomly; then that is ***the strategy number*** that the computer uses for that game.
+***  
 ## Images
 
 I choose to use three images of each weapon in order that for each round, the computer could randomly choose an image to depict both the user's choice of weapon and the computer's choice of weapon.
