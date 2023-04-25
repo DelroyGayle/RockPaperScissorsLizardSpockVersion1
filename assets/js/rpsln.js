@@ -503,7 +503,7 @@ function runTheGame() {
 
    /* STRATEGY 2 - Heuristics in Decision Theory - see README.md for further explanation
    
-      Here's the winning strategy in the form of two heuristics:
+      Here is the winning strategy in the form of two heuristics:
 
       If you win using one element, for the next round, 
       go for whatever element your opponent just lost with in the current round.
