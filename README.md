@@ -279,7 +279,7 @@ To demonstrate - **Player one being the User** and ***Player two being the Compu
 
 Although I employed responsive design when creating this game, it is still intended to operate in portrait mode.<br>Therefore, when used on a device which has a height in landscape mode less than that of a Nest Hub, that is, 600 pixels;<br>
 the entire screen will turn 90 degrees anti-clockwise; prompting the user to turn the device to portrait mode.<br>
-This excellent Orientation Lock is courtesy of **Andreas Gotfredsen**<br>
+This excellent Orientation Lock is courtesy of **Andreas Gotfredsen**<br>.
 It was posted by **Chris Coyier at [CSS-Tricks](https://css-tricks.com/snippets/css/orientation-lock/)**. 
 
 ***
