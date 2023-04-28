@@ -190,6 +190,16 @@ function runTheGame() {
    // Set up the text regarding the rules of the game
    setupTheRulesText();
 
+   /* Add Event Listener to cater for Orientation Change
+      Use < 600 to match this media query Orientation Lock
+      @media screen and (max-height: 599px) and (orientation: landscape) 
+   */
+   window.addEventListener("orientationchange", function() {
+      if(window.innerHeight < 600){
+         alert("Please use Portrait!");
+      }
+   }, false);   
+  
    // Add Event Listeners to the buttons
    let buttonsList = document.getElementsByClassName("weapon-button");
 
