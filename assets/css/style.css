@@ -160,8 +160,8 @@ input[type=submit],
 /* This is how the image of each character will be shown */
 
 img {
-  width: 18vw;
-  height: 18vw;
+  width: 14vw;
+  height: 14vw;
   object-fit: cover;
   object-position: top;
 }
