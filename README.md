@@ -275,12 +275,12 @@ To demonstrate - **Player one being the User** and ***Player two being the Compu
     Indeed, Lizard eats Paper!
  ```
 
-### Orientation Lock
+### Orientation Change
 
 Although I employed responsive design when creating this game, it is still intended to operate in portrait mode.<br>Therefore, when used on a device which has a height in landscape mode less than that of a Nest Hub, that is, 600 pixels;<br>
-the entire screen will turn 90 degrees anti-clockwise; prompting the user to turn the device to portrait mode.<br>
-This excellent Orientation Lock is courtesy of **Andreas Gotfredsen**<br>.
-It was posted by **Chris Coyier at [CSS-Tricks](https://css-tricks.com/snippets/css/orientation-lock/)**. 
+an alert message will be displayed prompting the user to use the device in portrait mode.<br>
+
+![image](https://user-images.githubusercontent.com/91061592/235243596-bfa014ac-0d41-4ffc-b29b-5ffbcc5d6c1f.png)
 
 ***
 ### Kool A.I. uses Two Strategies 
@@ -457,7 +457,7 @@ The fifteen images are as follows:
 
 
 ## Image Compression
-It has been stated that ***"The optimal file size for website images should be no more than 200 KB to ensure fast loading times, <br>as images have a significant impact on site speed."***
+It has been stated that ***"The optimal file size for website images should be no more than 200 KB to ensure fast loading times, as images have a significant impact on site speed."***
 <br>
 In light of these facts: 
 1. I used [TinyPNG](https://tinypng.com/) to compress the sizes of **'spock1.png, spock3.png, scissors1.png and rock2_dwayne.png'** so that they are less than 200 KB.
