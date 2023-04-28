@@ -456,6 +456,13 @@ The fifteen images are as follows:
   ![image](https://user-images.githubusercontent.com/91061592/233747877-fa5e9754-16be-42ed-aa3f-01664c14c1c5.png)
 
 
+## Image Compression
+It has been stated that ***"The optimal file size for website images should be no more than 200 KB to ensure fast loading times, <br>as images have a significant impact on site speed."***
+<br>
+In light of these facts: 
+1. I used [TinyPNG](https://tinypng.com/) to compress the sizes of **'spock1.png, spock3.png, scissors1.png and rock2_dwayne.png'** so that they are less than 200 KB.
+2. I used [Shutterstock Image Resizer](https://www.shutterstock.com/image-resizer) to compress the sizes of **'rock1_dwayne.png and scissors2_daniil_onischenko_unsplash.jpg'** so that they are less than 200 KB.
+
 ## Fonts
 
 I went to Google Fonts for my choice of fonts. I decided to use **'Press Start 2P'** because I wanted the user to ***feel that they are playing against a computer.*** The font **'Press Start 2P'** in my opinion has that 80s computer game feel and look to it.
@@ -506,7 +513,6 @@ So, the five buttons have the form as follows:
   ![image](https://user-images.githubusercontent.com/91061592/233780013-52e486ab-3fca-485c-b1d1-d56b55182770.png)
   
   ![image](https://user-images.githubusercontent.com/91061592/233750300-e1d38e73-b84c-467a-8a31-dea5ada023f2.png)
-
 
 ## Testing 
 
@@ -701,6 +707,7 @@ The above changes successfully removed the Jshint warning.
 * [Font Awesome](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com/)
 * [TinyPNG](https://tinypng.com/)
+* [Shutterstock Image Resizer](https://www.shutterstock.com/image-resizer)
 * [Favicon](https://favicon.io/favicon-generator/)
 * [Stack Overflow](https://stackoverflow.com/)
 * [W3 schools](https://www.w3schools.com)
