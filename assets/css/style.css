@@ -400,6 +400,7 @@ It was posted by Chris Coyier at https://css-tricks.com/snippets/css/orientation
 Cater for any height smaller than Nest Hub (1024 x 600)
 */
 
+/*
 @media screen and (max-height: 599px) and (orientation: landscape) {
   html {
     transform: rotate(-90deg);
@@ -412,3 +413,4 @@ Cater for any height smaller than Nest Hub (1024 x 600)
     left: 0;
   }
 }
+*/
