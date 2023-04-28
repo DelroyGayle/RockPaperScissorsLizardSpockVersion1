@@ -191,12 +191,14 @@ function runTheGame() {
    setupTheRulesText();
 
    /* Add Event Listener to cater for Orientation Change
-      Use < 600 to match this media query Orientation Lock
-      @media screen and (max-height: 599px) and (orientation: landscape) 
+      Cater for any height smaller than Nest Hub (1024 x 600)
+      That is, less than 600 pixels
+
+      Followed the example as shown by David Walsh at https://davidwalsh.name/orientation-change 
    */
    window.addEventListener("orientationchange", function() {
       if(window.innerHeight < 600){
-         alert("Please use Portrait!");
+         alert("Please use your mobile device in portrait mode");
       }
    }, false);   
   
