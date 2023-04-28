@@ -124,6 +124,7 @@ input[type=submit],
   margin-left: -50px;
   width: 100px;
   top: 600px;
+  margin-top: 2.5em;
 }
 
 .column-centre-aligned {
@@ -372,7 +373,8 @@ img {
 @media (max-height: 720px) {
 
   .rules-button {
-    top: 520px;
+    top: 530px;
+    margin-top: 1em;
   }
   
 }
@@ -386,6 +388,7 @@ img {
 
   .rules-button {
     top: 430px;
+    margin-top: 0;
   }
   
 }
