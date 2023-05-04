@@ -140,6 +140,8 @@ input[type=submit],
   font-size: 120%;
 }
 
+/* Hide the game area to begin with */
+
 .show-game {
   display: none;
 }
@@ -347,7 +349,7 @@ img {
   }
 
   /* After testing with https://ui.dev/amiresponsive
-    The YOUR MOVE! needs to be smaller
+     The YOUR MOVE! needs to be smaller
   */
 
   .circle {
@@ -367,7 +369,7 @@ img {
 }
 
 /* After testing with https://ui.dev/amiresponsive
-  The rules button needs to be moved up
+   The rules button needs to be moved up
 */
 
 @media (max-height: 720px) {
