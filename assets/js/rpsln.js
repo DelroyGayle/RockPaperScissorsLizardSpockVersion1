@@ -863,7 +863,6 @@ function titleCase(str) {
 
 function create_your_move() {
    const newDiv = document.createElement("div");
-   newDiv.innerText = "Your Move!";
    newDiv.innerHTML = `<div><i class="fa-solid fa-hand-pointer"></i><p>YOUR</p><p>MOVE!</p>`;
    // Add styling
    newDiv.classList.add("circle");
