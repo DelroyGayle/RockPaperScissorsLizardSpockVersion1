@@ -137,7 +137,7 @@ Then the user presses ***Let's Play!*** to begin the game.
 
 ### The Game
 
-The user is prompted by the **YOUR MOVE!** prompt to choose between the five buttons which correspond to the weapons,<br> ***Rock, Paper, Scissors, Lizard or Spock.*** 
+The user is prompted by the **YOUR MOVE!** prompt to choose between the five buttons <br>which correspond to the weapons, ***Rock, Paper, Scissors, Lizard or Spock.*** 
 
 ![image](https://user-images.githubusercontent.com/91061592/233741911-1fdaacb7-213b-4a90-89b4-49aa65021568.png)
 
@@ -459,8 +459,8 @@ The fifteen images are as follows:
 It has been stated that ***"The optimal file size for website images should be no more than 200 KB to ensure fast loading times, as images have a significant impact on site speed."***
 <br>
 In light of these facts: 
-1. I used [TinyPNG](https://tinypng.com/) to compress the sizes of **'spock1.png, spock3.png, scissors1.png and rock2_dwayne.png'** so that they are less than 200 KB.
-2. I used [Shutterstock Image Resizer](https://www.shutterstock.com/image-resizer) to compress the sizes of **'rock1_dwayne.png and scissors2_daniil_onischenko_unsplash.jpg'** so that they are less than 200 KB.
+1. I used [TinyPNG](https://tinypng.com/) to compress the sizes of **'spock1.png, spock3.png, scissors1.png and rock2_dwayne.png'**<br>so that they are less than 200 KB.
+2. I used [Shutterstock Image Resizer](https://www.shutterstock.com/image-resizer) to compress the sizes of **'rock1_dwayne.png and scissors2_daniil_onischenko_unsplash.jpg'**<br>so that they are less than 200 KB.
 
 ## Fonts
 
