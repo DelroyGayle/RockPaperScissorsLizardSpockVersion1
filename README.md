@@ -471,7 +471,7 @@ I went to Google Fonts for my choice of fonts. I decided to use **'Press Start 2
 For the buttons' choice of each weapon I spell out each weapon followed by ***an icon which depicts the hand shape***
   
   ![image](https://user-images.githubusercontent.com/91061592/233748441-ff004337-1004-43ec-996a-0321bfcd968e.png)
-The icons I sourced from [fontawesome.com (version 5.15.4](https://fontawesome.com/v5/search).
+The icons I sourced from [fontawesome.com (version 5.15.4)](https://fontawesome.com/v5/search).
 So, the five buttons have the form as follows: 
   ```
   1. Rock <i class="fas fa-hand-rock"></i>
