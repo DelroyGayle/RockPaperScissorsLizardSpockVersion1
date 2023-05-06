@@ -3,7 +3,7 @@
 * * *
 ## Rock Paper Scissors Lizard Spock Game
 Created for my Portfolio Project 2 for Code Institute Full Stack Diploma.<br>
-[Link to deployed site](https://delroygayle.github.io/RockPaperScissorsLizardSpock/)<br><br>
+[Link to deployed site](https://delroygayle.github.io/RockPaperScissorsLizardSpockVersion1/)<br><br>
 
 ![image](https://user-images.githubusercontent.com/91061592/233851131-602024a2-34f5-440f-918e-247c5fa10893.png)
 
@@ -170,7 +170,7 @@ Then a point is given to the victor.
   
  ![image](https://user-images.githubusercontent.com/91061592/233752898-d2bf2c07-8898-4db8-90fb-188594933d12.png)
 
-* At any time, the user can choose to read the rules by clicking the rules button at the bottom of the screen.
+* At any time, the user can choose to read the rules by clicking the rules button at the bottom of the page.
 
 ![image](https://user-images.githubusercontent.com/91061592/233779989-9f0ae49f-2081-4491-88f1-091d3f0b6550.png)
 
@@ -179,11 +179,11 @@ Please note: if the user had selected **random** for the number of rounds, then 
 
 ### Player's Name
   
-What follows are screenshots of the same above scenarios. The difference being that the user had entered their name:<br>
+What follows are screenshots of a sample game session whereby the user had entered their name:<br>
+
+![image](https://user-images.githubusercontent.com/91061592/236629547-d970ec9b-2334-439c-ba2b-273fe426be13.png)
   
 * Please note: as one enters their name, the name is automatically converted to ***Title case***. That is, each separate word is capitalised whilst the rest of the letters are in lowercase. 
-  
-![image](https://user-images.githubusercontent.com/91061592/233777585-7137f0ff-2c9b-4dc6-958a-cb789dd31041.png)
   
 * ***Title case*** is also used to display the player's name when the game begins.  
   
@@ -277,8 +277,7 @@ To demonstrate - **Player one being the User** and ***Player two being the Compu
 
 ### Orientation Change
 
-Although I employed responsive design when creating this game, it is still intended to operate in portrait mode.<br>Therefore, when used on a device which has a height in landscape mode less than that of a Nest Hub, that is, 600 pixels;<br>
-an alert message will be displayed prompting the user to use the device in portrait mode.<br>
+Although I employed responsive design when creating this game, it is still intended to operate in portrait mode.<br>Therefore, when used on a device which has a height in landscape mode less than that of a Nest Hub, that is, <br>600 pixels; an alert message will be displayed prompting the user to use the device in portrait mode.<br>
 
 ![image](https://user-images.githubusercontent.com/91061592/235243596-bfa014ac-0d41-4ffc-b29b-5ffbcc5d6c1f.png)
 
@@ -714,7 +713,7 @@ The above changes successfully removed the Jshint warning.
 
 ### Tools
 * [GitHub](https://github.com/)
-* [GitPod](https://www.gitpod.io/docs/configure/)
+* [GitPod](https://www.gitpod.io/)
 * [W3C HTML Validation service](https://validator.w3.org/)
 * [W3C CSS Validation service](https://jigsaw.w3.org/css-validator/)
 * [JSHint, a JavaScript Code Quality Tool](https://jshint.com/)
@@ -732,13 +731,13 @@ This project was deployed using GitHub using the following method:
 1. Open the correct repository.
 2. Click on **Settings** in the menu.
 3. Click on **Pages** in the side menu.
-4. Go down to **Branch** under **Build and deployment** and select main in the dropdown.  
+4. Go down to **Branch** under **Build and deployment** and select **main** in the dropdown.  
 5. Save the changes. Then wait for a link that should appear at the top of the screen under GitHub Pages.<br>
 The link would be worded as **Your site is live at https://***\<Your GitHub Name\>***.github.io\/***\<Repo Name\>***/** <br>followed by a
 **Visit site** button.<br> 
 (If nothing has happened after a few minutes then refresh the page and the link should appear.)<br><br>
   
-[Link to deployed site](https://delroygayle.github.io/RockPaperScissorsLizardSpock/)
+[Link to deployed site](https://delroygayle.github.io/RockPaperScissorsLizardSpockVersion1/)
 
 * * *
 
